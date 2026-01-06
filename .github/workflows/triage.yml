@@ -1,0 +1,28 @@
+name: Tessrax Automated Triage
+
+on:
+  push:
+    paths:
+      - 'RAW/**'
+      - 'QUARANTINE/**'
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Run triage scanner
+        run: |
+          python .github/scripts/triage.py
+
+      - name: Fail on violation
+        if: failure()
+        run: |
+          echo "Triage violation detected. Blocking promotion."
+          exit 1
