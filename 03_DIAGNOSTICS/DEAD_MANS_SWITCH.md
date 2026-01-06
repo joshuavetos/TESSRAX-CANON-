@@ -1,22 +1,26 @@
-# DEAD MAN’S SWITCH DIAGNOSTIC
+# Diagnostic: Dead Man’s Switch
 
 ## Question
-What must humans do by hand
-if the system fails tomorrow?
+What single task must humans perform manually if the system fails tomorrow to prevent collapse?
 
-## Instruction
-Ignore “high-tech” answers.
-Find the boring dependency.
+## Method
+Ignore high-tech components.
+Identify the most boring dependency.
 
-## Indicators of Failure
-- “We’ve never done that manually”
-- “The system reconciles it for us”
-- “That knowledge left with a vendor”
+Examples:
+- Manual ledger reconciliation
+- Inventory state reconstruction
+- Patient status derivation
+- Access revocation authority
 
-## Outcome
-If the task cannot be performed,
-the manual override is decorative.
+## Failure Signal
+“If the system is down, we wait.”
+
+## Interpretation
+If no human can perform the task offline:
+- the switch is decorative
+- the system is already terminal
 
 ## Note
-The switch is memory.
-Automation erases memory first.
+A Dead Man’s Switch is not a lever.
+It is trained memory.
