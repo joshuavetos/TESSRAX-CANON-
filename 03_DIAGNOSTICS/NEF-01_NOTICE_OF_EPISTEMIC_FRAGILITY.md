@@ -1,111 +1,113 @@
 # NEF-01 — NOTICE OF EPISTEMIC FRAGILITY
-## Formal Declaration of Reconstructability Risk
+## Formal Disclosure of Truth Reconstruction Failure
 
 ---
 
 ## Purpose
 
-This notice exists to force explicit acknowledgment of
-**Epistemic Recovery Failure** within an institution.
+This notice formally records a failure of **Epistemic Sovereignty**.
 
-It is not an accusation.
-It is a diagnostic trigger.
+It is issued when an institution can no longer
+reconstruct the authoritative state of a system
+without relying on live digital infrastructure.
 
-If this document cannot be answered cleanly,
-the institution has discovered its first 1738 line.
-
----
-
-## Definition
-
-**Epistemic Fragility** occurs when an institution can operate systems
-but cannot reconstruct their truth manually.
-
-Operational continuity without epistemic sovereignty
-is a form of systemic misrepresentation.
+This is not a performance issue.
+This is a **truth ownership failure**.
 
 ---
 
-## Mandatory Question (Non-Negotiable)
+## Trigger Conditions
 
-> If provided with a complete, printed log of all raw events
-> for the last 24 hours, can human operators reconstruct
-> the current authoritative state **without digital tools**?
+Issue NEF-01 if **any** of the following are true:
 
-Answer options:
-- YES (demonstrated)
-- NO (admitted)
-- UNKNOWN (equivalent to NO)
-
-Narratives are not accepted.
+- Humans cannot re-derive system state from raw logs
+- Manual reconciliation exceeds 24 hours
+- Knowledge required to operate the system is vendor-held
+- “Availability” is used as a substitute for verification
+- Contingency plans assume screens remain on
 
 ---
 
-## Scope of Application
+## Declaration
 
-This notice applies to:
-- Financial ledgers
-- Health records
-- Identity systems
-- Supply chains
-- Case management
-- Safety enforcement systems
+We hereby acknowledge that:
 
-If humans cannot re-derive state,
-the system is epistemically bankrupt.
+- The system remains operational
+- The system is **not epistemically reconstructable**
+- Human operators cannot independently verify truth
+- Continuity is masking loss of authority
+
+This constitutes **Epistemic Fragility**.
 
 ---
 
-## Required Institutional Response
+## Scope of Impact
 
-Within 30 days, the institution must provide:
-
-1. A named owner of Epistemic Recovery
-2. A documented manual reconstruction procedure
-3. A measured Epistemic Recovery Time (ERT)
-4. Results of a live manual reconstruction drill
-
-Failure to respond constitutes acknowledgment of fragility.
-
----
-
-## Disallowed Responses
-
-The following invalidate the response:
-- “The system is too complex”
-- “We rely on vendor guarantees”
-- “This scenario is unrealistic”
-- “Uptime is sufficient”
-
-Complexity is not an exemption.
-Vendors are not sovereigns.
-Continuity is not truth.
+Affected System(s): ________________________  
+Subsystem(s): ______________________________  
+Primary Truth Domain:
+- [ ] Financial
+- [ ] Medical
+- [ ] Legal
+- [ ] Identity
+- [ ] Infrastructure
+- [ ] Other: _______________________________
 
 ---
 
-## Classification Outcomes
+## Epistemic Failure Description
 
-| Result | Classification |
-|---|---|
-| Manual reconstruction < 8h | Sovereign |
-| Manual reconstruction 8–24h | Brittle |
-| Manual reconstruction impossible | Pathologically Entangled |
+Describe, without narrative or justification:
+
+- What cannot be reconstructed:
+  _______________________________________
+- Why humans cannot reconstruct it:
+  _______________________________________
+- What must remain “up” to preserve truth:
+  _______________________________________
 
 ---
 
-## Legal & Governance Implication
+## Risk Statement
 
-Once issued, NEF-01 becomes a **discoverable artifact**.
-Non-response or evasion establishes willful epistemic blindness.
+If the digital substrate fails:
+
+- Truth cannot be proven
+- Authority cannot be demonstrated
+- Ownership cannot be verified
+- Recovery depends on replacement machines
+
+This is a **Sovereignty Risk**, not an outage.
+
+---
+
+## Mandatory Follow-Ups
+
+Within 30 days:
+
+- Run ERT-01 assessment
+- Identify Epistemic Single Point of Failure (ESPF)
+- Publish manual reconstruction plan
+- Assign human accountability owner
+
+Failure to complete follow-ups escalates to
+**Pathological Entanglement** status.
+
+---
+
+## Sign-Off
+
+Authorized By: ___________________________  
+Role / Title: ____________________________  
+Date: ___________________________________  
 
 ---
 
 ## Final Assertion
 
-A system that cannot be understood by its operators
-cannot be governed.
+If humans cannot explain the system,
+the system owns the humans.
 
-This notice exists to surface that fact
-before catastrophe does it instead.
+This notice records the moment that became true.
 
 END NOTICE
