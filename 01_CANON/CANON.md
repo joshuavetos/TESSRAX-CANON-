@@ -1,48 +1,120 @@
-# CANON — TESSRAX CORE INVARIANTS
+# CANON — TESSRAX GOVERNANCE LAW
 
-This document defines the non-negotiable truths.
-Anything not here is provisional.
+Status: BINDING  
+Scope: All systems, tools, cases, and products in this repository  
+Rule: Anything that contradicts this file is invalid by default
 
-## C1 — Reconstructability Over Continuity
-A system is unsafe if humans cannot reconstruct its state without the system.
+---
 
-Uptime without understanding is illusion.
+## CORE POSITION
 
-## C2 — Epistemic Recovery Time (ERT)
-ERT is the time required for humans to determine authoritative truth
-using only raw inputs and offline tools.
+Tessrax is not an AI assistant framework.  
+It is a **governance system for bounded reasoning under liability**.
 
-ERT > 24h = Epistemic Failure  
-ERT = ∞ = Semantic Fraud
+Explanation is a side effect.  
+Provenance, refusal, and reconstructability are the product.
 
-## C3 — Epistemic Single Point of Failure (ESPF)
-Any location where truth exists only inside a black box is a fatal defect.
+---
 
-Redundancy without human access is not redundancy.
+## DEFINITIONS (NON-DERIVABLE)
 
-## C4 — Narrative Maintenance Is Terminal
-When intervention becomes unthinkable,
-the system has already failed.
+**Governance**  
+Executable constraints that determine what actions are allowed, refused, or halted.
 
-Governance has become theater.
+**Invariant**  
+A rule that must always hold. If violated, the system must fail closed.
 
-## C5 — Inertia as Intent
-If a system persists despite net harm
-and resists shutdown regardless of incentives,
-its inertia functions as intent.
+**Fail-Closed**  
+On ambiguity, missing data, or rule violation: STOP, REFUSE, or HALT.
 
-## C6 — Safety Must Be Human-Verifiable
-Machine-checking-machine is not safety.
-Safety must emit human-readable receipts.
+**Receipt**  
+A durable artifact proving what was evaluated, under which rules, and why an action occurred or was refused.
 
-## C7 — Law as Interface, Not Script
-Laws that mandate specific implementations
-inevitably entrench defiant systems.
+**Refusal**  
+A first-class, successful outcome when constraints are not met.
 
-Law must define boundaries, not internals.
+**Silence / NULL_TOKEN**  
+A valid terminal state indicating no authorized output.
 
-## C8 — Cold-Start Is the Ultimate Test
-If five humans with paper cannot reboot truth,
-the system owns the humans—not the reverse.
+---
+
+## GLOBAL INVARIANTS
+
+### INV-0 — Temporal Reality Enforcement
+All claims must bind to current, verifiable reality or be explicitly marked UNKNOWN.  
+Stale or assumed truth invalidates output.
+
+### INV-1 — Sequential Integrity
+State transitions must be monotonic and reconstructable.  
+No retroactive justification. No hidden jumps.
+
+### INV-2 — Atomicity
+Actions either complete fully with a receipt or do not occur at all.  
+Partial execution is a failure state.
+
+### INV-3 — Gating
+No action without passing required gates.  
+Gate failure produces refusal, not improvisation.
+
+### INV-4 — Bounding
+All systems must have a defined halt condition.  
+Unbounded operation is a structural defect.
+
+---
+
+## FAILURE TAXONOMY (SFDD)
+
+Structural failures are architectural, not semantic.
+
+Closed set includes:
+- Ordering violations
+- Partial commits
+- Zombie mutations
+- Premature irreversibility
+- Unbounded fan-out
+- Race conditions
+
+Structural failures cannot be patched with prompts, policy, or intent.
+
+---
+
+## EPISTEMIC RULES
+
+- Unknown is a valid answer.
+- Silence is a valid answer.
+- Confidence without provenance is invalid.
+- Plausibility is not permission.
+
+If Unknowns > Knowns → HALT.
+
+---
+
+## LIABILITY & AUTHORITY
+
+The system never absorbs liability.
+Human override is allowed only with:
+- Explicit acknowledgment
+- Reason
+- Timestamp
+- Permanent receipt
+
+Overrides transfer liability to the human actor.
+
+History is append-only.
+We do not fix bugs in history.
+We ship new law forward.
+
+---
+
+## CANONICAL STOP CONDITION
+
+If a system cannot:
+- Refuse safely
+- Halt cleanly
+- Reconstruct its state from artifacts
+
+Then it is **invalid**, regardless of usefulness.
+
+---
 
 END CANON
