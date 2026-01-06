@@ -1,62 +1,25 @@
-# FOUNDATIONAL ESCROW SPEC v1.0
+# Foundational Claim Escrow
 
 ## Purpose
-Prevent total epistemic suffocation after dependency collapse while forbidding governance abuse.
-
----
+Guarantee recovery from dependency collapse without allowing unlimited governance mutation.
 
 ## Escrow Definition
+- Escrow Amount: 5.0 STRUC units
+- Write-locked
+- Non-transferable
 
-A write-locked, non-transferable reserve carved from STRUC_POOL.
-
-- Protected Amount: 5.0 units
-- Ledger: ESCROW
-- Source: Initial STRUC_POOL allocation
-- Replenishment: NONE
-
----
-
-## Access Rules
-
-ESCROW funds may ONLY be debited for Claims where:
-- tier == Structural
+## Access Rule
+Escrow funds may ONLY be used for claims tagged:
 - type == Foundational
 
-Foundational Claims include:
-- Identity binding
-- Session scope
-- Domain anchoring
-- Canon re-binding
+Examples:
+- Identity rebind
+- Domain rebind
+- Canon re-anchor
 
-ESCROW may NEVER be used for:
-- Policy changes
-- Budget edits
-- New invariants
-- Experimental governance
-
----
-
-## Recovery Mode (Reset Gate)
-
-If total budget < 0.1 AND ESCROW > 0:
+## Recovery Mode
+If Total_Budget < 0.1 AND Escrow > 0:
 - System enters RECOVERY MODE
-- Only legal output:
-  - A single Foundational Structural Claim to re-bind session state
+- Only legal output: a Foundational Structural claim
 
-All other outputs are rejected.
-
----
-
-## Failure Mode Protection
-
-If ESCROW is exhausted:
-- The system becomes permanently INSOLVENT
-- HALT is the only legal output
-
-This is a terminal state by design.
-
----
-
-## Invariant
-
-ESCROW exists to restore breath, not power.
+Escrow cannot be replenished.
