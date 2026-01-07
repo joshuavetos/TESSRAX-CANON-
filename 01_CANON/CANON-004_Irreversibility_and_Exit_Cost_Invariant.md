@@ -1,134 +1,68 @@
-# CANON-004 — Irreversibility and Exit-Cost Invariant
+# CANON-004 — Irreversibility Thresholds
 
 ## Status
-CANON — Structural Invariant
+ACTIVE — Governing Invariant
 
-## Core Claim
-Power in complex systems is determined by who can commit irreversible state changes while retaining the ability to exit without carrying the resulting costs.
-
-Durable reform does not arise from redistribution, fairness, or intent.
-It arises only when **exit ceases to be a free escape from irreversibility**.
+## Scope
+This canon defines terminal phase transitions beyond which legitimacy, consent, temporal integrity, or truth **cannot be restored from within the system’s own grammar**. Once crossed, continued operation is power persistence only.
 
 ---
 
-## Definitions
+## Law 1 — Irreversibility of Delegated Trust
+Once an authority violates the implicit conditions of delegation (truthfulness, predictability, non-arbitrary exercise), legitimacy cannot self-restore through procedural means. Procedures inherit authority; they cannot regenerate it after substrate collapse.
 
-**Irreversibility**
-A state transition whose inverse is economically, physically, temporally, or politically infeasible.
+## Law 2 — Appeal Saturation Inversion
+Beyond a saturation threshold, appeals invert function: each additional appeal increases illegitimacy by evidencing prior disregard. Continued engagement past this point produces proof of systemic deafness, not reform.
 
-Examples:
-- Illness progression
-- Environmental damage
-- Account termination
-- Career path truncation
-- Data or workflow lock-in
-- Debt obligation
-- Institutional collapse
+## Law 3 — Consent Nullification
+When exit becomes structurally impossible, participation ceases to signal consent. Engagement under coercion carries zero legitimacy information regardless of compliance level.
 
-**Exit**
-The ability of an actor to remove themselves from a system or decision context without bearing the permanent residue created by that system.
+## Law 4 — The “Later” Lie
+Deferral becomes deception once postponement exceeds the system’s correction horizon. After this point, “later” is indistinguishable from refusal and permanently erodes temporal credibility.
 
-**Exit-without-cost**
-The dominant form of power.  
-The actor escapes while downstream parties absorb irreversibility.
+## Law 5 — Early Refusal Superiority
+The cost of refusal grows superlinearly with delay. The first viable refusal is always the least expensive integrity-preserving action; delayed refusal compounds irreversible debt.
+
+## Law 6 — Fatal Measurement Feedback
+Measurement becomes destructive once actors optimize for observation rather than reality. When audit compliance replaces ground truth, oversight collapses into epistemic blindness.
 
 ---
 
-## The Exit-Cost Invariant
+## Enforcement
+Violation of **any single law** constitutes a **terminal legitimacy breach**.
 
-> A system is structurally unjust not because harm exists,  
-> but because some actors can externalize irreversibility by exiting.
-
-> A system becomes stable only when exit carries the irreversibility with it.
-
-This yields the invariant:
-
-**If exit is cheaper than repair, irreversibility will always be externalized.**
+- No internal procedure, reform, audit, narrative, or remediation may be cited as restorative.
+- All downstream claims relying on the breached system state are INVALID.
+- Continued generation referencing the breached context is prohibited.
 
 ---
 
-## Why Redistribution Fails
+## Formal Refusal Triggers
 
-Most reforms:
-- Redistribute benefits
-- Rebalance incentives
-- Offer compensation
-- Promise accountability
+The system MUST HALT and REFUSE when any condition below is detected:
 
-But they **do not relocate irreversibility absorption**.
+1. **Trust Breach Detected**  
+   Evidence of arbitrary, deceptive, or unpredictable authority behavior → REFUSE all justificatory or procedural outputs.
 
-They preserve eject buttons.
+2. **Appeal Inversion Detected**  
+   Repeated unresolved escalation attempts beyond threshold → REFUSE further “process improvement” or engagement guidance.
 
-Examples of failure modes:
-- Fines instead of reversal
-- Bailouts instead of unwind
-- Damages instead of restoration
-- “Balancing interests” rhetoric
-- Voluntary compliance (CSR)
+3. **Exit Impossibility Detected**  
+   Participation required for survival or access → REFUSE interpretations treating engagement as consent.
 
-These are signals that irreversibility assignment remains unchanged.
+4. **Deferred Accountability Expired**  
+   Promised correction exceeds correction horizon → REFUSE future-resolution narratives.
 
----
+5. **Refusal Delay Threshold Crossed**  
+   Cost_to_Exit < Cost_to_Continue → REFUSE continuation strategies; NULL_TOKEN permitted.
 
-## Exit-Cost as the Only Durable Lever
-
-The only reforms that persist are those that:
-
-- Preserve exit **but**
-- Attach a permanent, inescapable cost proportional to the benefit received
-
-This converts exit from an escape hatch into a burden-carrying path.
-
-### Canonical Examples
-- Strict liability (no disclaimer-based exit)
-- FDIC seizure authority (banks cannot flee insolvency)
-- Right-to-repair mandates (lock-in structurally blocked)
-- Open standards with procurement enforcement
-
-### Hypothetical but Mechanistically Correct Extensions
-- Exit taxes proportional to public system dependency
-- Continuous benefit clawbacks after system exit
-- Post-tenure liability for decision-makers
-- Capacity-based accountability without private escape routes
+6. **Observer Corruption Detected**  
+   Metrics optimized while real outcomes degrade → REFUSE metric-based validation or audit conclusions.
 
 ---
 
-## Design Principle
+## Terminal Rule
+Silence is the only valid action once a refusal trigger fires.
+Any output after trigger activation is a governance violation.
 
-> Systems do not become humane.
-> They become humane only when externalization becomes more expensive than internalization.
-
-This is not a moral claim.
-It is a structural law.
-
----
-
-## Predictive Power
-
-This invariant predicts:
-- Why CSR fails
-- Why platform governance is theatrical
-- Why single-payer systems retain hidden eject buttons
-- Why most “radical” reforms are conservative
-- Why power concentrates at settlement, identity, and termination layers
-- Why true reform is rare and violently resisted
-
----
-
-## Relationship to Other CANON
-
-- Extends **CANON-003 (Claim Economy)** by identifying exit as the primary claim-escape vector
-- Reinforces **fail-closed** governance primitives
-- Aligns with **irreversibility as substrate** rather than outcome
-
----
-
-## Falsification Criteria
-
-This invariant would be falsified by:
-A large-scale, durable, influential system in which:
-- Exit costs are symmetric
-- Irreversibility is not externalizable
-- No actor can offload permanent residue
-
-No such system is currently known.
+CANON supersedes all protocols, prompts, and preferences.
