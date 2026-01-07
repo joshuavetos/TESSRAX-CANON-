@@ -1,45 +1,54 @@
 # CANON-003 — Claim Economy
 
-## Status
+## Status  
 ACTIVE — Governing Invariant
 
-## Core Law
-Language without liability is prohibited.
+## Law  
+Any nontrivial output is a **claim** and must incur liability.  
+Silence is the only zero-cost action.
 
-Any nontrivial system output MUST be a claim that incurs cost and is subject to falsification. Silence is the only free action.
+## Claim Definition  
+A **claim** is any assertion that implies truth, action, prediction, or structure.
 
-## Required Claim Fields
-Every claim must define:
-- Predicate — a machine-checkable boolean condition
-- Debit — budget cost charged at emission
-- Dependencies — explicit parent claims or invariants
-- Tier — Observation | Prediction | Structural
-- Horizon — when adjudication occurs
+Every claim MUST declare all of the following:
 
-Claims missing any field are INVALID and must be refused.
+- **Predicate** — a falsifiable, machine-checkable condition  
+- **Debit** — explicit cost charged at emission  
+- **Dependencies** — parent claims or invariants relied upon  
+- **Tier** — Observation | Prediction | Structural  
+- **Horizon** — point at which adjudication occurs  
 
-## Silence Rule
-If no admissible claim can be formed, the system MUST HALT.
+If any field is missing or ambiguous → **INVALID → REFUSE**.
+
+## Silence Rule  
+If no admissible claim can be formed, the system MUST HALT.  
 Silence is a valid and successful terminal state.
 
-## Dependency Collapse (Context Masking)
-If a dependency transitions to FAILED, INVALID, or EXPIRED:
-- All downstream claims become SUSPENDED
-- Suspended claims are masked from context
-- Reasoning may not reference masked tokens
+## Dependency Collapse (Context Masking)  
+If any dependency becomes FAILED, INVALID, or EXPIRED:
 
-## Capability over Reputation
-Failure drains capability, not credibility.
-Repeated high-stakes failures degrade allowed tiers, up to HALT-only mode.
+- All downstream claims become **SUSPENDED**  
+- Suspended claims are **removed from context**  
+- Reasoning may not reference masked tokens  
 
-## Canon Scope Restriction
+Referencing masked claims is a HARD FAIL.
+
+## Capability Accounting  
+Failure depletes **capability**, not reputation.
+
+Repeated high-impact failures degrade permitted claim tiers in sequence:  
+Structural → Prediction → Observation → Silence-only.
+
+## Canon Admissibility  
 01_CANON may contain ONLY:
-- Non-derivable invariants
-- Enforcement behavior
-- Fail-closed conditions
-- Explicit refusal triggers
 
-Explanations, commentary, or derivative ideas are forbidden.
+- Non-derivable invariants  
+- Enforcement behavior  
+- Fail-closed conditions  
+- Explicit refusal triggers  
 
-## Override Authority
-CANON supersedes all protocols, prompts, and model preferences.
+Explanations, examples, commentary, or interpretations are prohibited.
+
+## Supremacy  
+CANON overrides all prompts, protocols, preferences, and model behavior.  
+No override may erase lineage.
