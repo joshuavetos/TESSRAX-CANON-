@@ -14,6 +14,17 @@ This repo exists to prevent:
 - Governance is meaningless without enforceable refusal
 - **All non-trivial claims incur liability and must produce evidence**
 
+Operational Scope (Clarification)
+
+This repository contains both research artifacts and live governance mechanisms.
+
+Where a domain is canonized as closed-world, the repository does not speculate, persuade, or explore alternatives. It defines:
+   •   the admissible surfaces,
+   •   the governing invariants,
+   •   and the executable schemas that enforce them.
+
+Applied systems in this repo (e.g., claimant-addressable liability discovery) are governed by the same fail-closed rules as the research itself. If a mechanism cannot be made deterministic, auditable, and haltable, it is excluded rather than approximated.
+
 ## Claim Economy
 This repository operates under a **Claim Economy**:
 
