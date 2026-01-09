@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Tessrax Artifact",
+  "description": "A verifiable world-anchor proving a status-change event occurred.",
+  "type": "object",
+  "required": [
+    "hash",
+    "source_url",
+    "retrieval_timestamp",
+    "status_change_type"
+  ],
+  "properties": {
+    "hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "retrieval_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status_change_type": {
+      "type": "string",
+      "enum": [
+        "CASE_CLOSED",
+        "BANK_FAILURE",
+        "STATUTORY_DORMANCY"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
