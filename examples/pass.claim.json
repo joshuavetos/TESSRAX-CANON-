@@ -1,0 +1,7 @@
+{
+  "claim_id": "TX-1000000001",
+  "custodian_class": "COURT",
+  "claimant_id": "ENTITY-ALPHA",
+  "artifact_hashes": ["hash-pass-001"],
+  "claim_timestamp": "2026-01-09T00:00:00Z"
+}
