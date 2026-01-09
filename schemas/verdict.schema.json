@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Tessrax Verdict",
+  "description": "A final, court-admissible receipt emitted by the validity engine.",
+  "type": "object",
+  "required": [
+    "claim_id",
+    "status",
+    "timestamp",
+    "invariant_violations"
+  ],
+  "properties": {
+    "claim_id": {
+      "type": "string",
+      "pattern": "^TX-[0-9]{10}$"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "PARTIAL",
+        "NERF"
+      ]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "invariant_violations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "bounded_scope": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}
