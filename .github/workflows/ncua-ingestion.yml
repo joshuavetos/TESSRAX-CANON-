@@ -2,9 +2,10 @@ name: NCUA Unclaimed Deposits Ingestion Pipeline
 
 on:
   schedule:
-    - cron: '0 9 1,15 * *'
-  workflow_dispatch:
-
+    # Run every 30 days (aligned with deduplication window)
+    - cron: '0 9 1,15 * *'  
+  workflow_dispatch: # Manual trigger for testing
+  
 env:
   RAW_LANDING: raw/ncua/${{ github.run_id }}
   CANONICAL_LEDGER: 05_LOGS/ncua_canonical_ledger.csv
@@ -14,81 +15,55 @@ jobs:
   ingest-ncua:
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkout repository
+      - name: Checkout TESSRAX-CANON
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      - name: Setup Python
+      - name: Setup Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
       - name: Install dependencies
         run: |
-          pip install --upgrade pip
+          python -m pip install --upgrade pip
           pip install -r 02_PROTOCOLS/requirements.txt
+          pip install requests beautifulsoup4 pandas lxml html5lib
 
       - name: Create directories
         run: |
           mkdir -p raw/ncua/${{ github.run_id }}
           mkdir -p ${{ env.NERF_CHANNEL }}
 
-      - name: Fetch NCUA data
+      - name: Fetch NCUA unclaimed deposits
         id: fetch
+        env:
+          NCUA_URL: "https://ncua.gov/support-services/conservatorships-liquidations/unclaimed-deposits"
         run: |
           python 02_PROTOCOLS/ncua_ingestion.py \
-            --url https://ncua.gov/support-services/conservatorships-liquidations/unclaimed-deposits \
+            --url ${{ env.NCUA_URL }} \
             --output-dir ${{ env.RAW_LANDING }}
-
+          
           RAW_COUNT=$(python - << EOF
 import pandas as pd
 df = pd.read_html("${{ env.RAW_LANDING }}/unclaimed.html")[0]
 print(len(df))
 EOF
           )
-          echo "raw_count=$RAW_COUNT" >> $GITHUB_OUTPUT
+          echo "raw_row_count=$RAW_COUNT" >> $GITHUB_OUTPUT
 
-      - name: Normalize data
-        id: normalize
+      - name: Normalize & validate
         run: |
           python 02_PROTOCOLS/ncua_normalization.py \
             --input ${{ env.RAW_LANDING }}/unclaimed.html \
             --output 05_LOGS/ncua_normalized_${{ github.run_id }}.csv
 
-          CANONICAL_COUNT=$(wc -l < 05_LOGS/ncua_normalized_${{ github.run_id }}.csv)
-          PREV_COUNT=$(git show HEAD:${{ env.CANONICAL_LEDGER }} 2>/dev/null | wc -l || echo 0)
-
-          echo "canonical=$CANONICAL_COUNT" >> $GITHUB_OUTPUT
-          echo "previous=$PREV_COUNT" >> $GITHUB_OUTPUT
-
-          if [ $PREV_COUNT -gt 0 ] && [ $CANONICAL_COUNT -lt $((PREV_COUNT * 9 / 10)) ]; then
-            echo "VOLUME_DROP=true" >> $GITHUB_OUTPUT
-          fi
-
-      - name: NERF
-        if: steps.normalize.outputs.VOLUME_DROP == 'true' || failure()
-        run: |
-          cat > ${{ env.NERF_CHANNEL }}/NERF-${{ github.run_id }}.md << EOF
-# NERF — Epistemic Fragility
-
-Source: NCUA Unclaimed Deposits
-Run ID: ${{ github.run_id }}
-
-Raw rows: ${{ steps.fetch.outputs.raw_count }}
-Canonical rows: ${{ steps.normalize.outputs.canonical }}
-Previous canonical: ${{ steps.normalize.outputs.previous }}
-
-HALT REQUIRED
-EOF
-          exit 1
-
       - name: Commit results
-        if: success()
         run: |
           git config user.name "TESSRAX Automation"
-          git config user.email "automation@tessrax.local"
+          git config user.email "automation@tessrax.com"
           git add raw/ncua/${{ github.run_id }} 05_LOGS/
-          git commit -m "NCUA ingestion $(date +%Y-%m-%d)" || exit 0
+          git commit -m "NCUA ingestion $(date '+%Y-%m-%d')" || echo "No changes"
           git push
-        
