@@ -1,0 +1,7 @@
+{
+  "claim_id": "TX-3000000003",
+  "custodian_class": "FEDERAL_LIQUIDATOR",
+  "claimant_id": "ENTITY-GAMMA",
+  "artifact_hashes": ["hash-nerf-003"],
+  "claim_timestamp": "2026-01-09T00:00:00Z"
+}
