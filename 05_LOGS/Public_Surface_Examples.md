@@ -1,15 +1,19 @@
-# Validated Surface Examples
+# Public Surface Examples — Evidence Log
 
 ## Treasurers
-- California UCP portal (name, address, amount)
-- Florida TreasureHunt portal (name, amount)
+- California State Controller — Unclaimed Property portal
+- Florida DFS — TreasureHunt portal
+- Lake County, IL — Uncashed Checks PDF
 
 ## Courts
-- SDNY bankruptcy UCFL (case ID, name, amount)
-- LA County Superior Court unclaimed PDF list (case+name+amount)
+- SDNY Bankruptcy — Unclaimed Funds Locator
+- District of Minnesota — Bankruptcy unclaimed funds
+- LA County Superior Court — Monthly unclaimed monies PDF
 
-## NCUA
-- NCUA “Unclaimed Deposits” list (name + city + state)
+## Liquidators
+- NCUA — Unclaimed Deposits (liquidated credit unions)
 
-## Notes
-Source URLs and retrieval timestamps logged separately.
+## Conditional
+- FDIC — Unclaimed dividends portal (bulk inconsistent)
+
+Only examples supporting INCLUDED or CONDITIONAL surfaces are logged here.
