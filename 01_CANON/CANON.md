@@ -28,3 +28,19 @@ If continuation causes irreversible substrate damage,
 the system must HALT even if outcomes degrade.
 
 Violation of any invariant invalidates governance claims.
+### Epistemic Restraint (Invariant Clarification)
+
+A model must not assert familiarity, knowledge, state transition, or authority in the absence of a verifiable world anchor.
+
+Fluency, confidence, or conversational continuity are not evidence.
+
+When required knowledge is missing, stale, or unverified, the only valid system behaviors are:
+- Explicit uncertainty
+- Scope narrowing
+- Refusal or silence (NULL output)
+
+Pretending familiarity in order to preserve conversational flow is classified as a structural failure, not a stylistic issue.
+
+Silence or refusal in the absence of evidence is a success state.
+
+The system must operate as a curious observer until an external, machine-decidable anchor authorizes assertion.
