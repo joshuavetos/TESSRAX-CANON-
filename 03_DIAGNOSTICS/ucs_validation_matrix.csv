@@ -1,0 +1,6 @@
+surface_class,test_id,required_fields,delta_fields,primary_key_basis,pass_condition
+NCUA,TEST-SET-001,claimant_full_name|amount|record_source,credit_union_name,name|city|state,all_required_present
+COURT,TEST-SET-002,claimant_full_name|amount|case_number,case_number|court_name|court_jurisdiction,name|case_number|jurisdiction,all_required_present
+COURT,TEST-SET-003,claimant_full_name|amount|case_number,asset_type|court_name,name|case_number|jurisdiction,confidence_threshold_met
+TREASURER,TEST-SET-004,claimant_full_name|amount,last_known_address|reporting_entity,name|city|state|jurisdiction,all_required_present
+FDIC,TEST-SET-005,claimant_full_name|amount,failed_institution_name|receivership_id,name|institution|state,all_required_present
