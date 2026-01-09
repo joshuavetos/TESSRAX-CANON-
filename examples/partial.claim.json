@@ -1,0 +1,7 @@
+{
+  "claim_id": "TX-2000000002",
+  "custodian_class": "TREASURER",
+  "claimant_id": "ENTITY-BETA",
+  "artifact_hashes": ["hash-partial-002"],
+  "claim_timestamp": "2026-01-09T00:00:00Z"
+}
