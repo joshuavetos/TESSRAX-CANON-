@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Tessrax Claim",
+  "description": "An attempted assertion that a claimant-addressable liability exists.",
+  "type": "object",
+  "required": [
+    "claim_id",
+    "custodian_class",
+    "claimant_id",
+    "artifact_hashes",
+    "claim_timestamp"
+  ],
+  "properties": {
+    "claim_id": {
+      "type": "string",
+      "pattern": "^TX-[0-9]{10}$"
+    },
+    "custodian_class": {
+      "type": "string",
+      "enum": [
+        "COURT",
+        "TREASURER",
+        "FEDERAL_LIQUIDATOR"
+      ]
+    },
+    "claimant_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "artifact_hashes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "claim_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}
