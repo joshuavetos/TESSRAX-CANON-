@@ -1,88 +1,58 @@
-#!/usr/bin/env python3
-"""
-TESSRAX VALIDITY ENGINE
-Deterministic claim validator. Emits receipts only.
-"""
-
-import json
-import sys
 import datetime
-from jsonschema import validate, ValidationError
 
-# -----------------------------
-# Schema loading (local files)
-# -----------------------------
-def load_schema(path):
-    with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
+REQUIRED_FIELDS = {
+    "COURT": ["claimant_name", "case_number", "jurisdiction_code"],
+    "TREASURER": ["claimant_name", "dormancy_context"],
+    "FEDERAL_LIQUIDATOR": ["claimant_name", "failed_institution_name"]
+}
 
-CLAIM_SCHEMA   = load_schema("schemas/claim.schema.json")
-ARTIFACT_SCHEMA = load_schema("schemas/artifact.schema.json")
-VERDICT_SCHEMA = load_schema("schemas/verdict.schema.json")
+EXCLUSION_INDICATORS = [
+    "login_required",
+    "aggregate_only",
+    "admin_contact_only",
+    "no_claimant_list",
+    "sealed_docket"
+]
 
-# -----------------------------
-# Canonical constants
-# -----------------------------
-MAX_ARTIFACT_STALENESS_DAYS = 365
+FRESHNESS_DAYS = 365
 
-# -----------------------------
-# Utilities
-# -----------------------------
-def utcnow():
-    return datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
 
-def emit_verdict(claim_id, status, violations=None, bounded_scope=None):
-    verdict = {
-        "claim_id": claim_id,
-        "status": status,
-        "timestamp": utcnow(),
-        "invariant_violations": violations or []
-    }
-    if bounded_scope is not None:
-        verdict["bounded_scope"] = bounded_scope
-
-    # Structural self-check (no prose allowed)
-    validate(instance=verdict, schema=VERDICT_SCHEMA)
-    print(json.dumps(verdict, indent=2))
-    return verdict
-
-def parse_dt(ts):
-    return datetime.datetime.fromisoformat(ts.rstrip("Z"))
-
-# -----------------------------
-# Engine
-# -----------------------------
 class TessraxValidator:
-    def validate(self, claim, artifacts):
-        claim_id = claim.get("claim_id", "UNKNOWN")
+    def enforce_mve(self, claim_data, artifact):
         violations = []
+        custodian_class = claim_data.get("custodian_class")
 
-        # 1) Structural validation (hard gate)
+        # 1. Exclusion Gate (Immediate Halt)
+        metadata = artifact.get("metadata", {})
+        for indicator in EXCLUSION_INDICATORS:
+            if metadata.get(indicator) is True:
+                violations.append(f"EXCLUSION_TRIGGERED: {indicator.upper()}")
+                return "NERF", violations
+
+        # 2. Required Field Lock
+        required = REQUIRED_FIELDS.get(custodian_class, [])
+        for field in required:
+            if field not in artifact:
+                violations.append(f"MVE_MISSING: {field}")
+
+        # 3. Temporal Decay Check
         try:
-            validate(instance=claim, schema=CLAIM_SCHEMA)
-        except ValidationError as e:
-            return emit_verdict(
-                claim_id,
-                "NERF",
-                [f"SCHEMA_VIOLATION: {e.message}"]
+            retrieval = datetime.datetime.fromisoformat(
+                artifact["retrieval_timestamp"].replace("Z", "")
             )
+            now = datetime.datetime.utcnow()
+            days_stale = (now - retrieval).days
 
-        # 2) Artifact validation (structure + linkage)
-        verified = []
-        claim_hashes = set(claim["artifact_hashes"])
+            if days_stale > FRESHNESS_DAYS:
+                violations.append(f"TEMPORAL_DRIFT: {days_stale} days")
+                if len(violations) == 1:
+                    return "PARTIAL", violations
+        except Exception:
+            violations.append("TEMPORAL_ERROR: invalid_timestamp")
+            return "NERF", violations
 
-        for art in artifacts:
-            try:
-                validate(instance=art, schema=ARTIFACT_SCHEMA)
-            except ValidationError as e:
-                violations.append(f"INVALID_ARTIFACT_STRUCTURE: {e.message}")
-                continue
+        # 4. Final Verdict
+        if any("MVE_MISSING" in v or "EXCLUSION" in v for v in violations):
+            return "NERF", violations
 
-            if art["hash"] in claim_hashes:
-                verified.append(art)
-
-        if not verified:
-            return emit_verdict(
-                claim_id,
-                "NERF",
-                ["INV-STRAND-0: NO_MATCHING_ARTIF
+        return "PASS", []
