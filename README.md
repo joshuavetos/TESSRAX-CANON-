@@ -1,4 +1,4 @@
-![Tessrax](./tessrax-wordmark.png)
+00_README/tessrax-wordmark.PNG
 
 TESSRAX is a governance and safety research repository focused on **epistemic integrity**, **fail-closed systems**, and **human reconstructability under failure**.
 
