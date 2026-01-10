@@ -1,121 +1,175 @@
-# TESSRAX
+# SYS-01 — Context Gating Risk
+## Tessrax
 
-## SYS-01 — The Bottleneck Surcharge
-**Status:** ARTIFACT — KEEP  
-**Date:** January 9, 2026  
-**Surface:** AI Ingestion Bottlenecks vs. Operational Efficiency
-
----
-
-### Core Claim
-Artificial intelligence productivity gains are structurally negated by platform-level context gating and crawl restrictions, forcing high-skill operators into manual data-entry labor. This is not a technical limitation of AI models, but an infrastructure-level toll mechanism.
+**Classification:** CANONICAL ARTIFACT  
+**Status:** ACTIVE  
+**Established:** January 9, 2026  
+**Failure Class:** Growth Without Operability
 
 ---
 
-### Evidence Matrix
+## PURPOSE
 
-| FIELD | DATA / EVIDENCE |
-|---|---|
-| DOCUMENT A | 2026 SaaS “Compute-Tier” Terms of Service (Typical) |
-| DOCUMENT B | API Rate-Limit Headers (403 Forbidden / Crawler Block) |
-| THE NARRATIVE | “Artificial Intelligence increases productivity by automating data-heavy workflows.” |
-| THE REALITY | Systematic gating of context windows and crawl permissions forces manual clipboard synchronization onto the end-user. |
-| FRACTURE | **The Efficiency Mirage** — Time saved by AI inference is offset or exceeded by time lost to artificial ingestion friction. |
+This document records a single systemic failure pattern observed across
+municipal governments, state agencies, regulated financial institutions,
+and publicly traded corporations:
 
----
+> **Growth is sold while the mechanisms required to operate, insure, finance,
+and sustain that growth are silently removed or deferred.**
 
-### Structural Finding
-The productivity shortfall attributed to “AI limitations” is, in fact, a deliberate architectural choice:  
-**Revenue is extracted at the ingestion boundary rather than earned through computational throughput.**
-
-This converts AI from a force-multiplier into a toll road.
+This is not a crisis log.  
+This is a record of *forced confessions* extracted from binding documents
+where narrative claims collide with legal, accounting, or regulatory reality.
 
 ---
 
-### Why This Is Irrefutable
-The friction is externally observable:
-- Rate-limit headers
-- Context truncation
-- Tiered access gates
-- Manual paste workflows imposed on the operator
+## FAILURE CLASS: CONTEXT GATING
 
-These mechanisms shift labor cost from the platform to the user while preserving the marketing claim of “automation.”
+**Definition:**  
+Context Gating occurs when an entity promotes expansion, resilience, or
+productivity while structurally blocking the operational pathways required
+to realize those outcomes.
 
----
-
-### The Bottleneck Surcharge (Definition)
-**Bottleneck Surcharge:**  
-The measurable labor cost imposed on an operator by artificial context, crawl, or rate gating that negates downstream computational efficiency.
-
-This surcharge functions as a hidden tax on high-agency users.
+The blockage is not accidental.  
+It is introduced through:
+- Capital deferral
+- Accounting discretion
+- Risk pooling
+- Regulatory timing
+- Information asymmetry
 
 ---
 
-### Operator Posture (Josh Constraint)
-- Time horizon: 8 months  
-- Capital constraint: $35,000  
-- Manual data-entry is not survivable
+## ADDENDUM A — MUNICIPAL OPERABILITY FRACTURE (SIOUX FALLS)
 
-**Conclusion:**  
-The correct response is not compliance or complaint, but instrumentation. The box is not broken — it is optimized for toll extraction.
+### Evidence
+- **HDR Utility Rate Study (2024):**
+  > Assumes ~1.5% annual customer growth to support debt service.
+- **2026–2030 Capital Improvement Program:**
+  > $0 allocated to transmission mains serving Tier 2 growth areas.
 
-This artifact serves as a receipt for future failure attribution.
----
+### Fracture
+Users required to support debt **cannot physically connect** to the system.
 
-## Addendum — January 2026 Convergence Wall
-
-### New Evidence: State, Municipal, and Regulatory Gating
-
-This addendum documents a synchronized constraint collision observed in January 2026 across state law, municipal finance, and federal banking regulation. These are not independent failures; they are mutually reinforcing gates.
+### Result
+Existing ratepayers subsidize “phantom users.”
 
 ---
 
-### V-04 — Municipal Operations Gating (Sioux Falls)
+## ADDENDUM B — STATE EXPANSION VS. MAINTENANCE (SOUTH DAKOTA DOT)
 
-**Primary Source:** City of Sioux Falls 2026 Proposed Budget (July 2025)
+### Evidence
+- **SDDOT Transportation Asset Management Plan (TAMP):**
+  > Preservation-first mandate under 23 CFR 515.
+- **MPO TIP / STIP (2024–2027):**
+  > $57M+ programmed for SD-100 / Veterans Parkway expansion.
 
-> “The City needs to reduce its operating expenses by $8 to $10 million over the next three years… with $6 million reflected in the 2026 budget.”
+### Fracture
+New lane-miles added while existing asset preservation gap is acknowledged.
 
-**Fracture:**  
-The City is executing mandatory operational austerity while simultaneously maintaining a $1.1B multi-year capital expansion program. Staff capacity required to operate and maintain growth is being cut while growth liabilities are being constructed.
-
-**Classification:** PASS — Growth without operability.
-
----
-
-### V-05 — Revenue Projection Gating
-
-**Primary Source:** 2026–2030 Capital Program (Oct 2025)
-
-> Sales tax growth projected at 5.0% for 2029–2030.
-
-**Fracture:**  
-Future high-growth assumptions are being used to justify present debt issuance in a state-mandated revenue-constrained environment (SB 216). This is a temporal deferral of insolvency, not a mitigation.
-
-**Classification:** PASS — Hope as a financing mechanism.
+### Result
+Future maintenance liability grows faster than funding capacity.
 
 ---
 
-### V-06 — Regulatory Transparency Gate (Banking)
+## ADDENDUM C — CORPORATE DEBT CONFESSION (LUMEN TECHNOLOGIES)
 
-**Primary Source:** FFIEC 041 Call Report Revisions (Finalized Dec 2025)
+### Evidence
+- **2025 Form 10-K:**
+  > “Ability to service debt depends on access to capital markets.”
+- **Debt Maturities:**
+  > ~$9.2B due 2026–2027 (~50% of total debt).
+- **Cash Reality:**
+  > Interest consumes ~96% of free cash flow.
 
-> Mandatory disclosure of loan modifications to borrowers experiencing financial difficulty (rolling 12 months).
+### Fracture
+Operations cannot retire principal. Refinancing is explicitly uncertain.
 
-**Fracture:**  
-The “extend and pretend” mechanism used by regional banks is no longer opacity-protected. As of Q1 2026, modified CRE loans become regulator-visible with a fixed audit trail, forcing reserve recognition or supervisory action.
-
-**Classification:** PASS — Delay tactics converted into evidence.
+### Result
+Solvency depends entirely on external market benevolence.
 
 ---
 
-### Structural Conclusion
+## ADDENDUM D — INSURANCE MIRAGE (PUBLIC & PRIVATE)
 
-Across all layers, the same mechanism is present:
+### Evidence
+- **Municipal ACFR Notes (2025):**
+  > “Does not constitute a transfer of risk.”
+- **Risk Pool Revisions (SD Legislative Audit, 2025):**
+  > Unreported claims revert to members; vested assets eliminated.
+- **Corporate 10-K Patterns:**
+  > Self-insured retentions for catastrophic loss exceed reserves.
 
-**Growth narratives persist while governing systems actively remove the capacity to support that growth.**
+### Fracture
+Insurance functions as premium collection, not risk transfer.
 
-This is not mismanagement.  
-It is a mathematically closed box.
+### Result
+Entities are functionally self-insured against tail risk.
 
-The bottleneck surcharge is now enforced by law, budget, and regulation simultaneously.
+---
+
+## ADDENDUM E — ACCOUNTING DISCRETION REVOKED (BANKING)
+
+### Evidence
+- **OCC Bulletin 2025-14:**
+  > Qualitative CECL overlays may not suppress model-driven losses.
+- **Regional Bank Disclosures (2025):**
+  > Forced increases to provisions following supervisory dialogue.
+
+### Fracture
+Judgment-based capital smoothing is no longer permitted.
+
+### Result
+Previously hidden losses become non-discretionary.
+
+---
+
+## ADDENDUM F — LEGISLATIVE AUSTERITY COLLISION
+
+### Evidence
+- **State of the City Address (Apr 2024):**
+  > $25M operating loss projected due to SB 216.
+- **Internal Finance Modeling (Sept 2024):**
+  > Confirms cumulative impact.
+- **Series 2025A Bond Official Statement:**
+  > No reference to SB 216 or revenue contraction.
+
+### Fracture
+Known fiscal impairment omitted from debt disclosures.
+
+### Result
+Growth-priced debt issued against a contraction model.
+
+---
+
+## STRUCTURAL CONCLUSION
+
+Across all layers examined:
+
+- Growth is promised.
+- Operability is deferred.
+- Risk is retained.
+- Discretion is revoked.
+- Liability reverts inward.
+
+**This is not mismanagement.  
+This is a repeatable system behavior under constraint.**
+
+---
+
+## CANONICAL RULE
+
+No new files are created for this failure class.
+
+All future discoveries that demonstrate:
+- Growth without pipes
+- Assets without maintenance
+- Insurance without transfer
+- Capital without discretion
+- Revenue without users
+
+**must be appended here or discarded.**
+
+---
+
+**End of SYS-01**
