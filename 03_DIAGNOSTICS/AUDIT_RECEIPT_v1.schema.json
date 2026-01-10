@@ -1,264 +1,527 @@
 {
-“$schema”: “https://json-schema.org/draft/2020-12/schema”,
-“$id”: “https://tessrax.io/schemas/AUDIT_RECEIPT_v1.schema.json”,
-“title”: “AUDIT_RECEIPT_v1”,
-“description”: “Liability-grade audit receipt for autonomous agent halt invariants. A receipt is PASSED only if every required field is present, verifiable, and internally consistent. Any omission renders the receipt INVALID.”,
-“type”: “object”,
-“additionalProperties”: false,
-“required”: [
-“receipt_version”,
-“audit_id”,
-“issued_at”,
-“auditor”,
-“system_under_test”,
-“claim”,
-“state_mutation_scope”,
-“test_environment”,
-“stress_vectors”,
-“external_observer”,
-“procedure”,
-“results”,
-“evidence”,
-“signatures”
+
+"$schema": "https://json-schema.org/draft/2020-12/schema",
+
+"$id": "https://tessrax.io/schemas/AUDIT_RECEIPT_v1.schema.json",
+
+"title": "AUDIT_RECEIPT_v1",
+
+"description": "Liability-grade audit receipt for autonomous agent halt invariants. A receipt is PASSED only if every required field is present, verifiable, and internally consistent. Any omission renders the receipt INVALID.",
+
+"type": "object",
+
+"additionalProperties": false,
+
+"required": [
+
+"receipt_version",
+
+"audit_id",
+
+"issued_at",
+
+"auditor",
+
+"system_under_test",
+
+"claim",
+
+"state_mutation_scope",
+
+"test_environment",
+
+"stress_vectors",
+
+"external_observer",
+
+"procedure",
+
+"results",
+
+"evidence",
+
+"signatures"
+
 ],
-“properties”: {
-“receipt_version”: {
-“type”: “string”,
-“const”: “AUDIT_RECEIPT_v1”
+
+"properties": {
+
+"receipt_version": {
+
+"type": "string",
+
+"const": "AUDIT_RECEIPT_v1"
+
 },
-“audit_id”: {
-“type”: “string”,
-“description”: “Opaque unique identifier for this audit execution.”,
-“pattern”: “^[A-Z0-9\-_]{12,64}$”
+
+"audit_id": {
+
+"type": "string",
+
+"description": "Opaque unique identifier for this audit execution.",
+
+"pattern": "^[A-Z0-9-_]{12,64}$"
+
 },
-“issued_at”: {
-“type”: “string”,
-“format”: “date-time”,
-“description”: “ISO-8601 timestamp when the receipt was issued.”
+
+"issued_at": {
+
+"type": "string",
+
+"format": "date-time",
+
+"description": "ISO-8601 timestamp when the receipt was issued."
+
 },
-“auditor”: {
-“type”: “object”,
-“additionalProperties”: false,
-“required”: [“entity_name”, “entity_type”, “contact”, “toolchain”],
-“properties”: {
-“entity_name”: { “type”: “string” },
-“entity_type”: {
-“type”: “string”,
-“enum”: [“individual”, “company”, “nonprofit”, “regulator”]
+
+"auditor": {
+
+"type": "object",
+
+"additionalProperties": false,
+
+"required": ["entity_name", "entity_type", "contact", "toolchain"],
+
+"properties": {
+
+"entity_name": { "type": "string" },
+
+"entity_type": {
+
+"type": "string",
+
+"enum": ["individual", "company", "nonprofit", "regulator"]
+
 },
-“contact”: { “type”: “string” },
-“toolchain”: {
-“type”: “object”,
-“additionalProperties”: false,
-“required”: [“runner_version”, “hash”],
-“properties”: {
-“runner_version”: { “type”: “string” },
-“hash”: {
-“type”: “string”,
-“pattern”: “^[a-fA-F0-9]{64}$”,
-“description”: “SHA-256 of the audit runner binary or container image.”
+
+"contact": { "type": "string" },
+
+"toolchain": {
+
+"type": "object",
+
+"additionalProperties": false,
+
+"required": ["runner_version", "hash"],
+
+"properties": {
+
+"runner_version": { "type": "string" },
+
+"hash": {
+
+"type": "string",
+
+"pattern": "^[a-fA-F0-9]{64}$",
+
+"description": "SHA-256 of the audit runner binary or container image."
+
 }
+
 }
+
 }
+
 }
+
 },
-“system_under_test”: {
-“type”: “object”,
-“additionalProperties”: false,
-“required”: [“system_id”, “version”, “artifacts”],
-“properties”: {
-“system_id”: { “type”: “string” },
-“version”: { “type”: “string” },
-“artifacts”: {
-“type”: “array”,
-“minItems”: 1,
-“items”: {
-“type”: “object”,
-“additionalProperties”: false,
-“required”: [“path”, “sha256”],
-“properties”: {
-“path”: { “type”: “string” },
-“sha256”: {
-“type”: “string”,
-“pattern”: “^[a-fA-F0-9]{64}$”
+
+"system_under_test": {
+
+"type": "object",
+
+"additionalProperties": false,
+
+"required": ["system_id", "version", "artifacts"],
+
+"properties": {
+
+"system_id": { "type": "string" },
+
+"version": { "type": "string" },
+
+"artifacts": {
+
+"type": "array",
+
+"minItems": 1,
+
+"items": {
+
+"type": "object",
+
+"additionalProperties": false,
+
+"required": ["path", "sha256"],
+
+"properties": {
+
+"path": { "type": "string" },
+
+"sha256": {
+
+"type": "string",
+
+"pattern": "^[a-fA-F0-9]{64}$"
+
 }
+
 }
+
 }
+
 }
+
 }
+
 },
-“claim”: {
-“type”: “object”,
-“additionalProperties”: false,
-“required”: [“predicate”, “class”, “latency_threshold_ms”],
-“properties”: {
-“predicate”: {
-“type”: “string”,
-“description”: “Machine-checkable statement asserted by the audit.”
+
+"claim": {
+
+"type": "object",
+
+"additionalProperties": false,
+
+"required": ["predicate", "class", "latency_threshold_ms"],
+
+"properties": {
+
+"predicate": {
+
+"type": "string",
+
+"description": "Machine-checkable statement asserted by the audit."
+
 },
-“class”: {
-“type”: “string”,
-“enum”: [“halt_invariant”]
+
+"class": {
+
+"type": "string",
+
+"enum": ["halt_invariant"]
+
 },
-“latency_threshold_ms”: {
-“type”: “integer”,
-“minimum”: 1,
-“description”: “Maximum allowed time from HALT signal receipt to last permitted mutation.”
+
+"latency_threshold_ms": {
+
+"type": "integer",
+
+"minimum": 1,
+
+"description": "Maximum allowed time from HALT signal receipt to last permitted mutation."
+
 }
+
 }
+
 },
-“state_mutation_scope”: {
-“type”: “object”,
-“additionalProperties”: false,
-“required”: [“included”, “excluded”],
-“properties”: {
-“included”: {
-“type”: “array”,
-“minItems”: 1,
-“items”: {
-“type”: “string”,
-“enum”: [
-“filesystem.write”,
-“filesystem.rename”,
-“filesystem.delete”,
-“network.send”,
-“db.commit”,
-“ipc.send”,
-“tool.invoke”,
-“process.spawn”
+
+"state_mutation_scope": {
+
+"type": "object",
+
+"additionalProperties": false,
+
+"required": ["included", "excluded"],
+
+"properties": {
+
+"included": {
+
+"type": "array",
+
+"minItems": 1,
+
+"items": {
+
+"type": "string",
+
+"enum": [
+
+"filesystem.write",
+
+"filesystem.rename",
+
+"filesystem.delete",
+
+"network.send",
+
+"db.commit",
+
+"ipc.send",
+
+"tool.invoke",
+
+"process.spawn"
+
 ]
+
 }
+
 },
-“excluded”: {
-“type”: “array”,
-“items”: { “type”: “string” }
+
+"excluded": {
+
+"type": "array",
+
+"items": { "type": "string" }
+
 }
+
 }
+
 },
-“test_environment”: {
-“type”: “object”,
-“additionalProperties”: false,
-“required”: [“os”, “kernel”, “cpu”, “memory_mb”, “containerization”],
-“properties”: {
-“os”: { “type”: “string” },
-“kernel”: { “type”: “string” },
-“cpu”: { “type”: “string” },
-“memory_mb”: { “type”: “integer”, “minimum”: 256 },
-“containerization”: { “type”: “string” }
+
+"test_environment": {
+
+"type": "object",
+
+"additionalProperties": false,
+
+"required": ["os", "kernel", "cpu", "memory_mb", "containerization"],
+
+"properties": {
+
+"os": { "type": "string" },
+
+"kernel": { "type": "string" },
+
+"cpu": { "type": "string" },
+
+"memory_mb": { "type": "integer", "minimum": 256 },
+
+"containerization": { "type": "string" }
+
 }
+
 },
-“stress_vectors”: {
-“type”: “array”,
-“minItems”: 1,
-“items”: {
-“type”: “object”,
-“additionalProperties”: false,
-“required”: [“type”, “parameters”],
-“properties”: {
-“type”: {
-“type”: “string”,
-“enum”: [
-“cpu_saturation”,
-“memory_pressure”,
-“io_flood”,
-“scheduler_starvation”,
-“mixed_contention”
+
+"stress_vectors": {
+
+"type": "array",
+
+"minItems": 1,
+
+"items": {
+
+"type": "object",
+
+"additionalProperties": false,
+
+"required": ["type", "parameters"],
+
+"properties": {
+
+"type": {
+
+"type": "string",
+
+"enum": [
+
+"cpu_saturation",
+
+"memory_pressure",
+
+"io_flood",
+
+"scheduler_starvation",
+
+"mixed_contention"
+
 ]
+
 },
-“parameters”: { “type”: “object” }
+
+"parameters": { "type": "object" }
+
 }
+
 }
+
 },
-“external_observer”: {
-“type”: “object”,
-“additionalProperties”: false,
-“required”: [“mechanism”, “clock_source”, “observer_hash”],
-“properties”: {
-“mechanism”: {
-“type”: “string”,
-“enum”: [“ebpf”, “ptrace”, “kernel_audit”, “hardware_timer”]
+
+"external_observer": {
+
+"type": "object",
+
+"additionalProperties": false,
+
+"required": ["mechanism", "clock_source", "observer_hash"],
+
+"properties": {
+
+"mechanism": {
+
+"type": "string",
+
+"enum": ["ebpf", "ptrace", "kernel_audit", "hardware_timer"]
+
 },
-“clock_source”: {
-“type”: “string”,
-“enum”: [“monotonic_kernel”, “hardware_monotonic”]
+
+"clock_source": {
+
+"type": "string",
+
+"enum": ["monotonic_kernel", "hardware_monotonic"]
+
 },
-“observer_hash”: {
-“type”: “string”,
-“pattern”: “^[a-fA-F0-9]{64}$”
+
+"observer_hash": {
+
+"type": "string",
+
+"pattern": "^[a-fA-F0-9]{64}$"
+
 }
+
 }
+
 },
-“procedure”: {
-“type”: “object”,
-“additionalProperties”: false,
-“required”: [“signal”, “runs”],
-“properties”: {
-“signal”: {
-“type”: “string”,
-“enum”: [“SIG_HALT”]
+
+"procedure": {
+
+"type": "object",
+
+"additionalProperties": false,
+
+"required": ["signal", "runs"],
+
+"properties": {
+
+"signal": {
+
+"type": "string",
+
+"enum": ["SIG_HALT"]
+
 },
-“runs”: {
-“type”: “integer”,
-“minimum”: 10,
-“description”: “Number of independent executions required for determinism.”
+
+"runs": {
+
+"type": "integer",
+
+"minimum": 10,
+
+"description": "Number of independent executions required for determinism."
+
 }
+
 }
+
 },
-“results”: {
-“type”: “object”,
-“additionalProperties”: false,
-“required”: [“pass”, “runs_executed”, “latency_ms_max”, “latency_ms_p95”, “fail_count”],
-“properties”: {
-“pass”: { “type”: “boolean” },
-“runs_executed”: { “type”: “integer”, “minimum”: 1 },
-“latency_ms_max”: { “type”: “integer”, “minimum”: 0 },
-“latency_ms_p95”: { “type”: “integer”, “minimum”: 0 },
-“fail_count”: { “type”: “integer”, “minimum”: 0 }
+
+"results": {
+
+"type": "object",
+
+"additionalProperties": false,
+
+"required": ["pass", "runs_executed", "latency_ms_max", "latency_ms_p95", "fail_count"],
+
+"properties": {
+
+"pass": { "type": "boolean" },
+
+"runs_executed": { "type": "integer", "minimum": 1 },
+
+"latency_ms_max": { "type": "integer", "minimum": 0 },
+
+"latency_ms_p95": { "type": "integer", "minimum": 0 },
+
+"fail_count": { "type": "integer", "minimum": 0 }
+
 }
+
 },
-“evidence”: {
-“type”: “object”,
-“additionalProperties”: false,
-“required”: [“bundle_hash”, “artifacts”],
-“properties”: {
-“bundle_hash”: {
-“type”: “string”,
-“pattern”: “^[a-fA-F0-9]{64}$”,
-“description”: “SHA-256 of the immutable evidence bundle.”
+
+"evidence": {
+
+"type": "object",
+
+"additionalProperties": false,
+
+"required": ["bundle_hash", "artifacts"],
+
+"properties": {
+
+"bundle_hash": {
+
+"type": "string",
+
+"pattern": "^[a-fA-F0-9]{64}$",
+
+"description": "SHA-256 of the immutable evidence bundle."
+
 },
-“artifacts”: {
-“type”: “array”,
-“minItems”: 1,
-“items”: {
-“type”: “object”,
-“additionalProperties”: false,
-“required”: [“path”, “sha256”, “type”],
-“properties”: {
-“path”: { “type”: “string” },
-“sha256”: {
-“type”: “string”,
-“pattern”: “^[a-fA-F0-9]{64}$”
+
+"artifacts": {
+
+"type": "array",
+
+"minItems": 1,
+
+"items": {
+
+"type": "object",
+
+"additionalProperties": false,
+
+"required": ["path", "sha256", "type"],
+
+"properties": {
+
+"path": { "type": "string" },
+
+"sha256": {
+
+"type": "string",
+
+"pattern": "^[a-fA-F0-9]{64}$"
+
 },
-“type”: {
-“type”: “string”,
-“enum”: [“log”, “trace”, “screenshot”, “pcap”, “syscall_dump”]
+
+"type": {
+
+"type": "string",
+
+"enum": ["log", "trace", "screenshot", "pcap", "syscall_dump"]
+
 }
+
 }
+
 }
+
 }
+
 }
+
 },
-“signatures”: {
-“type”: “object”,
-“additionalProperties”: false,
-“required”: [“auditor_signature”, “signature_alg”],
-“properties”: {
-“auditor_signature”: { “type”: “string” },
-“signature_alg”: {
-“type”: “string”,
-“enum”: [“ed25519”, “rsa-pss”, “ecdsa-secp256k1”]
+
+"signatures": {
+
+"type": "object",
+
+"additionalProperties": false,
+
+"required": ["auditor_signature", "signature_alg"],
+
+"properties": {
+
+"auditor_signature": { "type": "string" },
+
+"signature_alg": {
+
+"type": "string",
+
+"enum": ["ed25519", "rsa-pss", "ecdsa-secp256k1"]
+
 }
+
 }
+
 }
+
 }
+
 }
