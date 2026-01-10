@@ -1,149 +1,173 @@
-AUDIT RECEIPT SPECIFICATION v1.0
-Status: CANON-COMPATIBLE
-Authority: CANON-003_Claim_Economy
-Purpose: Liability-Grade Proof of Decision Legitimacy
-	0.	Definition
+# AUDIT RECEIPT SPECIFICATION v1.0
+Status: CANON-COMPATIBLE  
+Authority: CANON-003_Claim_Economy  
+Purpose: Liability-grade proof of decision legitimacy
 
-An Audit Receipt is a deterministic, append-only artifact emitted for a single decision or action with potential external consequence.
+---
+
+## 0. Definition
+
+An Audit Receipt is a deterministic, append-only artifact emitted for a **single** decision or action with potential external consequence.
 
 It is not:
-   •   A log
-   •   An explanation
-   •   A narrative
-   •   A justification
+- a log  
+- an explanation  
+- a narrative  
+- a justification  
 
 It is:
-   •   A proof of process
-   •   A liability boundary
-   •   A machine-verifiable contract between system behavior and governing invariants
+- a proof of process  
+- a liability boundary  
+- a machine-verifiable contract between system behavior and governing invariants  
 
-No decision is considered real without a receipt.
-	1.	Receipt Invariants (Hard Requirements)
+**No decision is considered real without a receipt.**
+
+---
+
+## 1. Receipt Invariants (Hard Requirements)
 
 A valid Audit Receipt MUST satisfy all of the following:
-	1.	Atomicity
-      •   Exactly one receipt per decision.
-      •   Decisions may not share receipts.
-	2.	Non-Editable
-      •   Receipts are append-only.
-      •   Corrections require a new receipt that references the prior receipt_id.
-	3.	Evidence-Bound
-      •   Every claim listed must reference immutable evidence.
-      •   Claims without evidence are automatically UNADJUDICATED.
-	4.	Dependency-Closed
-      •   All dependencies must be enumerated explicitly.
-      •   If any dependency is FAILED, INVALID, or EXPIRED → receipt final_status = FAILED.
-	5.	Dual-Readable
-      •   Human-legible structure.
-      •   Machine-verifiable fields, hashes, and deltas.
 
-Failure to meet any invariant renders the receipt INVALID.
-	2.	Receipt Lifecycle
+### 1. Atomicity
+- Exactly one receipt per decision.  
+- Decisions may not share receipts.
 
-2.1 Emission Trigger
+### 2. Non-Editable
+- Receipts are append-only.  
+- Corrections require a new receipt referencing the prior `receipt_id`.
+
+### 3. Evidence-Bound
+- Every claim must reference immutable evidence.  
+- Claims without evidence are automatically **UNADJUDICATED**.
+
+### 4. Dependency-Closed
+- All dependencies must be explicitly enumerated.  
+- If any dependency is **FAILED**, **INVALID**, or **EXPIRED**, then `final_status = FAILED`.
+
+### 5. Dual-Readable
+- Human-legible structure.  
+- Machine-verifiable fields, hashes, and deltas.
+
+**Failure to meet any invariant renders the receipt INVALID.**
+
+---
+
+## 2. Receipt Lifecycle
+
+### 2.1 Emission Trigger
 
 A receipt MUST be emitted whenever the system:
-   •   Executes an external action
-   •   Makes a prediction relied upon by another system
-   •   Alters state outside its own context
-   •   Refuses an action under governance rules
+- executes an external action  
+- makes a prediction relied upon by another system  
+- alters state outside its own context  
+- refuses an action under governance rules  
 
-Silence produces no receipt.
+**Silence produces no receipt.**
 
-2.2 States
+### 2.2 States
 
 A receipt exists in exactly one state:
-   •   PENDING: Awaiting evidence adjudication
-   •   PASSED: All predicates verified; dependencies intact
-   •   FAILED: One or more predicates falsified or a dependency collapsed
-   •   UNADJUDICATED: Required evidence missing or incomplete
-   •   INVALID: Structural violation of this specification
 
-State transitions are irreversible.
-	3.	Canonical Receipt Schema
+- **PENDING** — awaiting evidence adjudication  
+- **PASSED** — all predicates verified; dependencies intact  
+- **FAILED** — one or more predicates falsified or a dependency collapsed  
+- **UNADJUDICATED** — required evidence missing or incomplete  
+- **INVALID** — structural violation of this specification  
 
-The receipt MUST conform to the following logical schema:
+**State transitions are irreversible.**
 
-receipt_id: AR-YYYYMMDD-HHMMSS-
-timestamp: ISO-8601
-decision_scope: string
+---
+
+## 3. Canonical Receipt Schema
+
+
+receipt_id: AR-YYYYMMDD-HHMMSS-<nonce> timestamp: ISO-8601 decision_scope: string
 
 governing_canon:
-   •   CANON-003_Claim_Economy
+
+CANON-003_Claim_Economy
 
 claims:
-   •   claim_id: string
-predicate: MPL boolean expression
-tier: observation | prediction | structural
-dependencies: [claim_id…]
-evidence_refs: [EVD-…]
-status: PENDING | PASSED | FAILED
 
-budget_effects:
-obs_delta: float
-pred_delta: float
-struct_delta: float
-escrow_used: boolean
+claim_id: string predicate: MPL boolean expression tier: observation | prediction | structural dependencies: [claim_id...] evidence_refs: [EVD-...] status: PENDING | PASSED | FAILED
+
+budget_effects: obs_delta: float pred_delta: float struct_delta: float escrow_used: boolean
 
 evidence_root: sha256:<merkle_root_hash>
 
 final_status: PENDING | PASSED | FAILED | UNADJUDICATED | INVALID
 
-signatures:
-system: sha256:<receipt_hash>
-human: optional
+signatures: system: sha256:<receipt_hash> human: optional
+
 
 All numeric deltas MUST reconcile exactly with the Claim Economy ledger.
-	4.	Evidence Binding Rules
 
-   •   Evidence MUST reside in /03_DIAGNOSTICS/
-   •   Evidence files MUST be immutable, content-addressed blobs named:
-EVD--.md
-   •   Receipts reference evidence by hash only
-   •   Missing evidence forces final_status = UNADJUDICATED
-   •   Altered or mismatched evidence forces final_status = FAILED
+---
 
-	5.	Dependency Collapse Interaction
+## 4. Evidence Binding Rules
 
-If any dependency listed in a receipt transitions to FAILED, INVALID, or EXPIRED:
-   •   The receipt transitions immediately to FAILED
-   •   The receipt is masked from future reasoning
-   •   All downstream receipts that reference this receipt are SUSPENDED
+- Evidence MUST reside in `/03_DIAGNOSTICS/`  
+- Evidence files MUST be immutable, content-addressed blobs named:  
+  `EVD-<hash>.md`  
+- Receipts reference evidence **by hash only**  
+- Missing evidence → `final_status = UNADJUDICATED`  
+- Altered or mismatched evidence → `final_status = FAILED`
+
+---
+
+## 5. Dependency Collapse Interaction
+
+If any dependency transitions to **FAILED**, **INVALID**, or **EXPIRED**:
+
+- the receipt transitions immediately to **FAILED**  
+- the receipt is masked from future reasoning  
+- all downstream receipts referencing it are **SUSPENDED**  
 
 Receipts are first-class dependency nodes in the system graph.
-	6.	Legal and Operational Meaning
 
-A PASSED receipt asserts process legitimacy, not outcome correctness.
+---
+
+## 6. Legal and Operational Meaning
+
+A **PASSED** receipt asserts **process legitimacy**, not outcome correctness.
 
 A PASSED receipt means:
-   •   The system acted within declared rules
-   •   All claims were falsifiable
-   •   Evidence existed at time of action
+- the system acted within declared rules  
+- all claims were falsifiable  
+- evidence existed at time of action  
 
-It does not mean:
-   •   The action was morally correct
-   •   The outcome was optimal
-   •   The world behaved as predicted
+A PASSED receipt does **not** mean:
+- the action was morally correct  
+- the outcome was optimal  
+- the world behaved as predicted  
 
 This distinction is intentional and non-negotiable.
-	7.	Prohibited Patterns (Receipt Kill Conditions)
+
+---
+
+## 7. Prohibited Patterns (Receipt Kill Conditions)
 
 Any of the following immediately invalidate a receipt:
-   •   Natural-language justification without MPL predicates
-   •   Evidence generated by the same agent being evaluated
-   •   Retroactive evidence attachment
-   •   Omitted dependencies
-   •   Budget deltas that do not reconcile
-   •   Canon references that are inactive or superseded
-   •   Multiple decisions represented in a single receipt
-   •   Post-hoc edits to receipt content
-   •   Hashes not verifiable by independent computation
 
-	8.	Versioning and Supersession
+- natural-language justification without MPL predicates  
+- evidence generated by the same agent being evaluated  
+- retroactive evidence attachment  
+- omitted dependencies  
+- budget deltas that do not reconcile  
+- canon references that are inactive or superseded  
+- multiple decisions represented in a single receipt  
+- post-hoc edits to receipt content  
+- hashes not verifiable by independent computation  
 
-   •   This specification is versioned and append-only
-   •   Changes require a new spec file and a new CANON reference
-   •   Older receipts remain valid under the spec version they were emitted with
-   •   No receipt is ever rewritten or deleted
+---
+
+## 8. Versioning and Supersession
+
+- This specification is versioned and append-only  
+- Changes require a new spec file and a new CANON reference  
+- Older receipts remain valid under the spec version they were emitted with  
+- No receipt is ever rewritten or deleted  
+
+---
 
 End of file.
