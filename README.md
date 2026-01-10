@@ -1,6 +1,7 @@
-00_README/tessrax-wordmark.PNG
-
-TESSRAX is a governance and safety research repository focused on **epistemic integrity**, **fail-closed systems**, and **human reconstructability under failure**.
+<p align="center">
+  <img src="00_README/tessrax-wordmark.PNG" alt="Tessrax" width="600">
+</p>
+A governance and safety research repository focused on **epistemic integrity**, **fail-closed systems**, and **human reconstructability under failure**.
 
 This repo exists to prevent:
 - Narrative maintenance masquerading as governance
