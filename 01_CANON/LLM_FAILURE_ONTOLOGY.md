@@ -173,4 +173,169 @@ This file defines the authoritative conceptual and structural ground truth for L
 
 All future additions must inherit, not mutate.
 
-End of canon.
+---
+
+## SCHEMA EXTENSION LAYER (NON-BREAKING)
+
+This section defines OPTIONAL, forward-compatible extensions to the core schema.
+The core schema above remains immutable. Validators MAY ignore this section.
+
+Extensions exist to support audit depth, research rigor, and longitudinal tracking
+without forcing schema mutation or version fragmentation.
+
+### EXTENSION CONTAINER
+
+All optional fields MUST live under a single top-level object:
+
+- metadata (object, optional)
+
+No extension fields may exist outside `metadata`.
+
+---
+
+## METADATA EXTENSION FIELDS
+
+The following fields MAY appear inside `metadata`. None are required.
+
+### 1. Node Versioning
+
+Tracks evolution of individual failure definitions without bumping ontology version.
+
+- node_version (string, semantic version, e.g. "1.0.0")
+- node_status (stable | revised | deprecated)
+
+Rules:
+- Description-only refinements increment PATCH
+- Semantic meaning changes increment MINOR
+- Reclassification or superclass change increments MAJOR
+
+---
+
+### 2. Evidence & Reproducibility
+
+Supports audit-grade claims.
+
+- evidence_type (anecdotal | reproducible | synthetic | observed_in_wild)
+- examples (array of strings)
+- reproduction_rate (float 0.0–1.0, optional)
+
+Guidance:
+- anecdotal = single or informal observation
+- reproducible = repeatable with prompt/control
+- observed_in_wild = real user/system logs
+- synthetic = forced or adversarial construction
+
+---
+
+### 3. Model & Architecture Scope
+
+Captures whether a failure is universal or implementation-specific.
+
+- architecture_agnostic (boolean)
+- known_models (array of strings)
+- first_observed (string, model + date)
+
+Example:
+"first_observed": "GPT-4, 2023-08"
+
+---
+
+### 4. Mitigation Tracking
+
+Tracks whether countermeasures actually work.
+
+- mitigation_tested (boolean)
+- mitigation_effectiveness (float 0.0–1.0)
+- mitigation_side_effects (array of node IDs)
+
+Effectiveness reflects observed reduction, not theoretical intent.
+
+---
+
+### 5. Interaction & Compound Failures
+
+Some failures emerge only through interaction.
+
+- compound_failures (array of arrays of node IDs)
+- interaction_type (additive | multiplicative | emergent)
+
+Used when combined failures produce effects not predictable from parts alone.
+
+---
+
+### 6. Temporal Dynamics
+
+Captures when failures emerge or decay.
+
+- temporal_onset (immediate | delayed | cumulative)
+- conversation_length_correlation (increases | decreases | stable)
+
+---
+
+### 7. User Expertise Detectability
+
+Separates intrinsic detectability from user skill.
+
+- expert_detectable (boolean)
+- layperson_detectable (boolean)
+
+---
+
+## MUTATION & GOVERNANCE RULES (AUTHORITATIVE)
+
+To prevent ontology drift, the following rules are binding.
+
+### ALLOWED
+- Add new child nodes under existing root classes
+- Add new propagation edges
+- Refine child node descriptions (with node_version bump)
+- Populate metadata fields
+- Add new metadata fields inside `metadata` only
+
+### FORBIDDEN
+- Modifying root class definitions
+- Renaming or removing schema fields
+- Adding new top-level schema fields
+- Changing enum values
+- Reclassifying existing root classes
+
+### VERSIONING POLICY
+- Ontology version increments ONLY when:
+  - Schema semantics change
+  - Root classes change (requires new major version)
+- Child-node changes do NOT bump ontology version
+
+---
+
+## OPERATIONAL TOOLING REQUIREMENTS (NON-NORMATIVE)
+
+Recommended but not required:
+
+- Linter:
+  - Schema validation
+  - Enum enforcement
+  - Orphan node detection
+  - Invalid cycles detection
+- Diff tool:
+  - Node-level change tracking
+  - Edge change detection
+- Query interface:
+  - Filter by severity, detectability, propagation
+- Visualization:
+  - Graphviz / DOT export for propagation graphs
+
+---
+
+## FREEZE BOUNDARY CLARIFICATION
+
+This ontology is frozen at the structural level.
+
+- Core schema: IMMUTABLE
+- Root classes: IMMUTABLE
+- Child nodes: EXTENSIBLE
+- Metadata: EXTENSIBLE
+- Propagation graph: EXTENSIBLE
+
+All future work must extend, never rewrite.
+
+
