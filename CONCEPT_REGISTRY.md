@@ -1,23 +1,26 @@
-## Systemic Deadlock
+# CONCEPT REGISTRY
 
-TYPE: Canonical Concept
+GLOBAL RULES:
+- If a concept is not listed here, it is NOT canonical
+- PRIMARY DEFINITION outranks all other sources
+- AUTHORITATIVE SOURCES outrank REFERENCES
+- Filename casing and duplication do not imply authority
+- This registry overrides directory structure in case of ambiguity
 
-PRIMARY DEFINITION:
-- 01_CANON/CANON-001_Systemic_Deadlock.md
+TYPE DEFINITIONS (MUST BE INCLUDED VERBATIM):
+Canonical Concept:
+A core invariant that defines system behavior. Removing it breaks the system.
 
-AUTHORITATIVE SOURCES:
-- 01_CANON/CANON-001_Systemic_Deadlock.md
+Supporting Concept:
+A protocol, metric, or mechanism that operationalizes canonical concepts.
 
-REFERENCES (non-authoritative):
-- 04_CASES/CASE-001_Systemic_Deadlock.md
-- 04_CASES/CASE-001_SYSTEMIC_DEADLOCK.md
-- TESSRAX_MASTER_NOTES.md
+Derived Concept:
+A pattern identified through diagnostics or case analysis.
 
-ALIASES (if any):
-- Narrative Maintenance
-
-NOTES:
-- Used interchangeably with narrative maintenance in case files.
+CHANGE CONTROL (MUST BE INCLUDED):
+- New concepts require registry entry to be canonical
+- Reclassification requires explicit commit justification
+- Removal requires deprecation notice
 
 ## Atrophy of Truth
 
@@ -63,6 +66,51 @@ ALIASES (if any):
 NOTES:
 - Protocol and acronym are used as operational shorthand.
 
+## Cold-Start Protocol
+
+TYPE: Supporting Concept
+
+PRIMARY DEFINITION:
+- 02_PROTOCOLS/PROTO-001_Cold_Start.md
+
+AUTHORITATIVE SOURCES:
+- 02_PROTOCOLS/PROTO-001_Cold_Start.md
+- 02_FRAMEWORKS/COLD_START_PROTOCOL_V0_1.md
+
+REFERENCES (non-authoritative):
+- 04_CASES/CASE-001_AI_Safety.md
+- 04_CASES/CASE-002_Financial_Systems.md
+- 02_PITCH/PITCH_TESSRAX.md
+
+ALIASES (if any):
+- Cold Start Protocol
+- Cold-Start
+
+NOTES:
+- Multiple versioned protocol files share the same name.
+
+## Epistemic Recovery Time
+
+TYPE: Supporting Concept
+
+PRIMARY DEFINITION:
+- 03_DIAGNOSTICS/DIAG-001_Epistemic_Recovery_Time.md
+
+AUTHORITATIVE SOURCES:
+- 03_DIAGNOSTICS/DIAG-001_Epistemic_Recovery_Time.md
+- 03_DIAGNOSTICS/ERT-01_EPISTEMIC_RECOVERY_TIME_RUBRIC.md
+
+REFERENCES (non-authoritative):
+- 03_DIAGNOSTICS/ERT_SCORECARD.md
+- 04_CASES/CASE-003_Healthcare.md
+- 04_CASES/CASE-002_Financial_Systems.md
+
+ALIASES (if any):
+- ERT
+
+NOTES:
+- Used as a diagnostic metric across cases.
+
 ## Fail-Closed Gating
 
 TYPE: Canonical Concept
@@ -107,28 +155,26 @@ ALIASES (if any):
 NOTES:
 - Appears as a core invariant and as a protocol objective.
 
-## Cold-Start Protocol
+## Notice of Epistemic Fragility
 
 TYPE: Supporting Concept
 
 PRIMARY DEFINITION:
-- 02_PROTOCOLS/PROTO-001_Cold_Start.md
+- 02_PROTOCOLS/PROTO-002_Notice_of_Epistemic_Fragility.md
 
 AUTHORITATIVE SOURCES:
-- 02_PROTOCOLS/PROTO-001_Cold_Start.md
-- 02_FRAMEWORKS/COLD_START_PROTOCOL_V0_1.md
+- 02_PROTOCOLS/PROTO-002_Notice_of_Epistemic_Fragility.md
+- 06_GOVERNANCE/NEF-01_NOTICE_OF_EPISTEMIC_FRAGILITY.md
 
 REFERENCES (non-authoritative):
-- 04_CASES/CASE-001_AI_Safety.md
-- 04_CASES/CASE-002_Financial_Systems.md
-- 02_PITCH/PITCH_TESSRAX.md
+- 03_DIAGNOSTICS/NEF-01_NOTICE_OF_EPISTEMIC_FRAGILITY.md
+- 03_DIAGNOSTICS/ERT-01_EPISTEMIC_RECOVERY_TIME_RUBRIC.md
 
 ALIASES (if any):
-- Cold Start Protocol
-- Cold-Start
+- NEF-01
 
 NOTES:
-- Multiple versioned protocol files share the same name.
+- NEF-01 is the codified notice identifier.
 
 ## Receipt and Audit Invariant
 
@@ -152,49 +198,6 @@ ALIASES (if any):
 NOTES:
 - Canonical receipts are the enforcement artifact for this invariant.
 
-## Notice of Epistemic Fragility
-
-TYPE: Supporting Concept
-
-PRIMARY DEFINITION:
-- 02_PROTOCOLS/PROTO-002_Notice_of_Epistemic_Fragility.md
-
-AUTHORITATIVE SOURCES:
-- 02_PROTOCOLS/PROTO-002_Notice_of_Epistemic_Fragility.md
-- 06_GOVERNANCE/NEF-01_NOTICE_OF_EPISTEMIC_FRAGILITY.md
-
-REFERENCES (non-authoritative):
-- 03_DIAGNOSTICS/NEF-01_NOTICE_OF_EPISTEMIC_FRAGILITY.md
-- 03_DIAGNOSTICS/ERT-01_EPISTEMIC_RECOVERY_TIME_RUBRIC.md
-
-ALIASES (if any):
-- NEF-01
-
-NOTES:
-- NEF-01 is the codified notice identifier.
-
-## Epistemic Recovery Time
-
-TYPE: Supporting Concept
-
-PRIMARY DEFINITION:
-- 03_DIAGNOSTICS/DIAG-001_Epistemic_Recovery_Time.md
-
-AUTHORITATIVE SOURCES:
-- 03_DIAGNOSTICS/DIAG-001_Epistemic_Recovery_Time.md
-- 03_DIAGNOSTICS/ERT-01_EPISTEMIC_RECOVERY_TIME_RUBRIC.md
-
-REFERENCES (non-authoritative):
-- 03_DIAGNOSTICS/ERT_SCORECARD.md
-- 04_CASES/CASE-003_Healthcare.md
-- 04_CASES/CASE-002_Financial_Systems.md
-
-ALIASES (if any):
-- ERT
-
-NOTES:
-- Used as a diagnostic metric across cases.
-
 ## Semantic Fraud
 
 TYPE: Derived Concept
@@ -216,6 +219,27 @@ ALIASES (if any):
 
 NOTES:
 - Often triggered by ERT thresholds in diagnostics.
+
+## Systemic Deadlock
+
+TYPE: Canonical Concept
+
+PRIMARY DEFINITION:
+- 01_CANON/CANON-001_Systemic_Deadlock.md
+
+AUTHORITATIVE SOURCES:
+- 01_CANON/CANON-001_Systemic_Deadlock.md
+
+REFERENCES (non-authoritative):
+- 04_CASES/CASE-001_Systemic_Deadlock.md
+- 04_CASES/CASE-001_SYSTEMIC_DEADLOCK.md
+- TESSRAX_MASTER_NOTES.md
+
+ALIASES (if any):
+- Narrative Maintenance
+
+NOTES:
+- Used interchangeably with narrative maintenance in case files.
 
 ## Universal Claimant Schema
 
