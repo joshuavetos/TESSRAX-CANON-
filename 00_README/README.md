@@ -35,3 +35,34 @@ This repo is authoritative **only** where explicitly stated.
 Silence means “unknown,” not “assumed false.”
 
 If the screens go dark, this is what remains.
+diff --git a/00_README/README.md b/00_README/README.md
+index 4a1b9c2..9f7c8d1 100644
+--- a/00_README/README.md
++++ b/00_README/README.md
+@@ -1,3 +1,24 @@
+ # TESSRAX
+ 
+ This repository is the canonical record of governance primitives, diagnostics, and invariants.
++
++---
++
++## CNS EMPIRICAL AUDIT (ACTIVE)
++
++### Established Invariants
++- **CNS_MAX_MASS**: 2.30 M_sun  
++  Upper bound beyond which the hypothesis that physical laws are optimized for maximal black hole production is falsified.
++
++- **NEUTRON_STAR_ANCHOR**: PSR J0740+6620  
++  Observed mass: 2.08 ± 0.07 M_sun (Shapiro delay).  
++  This value constitutes the current hard observational floor for neutron star maximum mass.
++
++### Active Monitors
++- **PSR J0952−0607**  
++  Reported mass ~2.35 M_sun.  
++  Status: PENDING. Verification requires independent confirmation beyond irradiation-dependent optical modeling.
++
++### Change Control
++Any enforcement artifact, diagnostic, or governance action referencing an unlisted or unanchored concept MUST be treated as INVALID.
++
++Audit Status: PENDING
++Last Review: 2026-01-14
