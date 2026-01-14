@@ -109,3 +109,86 @@ The following are **not admissible** as CNS evidence or support:
 ### Audit Status
 **Status:** PENDING  
 **Last Review:** 2026-01-14
+---
+
+## CNS_MAX_MASS DERIVATION (AUDITABLE)
+
+**CNS_MAX_MASS = 2.30 M☉** is defined as a hard falsification boundary derived from the following constraints:
+
+1. **Observational Floor**
+   - PSR J0740+6620 establishes a confirmed neutron star mass of **2.08 ± 0.07 M☉**
+   - This sets a non-negotiable lower bound on M_max.
+
+2. **Soft Equation of State (EoS) Requirement**
+   - CNS requires a *soft* nuclear EoS to maximize black hole formation.
+   - Soft EoS models compatible with CNS optimization predict  
+     **M_max ≲ 2.2 M☉**  
+     (e.g., Lattimer & Prakash 2016; phenomenological nuclear constraints).
+
+3. **Rejection Margin**
+   - A **+0.10 M☉ buffer** is applied to account for measurement uncertainty while remaining incompatible with CNS-required soft EoS regimes.
+
+**Revision Protocol**
+- This threshold **may be lowered** if:
+  - Multiple independently confirmed neutron stars cluster near ~2.1 M☉, or
+  - Nuclear physics constraints further restrict soft EoS predictions.
+- This threshold **will not be raised** to accommodate new observations.
+
+---
+
+## SECONDARY OBSERVATIONAL CONSTRAINTS
+
+- **GW170817 (Neutron Star–Neutron Star Merger)**  
+  Constraint: **M_max > 2.17 M☉** (≈90% confidence)  
+  Method: Gravitational wave tidal deformability inference  
+  Status: CONFIRMED  
+  Note: Independent of pulsar timing systematics; model-dependent but orthogonal.
+
+---
+
+## EPISTEMIC ASYMMETRY
+
+CNS is **falsifiable but not verifiable** via neutron star mass measurements:
+
+- ❌ **Falsification Path**  
+  Confirmed if **M > 2.30 M☉** via dual independent observational channels.
+
+- ⚠️ **Confirmation Limitation**  
+  Values **below** CNS_MAX_MASS are consistent with CNS *and* with:
+  - Non-selected universes
+  - Anthropic bounds
+  - Parameter coincidence
+
+**Implication**
+This audit can only:
+- **REJECT** CNS, or
+- Maintain **NON-REJECTION**
+
+Positive confirmation of CNS would require:
+1. Demonstration that M_max is at the **minimum** value compatible with stellar evolution, and
+2. Proof that this minimum is **necessary** for maximal black hole production.
+
+Neither condition is currently satisfied.
+
+---
+
+## OBSERVATION TRIGGERS (AUTO-REVIEW REQUIRED)
+
+This audit MUST be re-evaluated if any of the following occur:
+
+1. **High-Mass Pulsar Report**
+   - Any neutron star with reported mass **M > 2.20 M☉**
+
+2. **Gravitational Wave Update**
+   - New LIGO / Virgo / KAGRA constraints tightening M_max bounds
+
+3. **Nuclear Physics Revision**
+   - Significant revision to dense-matter EoS predictions
+
+4. **PSR J0952−0607 Resolution**
+   - Independent mass confirmation beyond irradiation-dependent modeling
+
+**Review Cadence**
+- Quarterly scan of: arXiv astro-ph.HE, ApJ Letters, PRL (GW updates)
+
+---
