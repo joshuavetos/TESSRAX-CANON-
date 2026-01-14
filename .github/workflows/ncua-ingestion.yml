@@ -2,40 +2,43 @@ name: NCUA Unclaimed Deposits Ingestion Pipeline
 
 on:
   schedule:
-    # Run every 30 days (aligned with deduplication window)
-    - cron: '0 9 1,15 * *'  
-  workflow_dispatch: # Manual trigger for testing
-  
+    # Run twice monthly at 09:00 UTC (deduplication window aligned)
+    - cron: '0 9 1,15 * *'
+  workflow_dispatch:
+
 env:
-  RAW_LANDING: raw/ncua/${{ github.run_id }}
+  RAW_LANDING_BASE: raw/ncua
   CANONICAL_LEDGER: 05_LOGS/ncua_canonical_ledger.csv
   NERF_CHANNEL: 05_LOGS/nerf-notices
 
 jobs:
   ingest-ncua:
     runs-on: ubuntu-22.04
+
     steps:
-      - name: Checkout TESSRAX-CANON
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup Python 3.11
+      - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
+      - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r 02_PROTOCOLS/requirements.txt
           pip install requests beautifulsoup4 pandas lxml html5lib
 
-      - name: Create directories
+      - name: Initialize run directories
         run: |
-          mkdir -p raw/ncua/${{ github.run_id }}
-          mkdir -p ${{ env.NERF_CHANNEL }}
+          RUN_DIR="${RAW_LANDING_BASE}/${GITHUB_RUN_ID}"
+          mkdir -p "$RUN_DIR"
+          mkdir -p "${NERF_CHANNEL}"
+          echo "RUN_DIR=$RUN_DIR" >> $GITHUB_ENV
 
       - name: Fetch NCUA unclaimed deposits
         id: fetch
@@ -43,27 +46,42 @@ jobs:
           NCUA_URL: "https://ncua.gov/support-services/conservatorships-liquidations/unclaimed-deposits"
         run: |
           python 02_PROTOCOLS/ncua_ingestion.py \
-            --url ${{ env.NCUA_URL }} \
-            --output-dir ${{ env.RAW_LANDING }}
-          
-          RAW_COUNT=$(python - << EOF
-import pandas as pd
-df = pd.read_html("${{ env.RAW_LANDING }}/unclaimed.html")[0]
-print(len(df))
-EOF
-          )
-          echo "raw_row_count=$RAW_COUNT" >> $GITHUB_OUTPUT
+            --url "$NCUA_URL" \
+            --output-dir "$RUN_DIR"
 
-      - name: Normalize & validate
+      - name: Validate raw HTML and count rows
+        id: validate
+        run: |
+          RAW_HTML="$RUN_DIR/unclaimed.html"
+
+          if [ ! -f "$RAW_HTML" ]; then
+            echo "ERROR: Expected raw HTML not found at $RAW_HTML"
+            exit 1
+          fi
+
+          ROW_COUNT=$(python -c "import pandas as pd; print(len(pd.read_html('$RAW_HTML')[0]))")
+
+          if [ "$ROW_COUNT" -le 0 ]; then
+            echo "ERROR: Parsed table is empty"
+            exit 1
+          fi
+
+          echo "raw_row_count=$ROW_COUNT" >> "$GITHUB_OUTPUT"
+
+      - name: Normalize and validate dataset
         run: |
           python 02_PROTOCOLS/ncua_normalization.py \
-            --input ${{ env.RAW_LANDING }}/unclaimed.html \
-            --output 05_LOGS/ncua_normalized_${{ github.run_id }}.csv
+            --input "$RUN_DIR/unclaimed.html" \
+            --output "05_LOGS/ncua_normalized_${GITHUB_RUN_ID}.csv"
 
-      - name: Commit results
+      - name: Commit ingestion artifacts
         run: |
           git config user.name "TESSRAX Automation"
           git config user.email "automation@tessrax.com"
-          git add raw/ncua/${{ github.run_id }} 05_LOGS/
-          git commit -m "NCUA ingestion $(date '+%Y-%m-%d')" || echo "No changes"
+
+          git add "$RUN_DIR" 05_LOGS/
+
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+
+          git commit -m "NCUA ingestion ${GITHUB_RUN_ID} ($(date -u '+%Y-%m-%d'))"
           git push
