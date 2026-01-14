@@ -21,6 +21,7 @@ CHANGE CONTROL (MUST BE INCLUDED):
 - New concepts require registry entry to be canonical
 - Reclassification requires explicit commit justification
 - Removal requires deprecation notice
+- Any enforcement artifact referencing an unlisted concept MUST be treated as INVALID
 
 ## Atrophy of Truth
 
@@ -132,6 +133,31 @@ ALIASES (if any):
 
 NOTES:
 - Also referenced as a system-level safety posture.
+- Distinct from Human Reconstructability; governs behavior on ambiguity.
+
+## HALT Rule
+
+TYPE: Canonical Concept
+
+PRIMARY DEFINITION:
+- 01_CANON/CANON.md
+
+AUTHORITATIVE SOURCES:
+- 01_CANON/CANON-004_Irreversibility_and_Exit_Cost_Invariant.md
+- 01_CANON/CANON-006_Receipt-and-Audit-Spec.md
+
+REFERENCES (non-authoritative):
+- 02_PROTOCOLS/BUDGET_ARITHMETIC_SPEC.md
+- 02_PROTOCOLS/CLAIM_ECONOMY_PROTOCOL.md
+- 03_DIAGNOSTICS/UCS_Golden_Master_Tests.md
+- 06_GOVERNANCE/CIVIC_STACK_V1_FORENSIC_GOVERNANCE.md
+
+ALIASES (if any):
+- HALT
+- Halt Rule
+
+NOTES:
+- Enforcement appears across canon, protocols, diagnostics, and governance records.
 
 ## Human Reconstructability
 
