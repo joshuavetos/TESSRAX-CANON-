@@ -111,3 +111,20 @@ If documentation and enforcement disagree:
 - enforcement governs  
 - documentation must be updated or treated as invalid
 All enforcement logic is provided AS-IS, without warranty or implied fitness.
+
+---
+
+## Repository Status
+
+This repository is **enforcement-bound**.
+
+As of **v0.1.0**, all executable governance mechanisms, schemas, and enforcement
+semantics are considered **FROZEN**.
+
+Behavioral changes require:
+- explicit version increments
+- updated diagnostics proving non-regression
+- contract updates where applicable
+
+Incremental or “helpful” modification without proof is treated as corruption,
+not progress.
