@@ -1,0 +1,22 @@
+[project]
+name = "tessrax-canon"
+version = "0.1.0"
+description = "Deterministic governance and validation engine for Tessrax"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = [
+  "03_DIAGNOSTICS"
+]
+python_files = [
+  "test_*.py"
+]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "W"]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
