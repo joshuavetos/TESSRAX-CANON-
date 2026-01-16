@@ -1,6 +1,15 @@
 {
   "hash": "hash-pass-001",
-  "source_url": "https://ucfl.uscourts.gov/case/123",
-  "retrieval_timestamp": "2026-01-09T00:00:00Z",
-  "status_change_type": "CASE_CLOSED"
+  "source_url": "https://sco.ca.gov/ucp",
+  "retrieval_timestamp": "2025-06-01T00:00:00Z",
+  "status_change_type": "STATUTORY_DORMANCY",
+  "claimant_name": "Jane Smith",
+  "dormancy_context": "Unclaimed Property",
+  "metadata": {
+    "login_required": false,
+    "aggregate_only": false,
+    "admin_contact_only": false,
+    "no_claimant_list": false,
+    "sealed_docket": false
+  }
 }
