@@ -1,10 +1,13 @@
 import json
 import sys
 from datetime import datetime
-from validator import TessraxValidator  # assumes this file is engine/validator.py
+from jsonschema import Draft202012Validator
+
+from engine.validator import TessraxValidator
 
 
 ENGINE_VERSION = "v0.1.0"
+SCHEMA_PATH = "schemas/claim_and_artifact.schema.json"
 
 
 def load_json(path):
@@ -13,6 +16,27 @@ def load_json(path):
             return json.load(f)
     except Exception as e:
         sys.exit(f"INPUT_ERROR: failed to load {path} ({e})")
+
+
+def load_schema(path):
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        sys.exit(f"SCHEMA_ERROR: failed to load schema ({e})")
+
+
+def enforce_schema(schema, payload):
+    validator = Draft202012Validator(schema)
+    errors = sorted(validator.iter_errors(payload), key=lambda e: e.path)
+
+    if errors:
+        messages = []
+        for e in errors:
+            location = ".".join([str(p) for p in e.path])
+            messages.append(f"SCHEMA_VIOLATION at '{location}': {e.message}")
+        emit_receipt("NERF", messages)
+        sys.exit(1)
 
 
 def emit_receipt(verdict, violations):
@@ -36,6 +60,17 @@ def main():
 
     claim_data = load_json(claim_data_path)
     artifact = load_json(artifact_path)
+
+    schema = load_schema(SCHEMA_PATH)
+
+    # Schema enforcement happens BEFORE any logic
+    enforce_schema(
+        schema,
+        {
+            "claim_data": claim_data,
+            "artifact": artifact,
+        },
+    )
 
     validator = TessraxValidator()
     verdict, violations = validator.enforce_mve(claim_data, artifact)
