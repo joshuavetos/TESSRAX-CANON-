@@ -110,3 +110,4 @@ Where executable code, schemas, diagnostics, and contracts exist, they override 
 If documentation and enforcement disagree:
 - enforcement governs  
 - documentation must be updated or treated as invalid
+All enforcement logic is provided AS-IS, without warranty or implied fitness.
