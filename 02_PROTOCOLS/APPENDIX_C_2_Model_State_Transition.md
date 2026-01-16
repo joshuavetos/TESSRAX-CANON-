@@ -1,45 +1,22 @@
-# Appendix C.2 — Model State Transition Diagram
+# Appendix C.2 — Model State Transition Diagram (v3.0)
 
-## States
-- TELEMETRY
-- EVIDENTIARY
-- CHRONIC
-- HALT
+TELEMETRY (30d)
+    |
+    | breach_count = 1
+    v
+EVIDENTIARY (180d)
+    |
+    | breach_count >= 2
+    v
+CHRONIC (Indefinite)
+    |
+    | forensic_logging_fails
+    v
+HALT (Sev-1)
 
-## Transitions
-
-TELEMETRY
-→ (intervention_rate >10% once)
-→ EVIDENTIARY
-
-EVIDENTIARY
-→ (intervention_rate >10% second time)
-→ CHRONIC
-
+Rehabilitation Path:
 CHRONIC
-→ (forensic_logging_fails)
-→ HALT
-
-## State Properties
-
-TELEMETRY:
-- Standard deletion
-- No preservation duty
-
-EVIDENTIARY:
-- 180-day forensic hold
-- CFPB 2022-03 alignment
-
-CHRONIC:
-- Indefinite retention
-- Presumptive unreliability
-- No discretion
-
-HALT:
-- Decision engine disabled
-- Sev-1 incident triggered
-- No outputs permitted
-
-## Invariant
-A model may never transition backward.
-State regression is forbidden.
+    |
+    | 12m zero breaches + external audit + board certification
+    v
+EVIDENTIARY
