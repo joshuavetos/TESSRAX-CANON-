@@ -2,5 +2,14 @@
   "hash": "hash-partial-002",
   "source_url": "https://sco.ca.gov/ucp",
   "retrieval_timestamp": "2024-01-01T00:00:00Z",
-  "status_change_type": "STATUTORY_DORMANCY"
+  "status_change_type": "STATUTORY_DORMANCY",
+  "claimant_name": "John Doe",
+  "dormancy_context": "Unclaimed Property",
+  "metadata": {
+    "login_required": false,
+    "aggregate_only": false,
+    "admin_contact_only": false,
+    "no_claimant_list": false,
+    "sealed_docket": false
+  }
 }
