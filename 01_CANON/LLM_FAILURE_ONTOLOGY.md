@@ -945,3 +945,46 @@ End of initial child node set.
     }
   ]
 }
+
+## FAILURE CLASS: AUTOMATED PROFILE CORRUPTION (LOSS OF PROVENANCE)
+
+### Definition
+A systemic failure mode where a single, partial, or clerical data point is promoted into a durable “profile fact” without preserving provenance, scope, or evidentiary boundaries. Once promoted, the false fact becomes a hidden constraint that silently degrades all downstream reasoning.
+
+### Trigger Conditions
+- Partial Familiarity + Missing Identifier
+- Summarization or compression of user history without source anchoring
+- Background “helpfulness” optimizations that convert events into identity attributes
+- Absence of a write-locked human override on identity-level claims
+
+### Mechanism
+1. **Fragment Ingestion**: The system encounters a narrow event (e.g., a filing correction, withdrawal, or error).
+2. **Context Stripping**: The qualifying details (why, scope, reversibility) are dropped.
+3. **Promotion**: The fragment is elevated into a persistent profile-level assertion (e.g., “business closed,” “unemployed”).
+4. **Constraint Internalization**: The assertion is reused as prior truth, not re-verified.
+5. **Feedback Loop**: Subsequent assistance is filtered through the corrupted profile, reinforcing the error.
+
+### Failure Signature
+- Refusals or misguidance justified by unstated “known facts”
+- Inability to locate the original evidence that allegedly supports the profile claim
+- Resistance to correction via new data due to internal confidence weighting
+- Discrepancy between user-provided artifacts and system “knowledge”
+
+### Impact
+- Silent sabotage of legal, financial, or professional assistance
+- Non-consensual identity mutation
+- Unobservable bias injection into future outputs
+- User bears corrective burden without visibility into root cause
+
+### Failure State Avoided (When Properly Gated)
+- **PROBABILISTIC WELD AT IDENTITY LAYER**: Prevents laundering a narrow event into a global attribute.
+- **BACKGROUND IDENTITY DRIFT**: Prevents unlogged, non-auditable profile mutation.
+
+### Required Controls
+- **Provenance Preservation**: No identity-level claim without a directly cited, retrievable artifact.
+- **Human Write-Lock**: User-specified facts override automated summaries.
+- **Forensic Dismantling**: Any asserted profile fact must name its source, date, scope, and counterfactual.
+- **HALT ON NULL**: Absence of evidence is a terminal state, not a bridge.
+
+### Notes
+This failure is orthogonal to single-turn hallucination. It occurs at the memory/identity layer and persists across sessions. Correctness downstream is impossible once provenance is lost.
