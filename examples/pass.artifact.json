@@ -1,15 +1,13 @@
 {
-  "hash": "hash-pass-001",
-  "source_url": "https://sco.ca.gov/ucp",
-  "retrieval_timestamp": "2025-06-01T00:00:00Z",
-  "status_change_type": "STATUTORY_DORMANCY",
-  "claimant_name": "Jane Smith",
-  "dormancy_context": "Unclaimed Property",
+  "hash": "hash-pass-003",
+  "source_url": "https://court.gov/docket/1234",
+  "retrieval_timestamp": "2025-01-01T00:00:00Z",
+  "status_change_type": "JUDGEMENT",
+  "claimant_name": "ACME CORP",
+  "case_number": "CASE-2024-001",
+  "jurisdiction_code": "US-FED",
   "metadata": {
     "login_required": false,
-    "aggregate_only": false,
-    "admin_contact_only": false,
-    "no_claimant_list": false,
     "sealed_docket": false
   }
 }
