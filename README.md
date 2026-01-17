@@ -3,9 +3,6 @@
 
 [![Status](https://img.shields.io/badge/Status-FROZEN-red)]() [![License](https://img.shields.io/badge/License-MIT-blue)]() [![Engine](https://img.shields.io/badge/Engine-v0.1.0-green)]()
 
-<img width="1536" height="1024" alt="7ADC2102-EA3C-4956-A8F5-F4EB4A794463" src="https://github.com/user-attachments/assets/aa044209-359c-4c54-887d-c738de83a240" />
-
-
 **TESSRAX** is a governance and safety research repository focused on *epistemic integrity*, *fail-closed systems*, and *human reconstructability under failure*.
 
 This repository exists to prevent:
