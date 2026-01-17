@@ -1,8 +1,6 @@
 ```markdown
 # TESSRAX-CANON-
 
-[![Status](https://img.shields.io/badge/Status-FROZEN-red)]() [![License](https://img.shields.io/badge/License-MIT-blue)]() [![Engine](https://img.shields.io/badge/Engine-v0.1.0-green)]()
-
 **TESSRAX** is a governance and safety research repository focused on *epistemic integrity*, *fail-closed systems*, and *human reconstructability under failure*.
 
 This repository exists to prevent:
