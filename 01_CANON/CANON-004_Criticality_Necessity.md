@@ -70,7 +70,7 @@ Maintaining a non-classical Bell parameter at arbitrary D therefore requires ξ 
 
 Any locally causal model reproducing observed Bell violations at all tested scales must evade exponential clustering.
 
-The only known physical mechanism for this is **criticality**: a phase characterized by infinite correlation length and scale-invariant correlations.
+A known physical mechanism for this is **criticality**: a phase characterized by infinite correlation length and scale-invariant correlations.
 
 Finite-correlation-length (“fluid-like”, gapped, or equilibrium) hidden-variable substrates are excluded by existing laboratory and cosmic Bell tests.
 
