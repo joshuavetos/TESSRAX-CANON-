@@ -22,7 +22,19 @@ Each dependency incurs a link tax equal to its tier base debit.
 ## Overflow Rule
 If PRED_POOL is insufficient:
 - It may draw from STRUC_POOL at a 2:1 penalty
+
 STRUC_POOL may NEVER draw from other pools.
+
+## Negative Side-Effect Enumeration (Mandatory)
+
+Every non-observational action MUST enumerate at least three plausible negative side effects from:
+- reversibility loss
+- liability expansion
+- precedent creation
+- downstream automation enablement
+- scope expansion
+
+Failure to enumerate negatives results in HALT.
 
 ## Refunds and Penalties
 - Observation: refund 100%, fail penalty −0.5
