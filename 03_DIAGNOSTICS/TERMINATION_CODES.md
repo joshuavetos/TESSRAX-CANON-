@@ -1,4 +1,10 @@
 TERMINATION CODES — CANONICAL ENUM
+
+This enum is CLOSED.
+
+If a candidate cannot survive mechanical scrutiny, it dies.
+
+CANONICAL ENUM
 (Exhaustive, Closed Set, No Interpretation)
 
 PURPOSE
