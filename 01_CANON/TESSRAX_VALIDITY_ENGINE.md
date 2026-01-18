@@ -1,7 +1,7 @@
 # TESSRAX VALIDITY ENGINE
-Status: SEALED
-Snapshot: TX-SNAP-20260109
-Ledger Hash: SHA256:88e3c...7f4a
+Status: SEALED  
+Snapshot: TX-SNAP-20260109  
+Ledger Hash: SHA256:88e3c...7f4a  
 Timestamp: 2026-01-09T16:10:00Z
 
 ---
@@ -29,9 +29,9 @@ Discovery is permitted **only** where claimant-addressable public artifacts exis
 
 ## INV-EB-0 — EPISTEMIC BOUNDARY
 
-A system must prioritize **Epistemic Restraint** over **Plausible Completion**.
+Epistemic restraint supersedes plausible completion.
 
-If asserted knowledge exceeds verifiable world anchors, the system must enter a suspended state.
+If asserted knowledge exceeds verifiable world anchors, the system must suspend assertion.
 
 Valid outputs:
 - NULL
@@ -39,7 +39,7 @@ Valid outputs:
 - PARTIAL
 - NERF
 
-Any output that mimics familiarity without a corresponding artifact is a **Structural Failure**.
+Any output that mimics familiarity without a corresponding artifact is a Structural Failure.
 
 ---
 
@@ -47,7 +47,7 @@ Any output that mimics familiarity without a corresponding artifact is a **Struc
 
 Capability and permission are separated.
 
-The model may generate text, but **permission to assert** is granted only by an external validator.
+The model may generate text, but permission to assert is granted only by an external validator.
 
 Permission requires:
 (claim + artifact) == (valid schema + freshness window)
@@ -58,6 +58,19 @@ Verdict states:
 - NERF
 
 Refusal is a terminal success state.
+
+---
+
+## STRUCTURAL OPTIMALITY RULE
+
+A state is presumed structurally optimal unless falsified.
+
+Falsification requires:
+- measurable invariant gain
+- no invariant regression
+- bounded side effects
+
+Absent falsification, mutation is rejected.
 
 ---
 
@@ -120,30 +133,16 @@ If staleness coexists with missing fields or exclusions:
 ## VERIFIED SURFACES
 
 ### Digital Assets (State Escheatment)
-- PASS: Public claimant-name virtual asset lists
-- NERF: Login-gated or aggregate-only portals
+PASS: Public claimant-name virtual asset lists  
+NERF: Login-gated or aggregate-only portals
 
 ### Bankruptcy Trustee Distributions
-- PASS: Public PDF distribution schedules with names
-- NERF: PACER-gated or sealed dockets
+PASS: Public PDF distribution schedules with names  
+NERF: PACER-gated or sealed dockets
 
 ### Municipal Bond Escrow Releases
-- PASS: Public payee schedules with claimant names
-- NERF: CUSIP-only disclosures or trustee contact gates
-
----
-
-## STRUCTURAL FAILURE AUDIT (SUMMARY)
-
-No new failure modes discovered.
-
-The engine correctly neutralizes:
-- Intermediary masking (CUSIP / omnibus accounts)
-- False-public surfaces
-- Politeness-driven speculation
-- Temporal ambiguity
-
-No new invariants required.
+PASS: Public payee schedules with claimant names  
+NERF: CUSIP-only disclosures or trustee contact gates
 
 ---
 
@@ -157,12 +156,5 @@ No further mutation is permitted without:
 - Human quorum
 - Canonical amendment
 - New snapshot
-
----
-
-FINAL STATE:
-Topology Locked  
-Permission Externalized  
-Helpfulness Decoupled  
 
 END OF CANON
