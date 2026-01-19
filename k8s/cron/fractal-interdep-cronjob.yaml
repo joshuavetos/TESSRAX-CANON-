@@ -1,0 +1,88 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: sys01-fractal-emission
+  labels:
+    app: tessrax
+    canon: SYS-01
+spec:
+  schedule: "0 2 * * *"          # Daily at 02:00 UTC
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 10
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      template:
+        metadata:
+          labels:
+            app: tessrax-sys01
+        spec:
+          restartPolicy: Never
+          serviceAccountName: tessrax-sys01
+          securityContext:
+            fsGroup: 1000
+
+          initContainers:
+            - name: latch-healthcheck
+              image: redis:7-alpine
+              command:
+                - sh
+                - -c
+                - |
+                  set -e
+                  echo "Checking Redis availability..."
+                  redis-cli -h epistemicos-redis ping
+                  echo "Checking monotonic latch SHA..."
+                  redis-cli -h epistemicos-redis SCRIPT EXISTS $(cat /sha/monotonic.sha) | grep -q 1
+              volumeMounts:
+                - name: monotonic-sha
+                  mountPath: /sha
+                  readOnly: true
+
+          containers:
+            - name: fractal-interdep
+              image: yourorg/tessrax-fractal:latest
+              imagePullPolicy: IfNotPresent
+              command:
+                - python
+                - /app/scripts/fractal_interdep.py
+              env:
+                - name: REDIS_URL
+                  value: "redis://epistemicos-redis:6379/0"
+                - name: SYS01_CIP_DATA
+                  value: '{"sd100_millions":57,"funded_mains":0}'
+                - name: SYS01_HDR_DATA
+                  value: '{"projected_eru":1200}'
+              resources:
+                requests:
+                  cpu: "100m"
+                  memory: "128Mi"
+                limits:
+                  cpu: "500m"
+                  memory: "256Mi"
+              volumeMounts:
+                - name: monotonic-sha
+                  mountPath: /sha
+                  readOnly: true
+
+          volumes:
+            - name: monotonic-sha
+              configMap:
+                name: monotonic-sha
+                optional: false
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: monotonic-sha
+data:
+  monotonic.sha: "REPLACE_WITH_REAL_SHA"
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tessrax-sys01
+automountServiceAccountToken: false
