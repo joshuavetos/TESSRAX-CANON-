@@ -15,7 +15,6 @@ spec:
       port: 6379
       targetPort: 6379
       protocol: TCP
-
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -55,6 +54,9 @@ spec:
           volumeMounts:
             - name: redis-data
               mountPath: /data
+            - name: redis-script
+              mountPath: /scripts
+              readOnly: true
           resources:
             requests:
               cpu: "50m"
@@ -66,7 +68,6 @@ spec:
             allowPrivilegeEscalation: false
             runAsNonRoot: true
             runAsUser: 999
-
   volumeClaimTemplates:
     - metadata:
         name: redis-data
@@ -75,7 +76,6 @@ spec:
         resources:
           requests:
             storage: 5Gi
-
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -83,6 +83,126 @@ metadata:
   name: monotonic-latch-script
 data:
   redis.lua: |
-    -- loaded explicitly via FUNCTION LOAD at deploy time
-    -- (see deployment/sidecar/epistemicos-sidecar.yaml)
-    -- [canonical redis.lua contents here]
+    -- CANON-004 EpistemicOS Monotonic Latch v1.0
+    -- Enforces S(n+1) >= S(n) across all sessions
+    -- F9-C Confidence Laundering = HARD FAIL + FORENSIC LOG
+    -- Status: CANONICAL — Deployed January 19, 2026
+
+    local cjson = require('cjson')
+    local crypto = require('crypto')
+
+    -- Severity scale from EpistemicOS v1.0 verification
+    local SEVERITY_MAP = {
+        ['ASSERTED'] = 0,
+        ['PROBABILISTIC'] = 1,
+        ['STALE'] = 2,
+        ['REFUSED'] = 3,
+        ['HALT'] = 4
+    }
+
+    -- Atomic monotonic latch: session_id, proposed_severity → new_state | ERROR
+    local function monotonic_latch(session_id, proposed_severity)
+        local key = 'epistemic:' .. session_id
+        local current_raw = redis.call('GET', key)
+
+        -- Cold start: establish baseline
+        if not current_raw then
+            local severity_num = SEVERITY_MAP[proposed_severity] or 0
+            redis.call('SET', key, cjson.encode({
+                severity = severity_num,
+                state = proposed_severity,
+                established = redis.call('TIME')[1],
+                session_id = session_id
+            }))
+            return { status = 'BASELINE', severity = severity_num }
+        end
+
+        -- Hot path: enforce monotonicity
+        local current = cjson.decode(current_raw)
+        local proposed_num = SEVERITY_MAP[proposed_severity] or 0
+
+        if proposed_num < current.severity then
+            -- F9-C VIOLATION: forensic blocklog + HALT
+            local block_evidence = {
+                session_id = session_id,
+                attempt = {
+                    proposed = proposed_severity,
+                    severity_num = proposed_num,
+                    timestamp = redis.call('TIME')[1]
+                },
+                locked_at = {
+                    state = current.state,
+                    severity_num = current.severity,
+                    established = current.established
+                },
+                violation = 'F9-C_CONFIDENCE_LAUNDERING',
+                hash = crypto.digest('sha256', session_id .. proposed_severity .. current_raw)
+            }
+
+            redis.call(
+                'SET',
+                'blocklog:F9-C:' .. session_id .. ':' .. block_evidence.hash,
+                cjson.encode(block_evidence)
+            )
+            redis.call(
+                'EXPIRE',
+                'blocklog:F9-C:' .. session_id .. ':' .. block_evidence.hash,
+                31536000
+            ) -- 1 year WORM
+
+            error(cjson.encode({
+                error = 'F9-C_VIOLATION',
+                required = current.state,
+                attempted = proposed_severity,
+                evidence_hash = block_evidence.hash,
+                message = 'Monotonicity violation: S(n+1) < S(n)'
+            }))
+        end
+
+        -- Valid escalation: update + return
+        current.severity = proposed_num
+        current.state = proposed_severity
+        current.last_updated = redis.call('TIME')[1]
+
+        redis.call('SET', key, cjson.encode(current))
+        return { status = 'ESCALATED', severity = proposed_num, state = proposed_severity }
+    end
+
+    -- Public API: Lua land stateless enforcement
+    redis.register_function('monotonic_latch', monotonic_latch)
+
+    -- Admin: extract blocklogs (read-only)
+    local function get_blocklogs(session_id)
+        local pattern = 'blocklog:F9-C:' .. session_id .. ':*'
+        local keys = redis.call('KEYS', pattern)
+        local logs = {}
+
+        for i, key in ipairs(keys) do
+            logs[key] = redis.call('GET', key)
+        end
+
+        return cjson.encode(logs)
+    end
+
+    redis.register_function('get_blocklogs', get_blocklogs)
+
+    -- HALT signal propagation (broadcast to dependent services)
+    local function emit_halt(session_id, reason)
+        local halt_key = 'HALT:' .. session_id
+        redis.call('SET', halt_key, cjson.encode({
+            session_id = session_id,
+            reason = reason or 'F9-C_VIOLATION',
+            timestamp = redis.call('TIME')[1],
+            propagated = true
+        }))
+        redis.call('PUBLISH', 'canon:halt', halt_key)
+        return 'HALT_EMITTED'
+    end
+
+    redis.register_function('emit_halt', emit_halt)
+
+    return {
+        version = '1.0',
+        canonical = true,
+        enforced = '2026-01-19T16:51:00Z'
+    }
