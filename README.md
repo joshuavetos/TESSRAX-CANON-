@@ -1,10 +1,6 @@
 ```markdown
 # TESSRAX-CANON-
 
-<p align="center">
-  <img src="assets/logo/tessrax-logo.PNG" alt="TESSRAX Logo" width="220">
-</p>
-
 **TESSRAX** is a governance and safety research repository focused on *epistemic integrity*, *fail-closed systems*, and *human reconstructability under failure*.
 
 This repository exists to prevent:
