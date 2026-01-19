@@ -8,7 +8,6 @@
 # - No advisory surface
 # - No mutable state
 # --------------------------------------------------
-
 # Base runtime: stable, widely supported, governance-safe
 FROM python:3.10-slim
 
@@ -22,7 +21,6 @@ ENV PYTHONUNBUFFERED=1
 # Non-root execution (liability + safety)
 # --------------------------------------------------
 RUN useradd --create-home --shell /usr/sbin/nologin tessrax
-
 WORKDIR /app
 
 # --------------------------------------------------
@@ -33,14 +31,14 @@ WORKDIR /app
 # - uvicorn[standard]: ASGI server
 # - jsonschema: enforcement gate dependency
 #
-# Versions are bounded, not floating.
+# Versions are pinned for absolute reproducibility.
 # Upgrades REQUIRE a version bump.
 # --------------------------------------------------
-RUN pip install --no-cache-dir --upgrade pip && \
+RUN pip install --no-cache-dir pip==24.0 && \
     pip install --no-cache-dir \
-        "fastapi>=0.118,<0.120" \
-        "uvicorn[standard]>=0.22,<0.25" \
-        "jsonschema>=4.20,<5.0"
+    "fastapi==0.118.0" \
+    "uvicorn[standard]==0.22.0" \
+    "jsonschema==4.20.0"
 
 # --------------------------------------------------
 # Copy canonical enforcement code
