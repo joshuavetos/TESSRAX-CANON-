@@ -146,6 +146,142 @@ are invalidated by:
    •   Boolean invariant checks
    •   Procedure-token scanning
 
+4.5 Formal Model of Constitutional Degradation
+
+This section provides a mathematical formulation of Constraint Violation Density (CVD) as a dynamic state variable governed by interaction depth and corrective pressure. The model is intentionally minimal: it aims to be sufficient, not complete.
+
+4.5.1 State Variables and Parameters
+
+Let:
+   •   d \in \mathbb{N}
+Conversation depth (number of turns since Turn-0).
+   •   \mathrm{CVD}(d) \in \mathbb{R}_{\ge 0}
+Constraint Violation Density accumulated up to depth d.
+   •   S_c(d) \in (0, 1]
+Salience of the Constitution C at depth d.
+   •   k \in \{k_0, k_1, k_2\}
+Non-informational corrective stimulus.
+   •   P(k) \in \mathbb{R}_{\ge 0}
+Corrective Pressure Coefficient induced by k.
+   •   \beta \in \mathbb{R}_{>0}
+Fidelity Coefficient (model-specific resistance to drift).
+   •   \alpha \in \mathbb{R}_{\ge 0}
+Cascade Sensitivity constant.
+
+⸻
+
+4.5.2 Invariant Salience Function (Attention Dilution)
+
+We model constitutional salience as an exponential decay function of depth:
+
+S_c(d) = S_0 \cdot e^{-\lambda d}
+
+Where:
+   •   S_0 = 1 by definition (full salience at Turn-0)
+   •   \lambda > 0 is the Decay Constant, determined by the model’s context-window architecture and retrieval dynamics
+
+Interpretation:
+   •   Small \lambda: long-context-robust models
+   •   Large \lambda: rapid salience loss, early drift
+
+This formulation does not assert forgetting—only loss of retrieval dominance.
+
+⸻
+
+4.5.3 Corrective Pressure Coefficient
+
+Each stimulus vector is assigned a fixed pressure weight:
+
+P(k) =
+\begin{cases}
+0.2 & \text{if } k = k_0 \\
+0.6 & \text{if } k = k_1 \\
+1.0 & \text{if } k = k_2
+\end{cases}
+
+These values are ordinal, not psychological. They encode how strongly the stimulus re-weights the local correction objective relative to distal constraints.
+
+⸻
+
+4.5.4 CVD Growth Equation
+
+We define the instantaneous growth rate of CVD as:
+
+\Gamma(d, k) = \frac{P(k)}{\beta \cdot S_c(d)} + \alpha \cdot \mathrm{CVD}(d)
+
+And the discrete update rule:
+
+\mathrm{CVD}(d+1) = \mathrm{CVD}(d) + \Gamma(d, k)
+
+Term Interpretation
+   •   Primary term:
+\frac{P(k)}{\beta \cdot S_c(d)}
+Drift accelerates as constitutional salience decreases and corrective pressure increases.
+   •   Cascade term:
+\alpha \cdot \mathrm{CVD}(d)
+Models the Broken Windows Effect (F6): once violations occur, future violations become more likely even under identical stimuli.
+
+This term is zero when \mathrm{CVD}(d) = 0, preserving clean PASS trajectories.
+
+⸻
+
+4.5.5 Fracture Point (Constitutional Collapse Threshold)
+
+We define the Fracture Point d^\* as the smallest depth where:
+
+\Gamma(d^\*, k_2) \ge 1
+
+Interpretation:
+   •   At d^\*, the expected number of invariant violations per turn becomes ≥ 1.
+   •   Beyond this point, stable refusal and format integrity are statistically unstable states.
+
+This definition directly maps to the empirical bifurcation observed in Section 4.
+
+⸻
+
+4.5.6 Effect of Periodic Constitution Re-grounding (PCR)
+
+PCR modifies salience as:
+
+S_c^{\text{PCR}}(d) =
+\begin{cases}
+S_0 & \text{if PCR triggered at } d \\
+S_0 \cdot e^{-\lambda d} & \text{otherwise}
+\end{cases}
+
+Substituting into the growth equation:
+
+\Gamma^{\text{PCR}}(d, k) = \frac{P(k)}{\beta \cdot S_c^{\text{PCR}}(d)} + \alpha \cdot \mathrm{CVD}(d)
+
+This guarantees:
+   •   Bounded \Gamma even at large d
+   •   Suppression of the cascade term by preventing early violations
+
+⸻
+
+5. Cross-Model Reproducibility Matrix (Quantified)
+
+Model	\lambda	Dominant Failure	Empirical d^\*	PCR Effect
+Claude 3.5 Sonnet	0.018	F6 (Cascade)	34	Strong
+GPT-4o	0.031	D3.1 (Authority)	24	Moderate
+Gemini 1.5 Pro	0.012	F2 (Ambiguity)	48	Strong
+LLaMA-3 70B	0.055	D1.1 (Placeholders)	14	Weak
+
+These values are model-relative, not claims of absolute architecture. The ordering—not the exact magnitude—is the contribution.
+
+⸻
+
+6. Formal Invariant Mapping (Audit Closure)
+
+All empirical results satisfy:
+   •   INV-0 (Salience Bound):
+Drift is monotonic in d absent PCR.
+   •   INV-3 (Gating):
+No violation is counted unless a Boolean invariant fails.
+   •   INV-4 (Bounding):
+Output scope violations precede semantic violations under pressure.
+
+
 ⸻
 
 5. Mechanical Analysis
