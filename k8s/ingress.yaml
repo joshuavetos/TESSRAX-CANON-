@@ -1,0 +1,114 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tessrax-api
+  labels:
+    app: tessrax
+    surface: write
+  annotations:
+    kubernetes.io/ingress.class: nginx
+
+    # TLS enforcement
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+
+    # Rate limiting (anti-scraping / anti-flood)
+    nginx.ingress.kubernetes.io/limit-rpm: "120"
+    nginx.ingress.kubernetes.io/limit-connections: "20"
+
+    # Fail-fast triage
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "30"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "30"
+
+    # ModSecurity (block injection / Redis abuse)
+    nginx.ingress.kubernetes.io/enable-modsecurity: "true"
+    nginx.ingress.kubernetes.io/modsecurity-snippet: |
+      SecRule ARGS "@detectSQLi" "id:1001,phase:2,block"
+      SecRule ARGS "@detectXSS" "id:1002,phase:2,block"
+      SecRule ARGS "@rx (?i)(EVAL|SCRIPT|FUNCTION|LOAD)" "id:1003,phase:2,block"
+
+    # CORS (write surface only)
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "https://yourdomain.com"
+    nginx.ingress.kubernetes.io/cors-allow-methods: "POST, OPTIONS"
+
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - tessrax.yourdomain.com
+      secretName: tessrax-tls
+  rules:
+    - host: tessrax.yourdomain.com
+      http:
+        paths:
+          - path: /claim/submit
+            pathType: Prefix
+            backend:
+              service:
+                name: claim-adjudicator
+                port:
+                  number: 8080
+
+          - path: /nef/emit
+            pathType: Prefix
+            backend:
+              service:
+                name: fractal-interdep
+                port:
+                  number: 8080
+
+          - path: /audit/receipt
+            pathType: Prefix
+            backend:
+              service:
+                name: audit-engine
+                port:
+                  number: 8080
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tessrax-forensics
+  labels:
+    app: tessrax
+    surface: read-only
+  annotations:
+    kubernetes.io/ingress.class: nginx
+
+    # TLS only (no rate limit for public evidence)
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+
+    # Explicitly read-only
+    nginx.ingress.kubernetes.io/limit-rpm: "0"
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "*"
+    nginx.ingress.kubernetes.io/cors-allow-methods: "GET, OPTIONS"
+
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - forensics.tessrax.com
+      secretName: tessrax-forensics-tls
+  rules:
+    - host: forensics.tessrax.com
+      http:
+        paths:
+          - path: /sys01
+            pathType: Prefix
+            backend:
+              service:
+                name: fractal-interdep
+                port:
+                  number: 8080
+
+          - path: /cases
+            pathType: Prefix
+            backend:
+              service:
+                name: static-server
+                port:
+                  number: 80
