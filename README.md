@@ -1,207 +1,130 @@
-```markdown
 # TESSRAX-CANON-
 
-**TESSRAX** is a governance and safety research repository focused on *epistemic integrity*, *fail-closed systems*, and *human reconstructability under failure*.
-
-This repository exists to prevent:
-- Narrative maintenance masquerading as governance
-- Automation-induced atrophy of truth
-- Systems that cannot be halted, audited, or reconstructed by humans
-
-This is not a speculative or persuasive project. **It is an enforcement-first repository.**
+**Enforcement-first governance.**  
+Fail-closed systems.  
+Human reconstructability under failure.
 
 ---
 
-## Table of Contents
-- [Core Invariants](#core-invariants)
-- [Verification & Usage](#verification--usage)
-- [Operational Scope](#operational-scope)
-- [Claim Economy](#claim-economy)
-- [Repository Structure](#repository-structure)
-- [Execution Philosophy](#execution-philosophy)
-- [Authority](#authority)
-- [Repository Status](#repository-status)
-- [License](#license)
+## What this repository is
+
+TESSRAX is a governance and safety repository focused on **epistemic integrity under real failure conditions**.
+
+This is not a collection of ideas.  
+It is a collection of **mechanisms** that continue to function when systems are stressed, interrupted, or misused.
+
+If a system cannot be halted, audited, and reconstructed by a human, it is already failed.
 
 ---
 
-## Core Invariants
+## What runs here
 
-TESSRAX operates under the following non-negotiable invariants:
+This repository contains **live enforcement artifacts**, not speculative frameworks:
 
-- Truth must be reconstructable by humans using offline artifacts
-- Any system that cannot survive interruption is already failed
+- Deterministic claim validation
+- Fail-closed execution logic
+- Append-only forensic receipts
+- Diagnostics that surface failure modes
+- Infrastructure designed to stop safely (including Kubernetes enforcement paths)
+
+Where executable code, contracts, or diagnostics exist, **they override prose**.
+
+Explanation is secondary.  
+Enforcement is authoritative.
+
+---
+
+## Core invariants
+
+TESSRAX operates under non-negotiable constraints:
+
+- Truth must be reconstructable using offline artifacts
 - Silence, refusal, and HALT are valid success states
 - Governance without enforceable refusal is meaningless
-- **All non-trivial claims incur liability and must produce evidence**
+- All non-trivial claims incur liability and must produce evidence
 
 If an invariant cannot be enforced mechanically, it is not admitted.
 
 ---
 
-## Verification & Usage
+## Verification & usage
 
-The repository contains a reference implementation of the **Tessrax Engine** (v0.1.0) located in `engine/`. This engine is the executable enforcement mechanism for the invariants defined in `01_CANON`.
+The reference enforcement engine lives in `engine/`.
 
-### 1. Setup
-Ensure you have Python 3.x installed.
-```bash
-# Install dependencies (if any are listed in pyproject.toml requirements)
-pip install -r requirements.txt
+It evaluates claims against artifacts using fail-closed logic defined in canon.
 
-```
+Example execution:
 
-### 2. Running the Engine
+    python -m engine.main <claim_path> <artifact_path>
 
-The engine accepts a Claim and an Artifact, enforcing the *Fail-Closed* logic defined in `ENGINE_CONTRACT.md`.
+Expected output is a machine-readable receipt with an explicit verdict and failure surface.
 
-**Command Pattern:**
-
-```bash
-python -m engine.main <claim_path> <artifact_path>
-
-```
-
-**Example (Passing Scenario):**
-
-```bash
-python -m engine.main examples/pass.claim.json examples/pass.artifact.json
-
-```
-
-*Expected Output:* JSON receipt with `verdict: PASS`.
-
-**Example (Rejection Scenario):**
-
-```bash
-python -m engine.main examples/nerf.claim.json examples/nerf.artifact.json
-
-```
-
-*Expected Output:* JSON receipt with `verdict: NERF` and violation details.
-
-### 3. System Audit
-
-To verify the integrity of the engine and ensuring no file mutations occur during execution, run the diagnostic suite:
-
-```bash
-python -m unittest 03_DIAGNOSTICS/tests/test_validator.py
-
-```
+Diagnostics live in `03_DIAGNOSTICS/` and are designed to prove:
+- No hidden state mutation
+- No silent degradation
+- No narrative override of enforcement
 
 ---
 
-## Operational Scope
+## Repository structure
 
-This repository contains **both research artifacts and live governance mechanisms**.
+Numbering reflects **authority**, not chronology:
 
-Where a domain is canonized as closed-world, the repository does not:
+- `00_README/` — identity and entrypoints
+- `01_CANON/` — binding invariants and laws
+- `02_PROTOCOLS/` — executable governance mechanisms
+- `03_DIAGNOSTICS/` — tests, audits, receipts
+- `04_CASES/` — adversarial and applied analyses
+- `05_LOGS/` — append-only forensic records
 
-* speculate
-* persuade
-* optimize outcomes
-* explore alternatives
-
-It defines only:
-
-* admissible execution surfaces
-* governing invariants
-* executable schemas that enforce them
-
-Applied systems in this repository (including claimant-addressable liability discovery mechanisms) are governed by the same fail-closed rules as the research itself.
-
-If a mechanism cannot be made:
-
-* deterministic
-* auditable
-* haltable
-
-it is excluded rather than approximated.
+Folders outside this structure are non-authoritative unless explicitly canonized.
 
 ---
 
-## Claim Economy
-
-This repository operates under a strict **Claim Economy**:
-
-* Speech creates obligations
-* Claims must be falsifiable
-* Failed claims reduce capability
-* Unproven claims cannot be canonized
-* Evidence is mandatory for adjudication
-
-Language without liability is treated as a system failure.
-
----
-
-## Repository Structure
-
-This repository is intentionally structured and numbered.
-Numbering reflects authority, not chronology.
-
-* `00_README/` — identity, entrypoints, and framing artifacts
-* `01_CANON/` — binding invariants and laws (non-derivable)
-* `02_PROTOCOLS/` — executable governance mechanisms
-* `03_DIAGNOSTICS/` — tests, audits, schemas, and receipts that expose failure
-* `04_CASES/` — applied analyses and adversarial examples
-* `05_LOGS/` — append-only ledgers and forensic records
-
-Folders outside this structure are considered non-authoritative unless explicitly canonized.
-
----
-
-## Execution Philosophy
+## Execution philosophy
 
 This repository does not optimize for:
 
-* readability
-* persuasion
-* onboarding
-* completeness
+- Persuasion
+- Onboarding
+- Narrative clarity
+- Outcome smoothing
 
 It optimizes for:
 
-* auditability
-* reproducibility
-* failure visibility
+- Auditability
+- Determinism
+- Failure visibility
+- Human reconstruction
 
-If this repository becomes unreadable on paper, it has failed.
-If a claim cannot be proven using artifacts contained here, it is not true here.
+If this repository cannot be understood after failure, it has failed.
 
 ---
 
 ## Authority
 
-Where executable code, schemas, diagnostics, and contracts exist, they override prose.
+Where code, schemas, diagnostics, and contracts exist, **they govern**.
 
 If documentation and enforcement disagree:
-
-* enforcement governs
-* documentation must be updated or treated as invalid
-
-All enforcement logic is provided AS-IS, without warranty or implied fitness.
+- enforcement stands
+- documentation is invalid until corrected
 
 ---
 
-## Repository Status
+## Repository status
 
-This repository is **enforcement-bound**.
+As of v0.1.0:
 
-As of **v0.1.0**, all executable governance mechanisms, schemas, and enforcement semantics are considered **FROZEN**.
+- Canonical invariants are frozen
+- Enforcement semantics are locked
+- Behavioral changes require versioned proof of non-regression
 
-Behavioral changes require:
+Incremental or “helpful” modification without receipts is treated as corruption.
 
-* explicit version increments
-* updated diagnostics proving non-regression
-* contract updates where applicable
-
-Incremental or "helpful" modification without proof is treated as corruption, not progress.
-
-See `CONTRIBUTING.md` for strict adherence protocols.
+See `CONTRIBUTING.md` for strict change-control rules.
 
 ---
 
 ## License
 
-This project is licensed under the MIT License - see the `LICENSE` file for details.
-
+MIT License. See `LICENSE`.
