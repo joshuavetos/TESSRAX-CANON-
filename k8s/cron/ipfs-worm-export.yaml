@@ -1,0 +1,125 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: tessrax-ipfs-worm
+  namespace: tessrax
+  labels:
+    app: tessrax
+    canon: WORM-EXPORT
+spec:
+  schedule: "0 */6 * * *"
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 10
+  jobTemplate:
+    spec:
+      backoffLimit: 2
+      template:
+        metadata:
+          labels:
+            app: tessrax-ipfs
+        spec:
+          restartPolicy: Never
+          serviceAccountName: tessrax-sys01
+          securityContext:
+            fsGroup: 1000
+          initContainers:
+            - name: fetch-blocklogs
+              image: yourorg/tessrax-base:latest
+              command:
+                - sh
+                - -c
+                - |
+                  set -e
+
+                  redis-cli -h epistemicos-redis KEYS "blocklog:F9-C:*" \
+                    | xargs -I {} redis-cli -h epistemicos-redis GET {} \
+                    > /export/blocklogs.jsonl
+
+                  redis-cli -h epistemicos-redis KEYS "df:*" \
+                    | xargs -I {} redis-cli -h epistemicos-redis GET {} \
+                    >> /export/blocklogs.jsonl
+
+                  redis-cli -h epistemicos-redis XRANGE siem:events - + \
+                    > /export/siem.jsonl
+              volumeMounts:
+                - name: export-volume
+                  mountPath: /export
+          containers:
+            - name: ipfs-worm
+              image: ipfs/kubo:latest
+              command:
+                - sh
+                - -c
+                - |
+                  set -e
+
+                  mkdir -p /export/bundle
+                  cp /export/*.jsonl /export/bundle/
+
+                  find /export/bundle -type f -exec sha256sum {} \; \
+                    > /export/bundle/CONTENT_HASHES.txt
+
+                  cat > /export/bundle/MANIFEST.json << EOF
+                  {
+                    "timestamp": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+                    "canon": "004",
+                    "export_type": "WORM_BLOCKLOGS",
+                    "blocklog_count": "$(wc -l < /export/blocklogs.jsonl)",
+                    "siem_events": "$(wc -l < /export/siem.jsonl)",
+                    "hash_file": "CONTENT_HASHES.txt"
+                  }
+                  EOF
+
+                  CID=$(ipfs add -r -Q /export/bundle)
+
+                  ipfs name publish --key=tessrax-worm /ipfs/$CID
+
+                  RECEIPT="{\"cid\":\"$CID\",\"ipns\":\"/ipns/$(ipfs key list -l | awk '/tessrax-worm/ {print $1}')\",\"timestamp\":\"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}"
+
+                  echo "$RECEIPT" > /export/receipt.json
+
+                  redis-cli -h epistemicos-redis SET "worm:receipt:$CID" "$RECEIPT"
+              volumeMounts:
+                - name: export-volume
+                  mountPath: /export
+                - name: ipfs-repo
+                  mountPath: /data/ipfs
+              resources:
+                requests:
+                  cpu: "200m"
+                  memory: "256Mi"
+                limits:
+                  cpu: "500m"
+                  memory: "512Mi"
+          volumes:
+            - name: export-volume
+              persistentVolumeClaim:
+                claimName: tessrax-worm-export
+            - name: ipfs-repo
+              persistentVolumeClaim:
+                claimName: tessrax-ipfs-repo
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: tessrax-worm-export
+  namespace: tessrax
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: tessrax-ipfs-repo
+  namespace: tessrax
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
