@@ -1,0 +1,50 @@
+# PREREQ: create namespace first
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tessrax
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory  # PROD
+    # server: https://acme-staging-v02.api.letsencrypt.org/directory  # TESTING
+    email: admin@tessrax.com
+    privateKeySecretRef:
+      name: letsencrypt-prod-key
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: tessrax-tls
+  namespace: tessrax
+spec:
+  secretName: tessrax-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: tessrax.yourdomain.com
+  dnsNames:
+  - tessrax.yourdomain.com
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: tessrax-forensics-tls
+  namespace: tessrax
+spec:
+  secretName: tessrax-forensics-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: forensics.tessrax.com
+  dnsNames:
+  - forensics.tessrax.com
