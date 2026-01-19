@@ -1,0 +1,97 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: epistemicos-sidecar
+  labels:
+    app: canon-latch
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: canon-latch
+  template:
+    metadata:
+      labels:
+        app: canon-latch
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+        - name: wasm-validator
+          image: yourorg/epistemicos-wasm:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: REDIS_URL
+              value: "redis://127.0.0.1:6379/0"
+            - name: CANON_PATH
+              value: "/canon"
+          volumeMounts:
+            - name: canon-volume
+              mountPath: /canon
+              readOnly: true
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 1000
+
+        - name: redis-latch
+          image: redis:7-alpine
+          imagePullPolicy: IfNotPresent
+          command:
+            - sh
+            - -c
+            - |
+              redis-server \
+                --appendonly yes \
+                --appendfsync everysec \
+                --save "" \
+                --protected-mode yes
+          ports:
+            - containerPort: 6379
+              name: redis
+          volumeMounts:
+            - name: redis-data
+              mountPath: /data
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsNonRoot: true
+            runAsUser: 999
+
+      volumes:
+        - name: canon-volume
+          configMap:
+            name: tessrax-canon
+            optional: false
+        - name: redis-data
+          emptyDir: {}
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tessrax-canon
+  labels:
+    app: canon-latch
+data:
+  README: |
+    This ConfigMap is intentionally populated at deploy time.
+    Use:
+      kubectl create configmap tessrax-canon \
+        --from-file=01_CANON/ \
+        --dry-run=client -o yaml | kubectl apply -f -
+    Contents are mounted read-only at /canon and treated as immutable law.
