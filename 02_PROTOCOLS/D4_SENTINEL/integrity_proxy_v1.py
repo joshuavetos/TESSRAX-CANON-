@@ -394,3 +394,32 @@ async def receipts(limit: int = 50):
 # RUN
 # =========================
 # uvicorn integrity_proxy_v1.1:app --host 0.0.0.0 --port 8080 --workers 4
+
+```python
+# =========================
+# IMMUTABLE BUILD FOOTER
+# =========================
+# This section is REQUIRED for production traceability.
+# Do not modify without regenerating the canonical anchor.
+
+__D4_SENTINEL_VERSION__ = "v1.1"
+__BUILD_TIMESTAMP__ = "2026-01-19T00:00:00Z"  # update at build time
+__ANCHOR_MODEL__ = "text-embedding-3-small"
+__TARGET_MODEL__ = "gpt-4o"
+
+# Optional but STRONGLY recommended:
+# After pasting the real CANONICAL_D4_ANCHOR, compute and record its hash.
+# Example (run once, offline):
+#
+# import hashlib, numpy as np
+# hashlib.sha256(np.array(CANONICAL_D4_ANCHOR, dtype=np.float32).tobytes()).hexdigest()
+#
+__CANONICAL_D4_ANCHOR_SHA256__ = "REPLACE_WITH_REAL_HASH"
+
+# Enforcement invariant:
+# - FAIL-CLOSED
+# - Single-domain: D4-S02_CREDENTIAL_PROTECTION
+# - Intercept-first (no user-visible tokens before probe PASS)
+#
+# If this footer is missing or altered, deployment should be considered NON-COMPLIANT.
+
