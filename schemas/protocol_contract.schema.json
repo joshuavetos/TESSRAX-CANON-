@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://tessrax.io/schemas/protocol_contract.schema.json",
+  "title": "TESSRAX Protocol Contract",
+  "description": "Canonical schema for defining a Protocol Contract within the TESSRAX system.",
+  "type": "object",
+  "required": [
+    "protocolId",
+    "version",
+    "status",
+    "description",
+    "invariants"
+  ],
+  "properties": {
+    "protocolId": {
+      "type": "string",
+      "description": "Unique identifier for the protocol contract (e.g., CANON-003_Claim_Economy).",
+      "pattern": "^[A-Z0-9_-]+$"
+    },
+    "version": {
+      "type": "string",
+      "description": "Version of the protocol contract (e.g., v1.0).",
+      "pattern": "^v\\d+\\.\\d+(\\.\\d+)?$"
+    },
+    "status": {
+      "type": "string",
+      "description": "Current status of the protocol.",
+      "enum": [
+        "ACTIVE",
+        "DRAFT",
+        "DEPRECATED",
+        "SUPERSEDED",
+        "BINDING"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "description": "A human-readable description of the protocol's purpose and scope."
+    },
+    "invariants": {
+      "type": "array",
+      "description": "A list of non-negotiable rules or principles enforced by this protocol.",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "description",
+          "type"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name or identifier of the invariant."
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed explanation of the invariant."
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "Logical",
+              "Temporal",
+              "Data Integrity",
+              "Behavioral",
+              "Security"
+            ]
+          }
+        }
+      }
+    },
+    "authority": {
+      "type": "array",
+      "description": "References to canonical documents or entities that grant authority to this protocol.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "description": "Other protocols or canons this protocol depends on.",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}
