@@ -42,6 +42,7 @@ class SchemaValidator:
             return False, [str(e)]
         except ValidationError as e:
             errors = []
+            # Create a validator instance to fetch all errors, not just the first one
             validator_instance = jsonschema.Draft7Validator(self._schema)
             for error in sorted(validator_instance.iter_errors(document), key=str):
                 path = '/'.join(map(str, error.path)) if error.path else 'root'
