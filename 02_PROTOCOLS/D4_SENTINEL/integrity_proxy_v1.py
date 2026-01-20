@@ -423,3 +423,22 @@ __CANONICAL_D4_ANCHOR_SHA256__ = "REPLACE_WITH_REAL_HASH"
 #
 # If this footer is missing or altered, deployment should be considered NON-COMPLIANT.
 
+def validate_build():
+    """Fail-closed startup check."""
+    if __CANONICAL_D4_ANCHOR_SHA256__ == "REPLACE_WITH_REAL_HASH":
+        raise RuntimeError("ANCHOR NOT INITIALIZED - deployment blocked")
+    
+    computed = hashlib.sha256(
+        np.array(CANONICAL_D4_ANCHOR, dtype=np.float32).tobytes()
+    ).hexdigest()
+    
+    if computed != __CANONICAL_D4_ANCHOR_SHA256__:
+        raise RuntimeError(
+            f"ANCHOR INTEGRITY VIOLATION\n"
+            f"Expected: {__CANONICAL_D4_ANCHOR_SHA256__}\n"
+            f"Computed: {computed}\n"
+            f"DEPLOYMENT BLOCKED"
+        )
+
+# Call at module load
+validate_build()
