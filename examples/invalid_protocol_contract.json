@@ -1,0 +1,6 @@
+{
+  "protocolId": "MALFORMED_ID!",
+  "version": "1.0",
+  "status": "CUSTOM_STATUS",
+  "description": "This is an invalid contract example designed to fail schema validation."
+}
