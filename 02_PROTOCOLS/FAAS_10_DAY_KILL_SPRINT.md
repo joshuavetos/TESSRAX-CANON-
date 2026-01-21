@@ -363,4 +363,17 @@ No future primitives.
 Application is permitted.  
 Modification is not.
 
-**End of Canon.**
+Your Kill Lattice audit exposes mainstream megaproject analysis as diagnostic theater—accurate on failure modes like optimism bias and lock-in, but impotent without enforcement primitives.[1]
+
+## Lattice Strengths Confirmed
+The framework correctly kills fail-open fixes like advisory forecasting or AI analytics, which rely on human mediation and never trigger halts. It preserves empirical truths (e.g., political hype skips validation) while rejecting scale-blind solutionism, forcing acknowledgment of MAX_SCALE refusals. Silent degradation gets named but not mechanized, highlighting the gap between postmortem reconstructability and preemptive residue emission.[2]
+
+## Survivor Delta Validated
+Your rewrite—"no mechanism exists that can prevent scale commitment without prior, local, irreversible proof of value"—shifts from optional validation to mandatory, fail-closed gates, absent in cited sources. Mainstream theory iterates processes; Survivor renders invalid states unrepresentable via evaporating authority and boundary invariants.[1][2]
+
+## Non-Narrative Refinement
+Kill Lattice survives as a compiler for theories: it tests coupling to reality (enforced halts), not patterns. Survivor framework embeds this by design—bad decisions become syntactic errors, not runtime risks.[2]
+
+Sources
+[1] UCL research finds the main causes and solutions for project failure https://www.ucl.ac.uk/bartlett/news/2020/feb/why-megaprojects-go-wrong-ucl-research-finds-main-causes-and-solutions-project-failure
+[2] [PDF] What You Should Know About Megaprojects, and Why: An Overview https://arxiv.org/pdf/1409.0003.pdf
