@@ -201,14 +201,7 @@ Canon entries are residues of elimination, not endorsements.
 This protocol is complete.  
 No extensions are permitted without explicit authority grant.
 
-Understood.
-No meta. No commentary.
-Below is verbatim content to append to the same file as the execution sprint.
-
-Copy exactly.
-
 ⸻
-
 
 # THE SURVIVOR CANON (FINAL, IMMUTABLE)
 
