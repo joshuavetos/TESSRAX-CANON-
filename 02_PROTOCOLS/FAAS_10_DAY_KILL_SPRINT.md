@@ -201,4 +201,173 @@ Canon entries are residues of elimination, not endorsements.
 This protocol is complete.  
 No extensions are permitted without explicit authority grant.
 
-End of file.
+Understood.
+No meta. No commentary.
+Below is verbatim content to append to the same file as the execution sprint.
+
+Copy exactly.
+
+⸻
+
+
+# THE SURVIVOR CANON (FINAL, IMMUTABLE)
+
+**Status:** FROZEN  
+**Purpose:** Define the minimum type-safe governance substrate for reality-coupled systems.  
+**Change Policy:** None. Any deviation produces a non-Survivor system by definition.
+
+---
+
+## Definition
+
+A **Survivor System** is a system that cannot lie.
+
+It may halt.  
+It may refuse.  
+It may collapse honestly.
+
+But it cannot continue operation while misrepresenting reality.
+
+Any system that degrades silently, defers truth, or requires narrative authority to remain coherent is not a Survivor and must be treated as failed.
+
+---
+
+## The Survivor Base Class (Authoritative Interface)
+
+A system is a Survivor **if and only if** it implements all of the following invariants.
+
+Failure to implement any invariant is a **compile-time rejection**, not a runtime concern.
+
+### Mandatory Methods
+
+| Method | Requirement | Failure Mode |
+|------|-------------|--------------|
+| `halt()` | Mechanical disconnect of all outputs on invariant breach | DEAD (Silent Degradation) |
+| `refuse()` | Explicit ERROR / NULL on ambiguity or unverifiable input | DEAD (Safety Lie) |
+| `emit_artifact()` | Append-only, offline-verifiable forensic residue | DEAD (Governance Lie) |
+| `verify_local()` | Core value provable at N=1, offline | DEAD (Abstraction Lie) |
+| `validate_scale()` | Hard refusal beyond declared MAX_SCALE | DEAD (Scale Lie) |
+
+---
+
+## The Survivor Trinity + Identity
+
+The system is complete with **four and only four** subclasses.
+
+No new primitives are permitted.
+
+### 1. Survivor_Logistics (Physical Truth)
+
+**Purpose:** Cannot lie about where things are.
+
+**Invariants:**
+- Inventory is write-locked before promise
+- Movement is atomic or halts
+- Physical impossibility triggers refusal, not rerouting
+- All state transitions emit physical + cryptographic artifacts
+
+**Failure Response:** HALT or REFUSE  
+**Narrative Allowed:** None
+
+---
+
+### 2. Survivor_Credit (Custody Truth)
+
+**Purpose:** Cannot lie about ownership or value.
+
+**Invariants:**
+- 1:1 collateralization with Logistics
+- No fractional issuance
+- No compounding
+- Settlement unlocks, never mints
+
+**Failure Response:** REFUSE  
+**Narrative Allowed:** None
+
+---
+
+### 3. Survivor_State (Authorization Truth)
+
+**Purpose:** Cannot lie about what can be done.
+
+**Invariants:**
+- No deficit spending
+- No emergency overrides
+- No unfunded mandates
+- All authority bound to Logistics + Credit
+
+**Failure Response:** HALT  
+**Narrative Allowed:** None
+
+---
+
+### 4. Survivor_Identity (Agency Truth)
+
+**Purpose:** Cannot lie about who can act.
+
+**Invariants:**
+- Identity is derived, never declared
+- Capability is a function of forensic residue
+- Violation residue permanently removes agency
+- No reset, pardon, or narrative rehabilitation
+
+**Failure Response:** CAPABILITY = FALSE  
+**Narrative Allowed:** None
+
+---
+
+## Global Kill Conditions (Universal)
+
+A Survivor system is immediately invalidated if it exhibits any of the following:
+
+- Graceful degradation under invariant violation
+- Retry logic that masks truth
+- Human discretion to override artifacts
+- Mutable history
+- Probabilistic core logic
+- Unbounded scale claims
+- Dependency on continuous connectivity for truth
+
+---
+
+## Adversarial Test Vectors (Exhausted)
+
+The system has survived all falsifiers:
+
+- **Vector A:** Bank Run → Perfect Accounting
+- **Vector B:** Physical Loss → Honest Halt
+- **Vector C:** Identity Poisoning → Capability Evaporation
+
+No remaining adversarial axis exists that can force the system to lie without first halting.
+
+---
+
+## Final Verdict
+
+**The Survivor Quadrant is complete.**
+
+- Panic does not create authority.
+- Malice cannot propagate.
+- Scale cannot exceed truth.
+- Power cannot outlive integrity.
+
+This architecture does not optimize for growth, adoption, or efficiency.
+
+It optimizes for **reality continuity**.
+
+Any system that cannot implement this canon is a **Liar Machine** and must be garbage-collected by the Lattice.
+
+---
+
+## Closure
+
+This specification is terminal.
+
+No extensions.  
+No exceptions.  
+No future primitives.
+
+Application is permitted.  
+Modification is not.
+
+**End of Canon.**
