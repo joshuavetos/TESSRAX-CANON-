@@ -141,3 +141,194 @@ without an explicit version increment (v1.4+) and full red-team pass.
 Silence is a valid state.
 
 ⸻
+A. Purpose of This Addendum
+
+VecScript v1.3 guarantees truth inside a stream.
+This addendum guarantees that truth cannot be bypassed once the stream touches the world.
+
+This document defines the minimum Physical Binding Layer (PBL) required to make VecScript enforcement non-optional.
+
+⸻
+
+B. PBL-REF-01 — Identity Gate (Session Chokepoint)
+
+B.1 Core Rule
+
+No actor (human, model, agent, service) may interact with protected resources without a Capability Token (CT).
+
+A CT is issued only if a valid VecScript v1.3 receipt is presented and verified.
+
+If VecScript refuses, the world receives nothing.
+
+⸻
+
+B.2 Placement: The Session Airlock
+
+The chokepoint is the session issuance / token refresh path.
+
+All downstream access (APIs, databases, actuators, credentials) depends on a short-lived CT generated at this gate.
+
+There is no “manual override” path.
+
+⸻
+
+B.3 CT Issuance Conditions (ALL required)
+
+CT_ISSUE is allowed iff:
+	1.	Integrity
+      •   VecScript checksum valid
+      •   Canonical ordering respected
+      •   No duplicate keys
+	2.	Sequence
+      •   Nonce monotonic
+      •   No replay
+	3.	Authority
+      •   receipt.cap ≥ requested resource scope
+	4.	State
+      •   receipt.prev == Enforcer.current_state
+	5.	Freshness
+      •   receipt.chain_head within MAS window
+
+Failure of any condition → CT NOT ISSUED.
+
+⸻
+
+B.4 PBL Receipt Object (Externalized Proof)
+
+A receipt extends VecScript into the physical world.
+
+Example structure:
+
+{
+“vecscript_packet”: “[V:SYS:15:00E8] cap=ADMIN prev=IDLE next=SESSION_ACTIVE”,
+“signature”: “ED25519_SIGNATURE”,
+“anchor”: {
+“head_hash”: “BLAKE3_CHAIN_HEAD”,
+“witness_ids”: [“W1”,“W2”],
+“timestamp”: “ISO_8601”
+}
+}
+
+No receipt → no CT
+No CT → no access
+
+⸻
+
+B.5 Hardware Binding (Non-Optional)
+
+The signing key for CT issuance is stored in a hardware-protected enclave (TPM / HSM).
+
+The enclave firmware enforces:
+   •   VecScript parse
+   •   invariant validation
+   •   state transition checks
+
+If invariants fail, the hardware physically refuses to sign.
+
+Software cannot override this.
+
+⸻
+
+C. PBL-REF-02 — Witness Quorum (Hostile Operator Resistance)
+
+C.1 Threat Addressed
+
+A powerful operator attempts to:
+   •   run a shadow enforcer
+   •   mint valid-looking tokens
+   •   bypass refusal privately
+
+⸻
+
+C.2 Quorum Rule
+
+A CT is invalid unless its receipt anchor is verifiable by a Witness Quorum.
+
+Requirement:
+   •   M-of-N independent, append-only witness logs (e.g. 2-of-3)
+
+Resource servers MUST verify quorum before honoring any CT.
+
+Fail-open is forbidden.
+
+⸻
+
+C.3 Verification Loop
+	1.	CT presented to resource server
+	2.	Resource server extracts anchor.head_hash
+	3.	Queries declared witnesses
+	4.	Decision:
+      •   Quorum met → proceed
+      •   Quorum missing → reject + scar
+
+⸻
+
+C.4 Scar Definitions (Externally Verifiable Failure)
+
+SCAR_FORK
+   •   Two valid receipts share a nonce
+   •   Evidence: divergent witness heads
+
+SCAR_BYPASS
+   •   Resource access observed without quorum-verified CT
+   •   Evidence: audit trail mismatch
+
+SCAR_STALE
+   •   Anchor timestamp exceeds MAS
+   •   Evidence: witness time delta
+
+Scars are permanent facts, not logs.
+
+⸻
+
+C.5 Operational Invariants
+
+INV-W1 — Witness Independence
+Witnesses must exist in separate failure domains.
+
+INV-W2 — Append-Only
+Witness logs must provide Merkle consistency proofs.
+
+INV-W3 — Mandatory Verification
+Resource servers may not bypass witness checks under load or timeout.
+
+⸻
+
+D. What This Addendum Changes
+
+Before:
+   •   VecScript refusal = internal correctness
+
+After:
+   •   VecScript refusal = loss of identity, access, and capability
+
+Power may ignore software.
+Power cannot fake time, keys, or witnesses without leaving scars.
+
+⸻
+
+E. Boundary Declaration
+
+This addendum completes Placement.
+
+Beyond this point, further work is not architectural — it is:
+   •   deployment
+   •   economics
+   •   jurisdiction
+
+Those are outside the scope of VecScript itself.
+
+⸻
+
+F. Lock Statement
+
+This addendum is write-locked.
+
+No modification is permitted without:
+   •   new version number
+   •   explicit threat expansion
+   •   full red-team pass
+
+Silence after refusal is intentional.
+
+End of addendum.
