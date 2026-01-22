@@ -1,18 +1,44 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://tessrax.io/schemas/claim_and_artifact.schema.json",
-  "title": "Tessrax Claim + Artifact Schema",
+  "title": "Tessrax Claim + Artifact Schema v1.3",
   "type": "object",
   "required": ["claim_data", "artifact"],
   "properties": {
     "claim_data": {
       "type": "object",
-      "required": ["custodian_class"],
+      "description": "Enforced VecScript v1.3 Governance Plane",
+      "required": [
+        "custodian_class", 
+        "cap", 
+        "nonce", 
+        "prev", 
+        "next"
+      ],
       "properties": {
         "custodian_class": {
           "type": "string",
-          "enum": ["COURT", "TREASURER", "FEDERAL_LIQUIDATOR"],
-          "description": "Custodian classification determining required MVE fields"
+          "enum": ["COURT", "TREASURER", "FEDERAL_LIQUIDATOR"]
+        },
+        "cap": {
+          "type": "string",
+          "enum": ["ROOT", "ADMIN", "USER", "GUEST"],
+          "description": "VecScript v1.2 Authority Level"
+        },
+        "nonce": {
+          "type": "string",
+          "pattern": "^[0-9a-fA-F]{4}$",
+          "description": "Hexadecimal Monotonic Transaction ID"
+        },
+        "prev": {
+          "type": "string",
+          "pattern": "^[A-Z_]+$",
+          "description": "Required Prior FSM State"
+        },
+        "next": {
+          "type": "string",
+          "pattern": "^[A-Z_]+$",
+          "description": "Target Future FSM State"
         }
       },
       "additionalProperties": true
@@ -21,26 +47,14 @@
       "type": "object",
       "required": ["retrieval_timestamp", "metadata", "claimant_name"],
       "properties": {
-        "claimant_name": {
-          "type": "string",
-          "minLength": 1
-        },
-        "case_number": {
-          "type": "string"
-        },
-        "jurisdiction_code": {
-          "type": "string"
-        },
-        "failed_institution_name": {
-          "type": "string"
-        },
-        "dormancy_context": {
-          "type": "string"
-        },
+        "claimant_name": { "type": "string", "minLength": 1 },
+        "case_number": { "type": "string" },
+        "jurisdiction_code": { "type": "string" },
+        "failed_institution_name": { "type": "string" },
+        "dormancy_context": { "type": "string" },
         "retrieval_timestamp": {
-          "type": "string",
-          "format": "date-time",
-          "description": "ISO-8601 UTC timestamp"
+          "type": "string", 
+          "format": "date-time"
         },
         "metadata": {
           "type": "object",
