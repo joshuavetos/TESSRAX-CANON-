@@ -1,0 +1,150 @@
+SOVEREIGN INDIVIDUAL STATE MACHINE (SISM)
+OPERATOR FLOW — EXECUTION-LEVEL VIEW
+VERSION: 1.0
+DATE: 2026-01-22
+STATUS: CANON-ALIGNED / OPERATIONAL
+
+────────────────────────────────────────────────────────────
+LEGEND
+────────────────────────────────────────────────────────────
+→  Data request
+⇒  Execution request
+✕  Halt / Nullification
+✔  Verified execution
+║  Physical / hardware boundary
+▓  Public broadcast (PTL)
+────────────────────────────────────────────────────────────
+
+────────────────────────────────────────────────────────────
+GLOBAL FLOW
+────────────────────────────────────────────────────────────
+
+INSTITUTION
+(Bank / Agency / Employer / Court)
+        │
+        │  → CLAIM REQUEST (S_c)
+        ▼
+════════════════════════════════════════════════════════════
+║  INDIVIDUAL SHIELD KERNEL (MVH-01)                         ║
+║  — sole ingress / egress                                  ║
+════════════════════════════════════════════════════════════
+        │
+        │  → VECTOR COLLECTION
+        │     R = Reality Telemetry
+        │     A = Authority + AAS
+        │     C = Concurrence
+        │
+        ▼
+┌──────────────────────────────────────────────────────────┐
+│  VERIFICATION CORE                                       │
+│                                                          │
+│  1. Receipt Reconstruction                               │
+│  2. MAS Freshness Check                                  │
+│  3. Invariant Enforcement                                │
+│  4. Aesthetic Filter (INV-BV-0)                           │
+│  5. Agency Authority Score (AAS) Gate                     │
+└──────────────────────────────────────────────────────────┘
+        │
+        ├───────────────────────────────┐
+        │                               │
+        ▼                               ▼
+✔ EXECUTION TOKEN (E_t)           ✕ HALT SIGNAL
+  ISSUED                              EMITTED
+        │                               │
+        │                               │
+        ▼                               ▼
+INSTITUTION                       INSTITUTION
+(Mutation Allowed)                (Standing Denied)
+
+────────────────────────────────────────────────────────────
+DETAILED HALT PATH
+────────────────────────────────────────────────────────────
+
+HALT SIGNAL →
+    • No ledger mutation
+    • No payment
+    • No foreclosure
+    • No billing
+    • No enforcement
+
+HALT triggers:
+    • Missing receipt
+    • Stale R-vector
+    • Conflicting signals
+    • Illegitimate authority
+    • Low AAS
+    • Appearance-based gating
+    • Probabilistic claims
+
+HALT is terminal unless reality changes.
+
+────────────────────────────────────────────────────────────
+PUBLIC TRUTH LEDGER (PTL) INTERACTION
+────────────────────────────────────────────────────────────
+
+During verification:
+
+SHIELD ──→ QUERY ──→ PTL
+                    │
+                    │  ▓ AAS SCORE
+                    │  ▓ STALENESS METRICS
+                    │  ▓ NULLIFIED CLAIM COUNT
+                    ▼
+SHIELD ←── RESPONSE ←─ PTL
+
+If AAS < threshold:
+    → GLOBAL HALT propagated to all Shields
+    → Institution loses standing system-wide
+
+────────────────────────────────────────────────────────────
+AESTHETIC ANONYMITY PATH
+────────────────────────────────────────────────────────────
+
+If Institution requests:
+    • Photo
+    • Video
+    • In-person presence
+    • Facial stream
+    • “Culture fit” proxy
+
+AND task is non-physical:
+
+SHIELD →
+    ✕ BLOCK REQUEST
+    ✕ EMIT SCAR
+    ✕ FLAG INV-BV-0
+    ✕ AAS RISK APPLIED
+
+────────────────────────────────────────────────────────────
+OVERRIDE PATH (A3 — SURVIVAL ONLY)
+────────────────────────────────────────────────────────────
+
+Conditions:
+    • Human harm imminent
+    • Agency-side failure
+    • Explicit time bounds
+
+Result:
+    ✔ TEMPORARY EXECUTION
+    ▓ FORENSIC FLAG
+    ▓ AUTOMATIC AAS PENALTY
+    ▓ NO RETROACTIVE LIABILITY
+
+Repeated overrides → Authority collapse
+
+────────────────────────────────────────────────────────────
+FINAL OPERATOR TRUTH
+────────────────────────────────────────────────────────────
+
+The system does not negotiate.
+The system does not infer.
+The system does not predict.
+
+It verifies.
+It halts.
+It executes.
+
+Silence is stability.
+HALT is success.
+
+END OF OPERATOR DIAGRAM
