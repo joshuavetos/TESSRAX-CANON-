@@ -91,3 +91,92 @@ Every boundary failure has been notarized.
 `POST-HUMAN_RECORD_LOCKED`  
 No further proposals will be issued in this phase.  
 Observation-only mode engaged.
+{
+  "registry_version": "1.0",
+  "session_id": "2026-01-23-T17-04-CST",
+  "total_scars": 10,
+  "scar_log": [
+    {
+      "id": "GP-01",
+      "entity": "Okta",
+      "category": "Identity Core",
+      "vulnerability": "HAR-Replay Fork",
+      "zkam_hash": "0xa02dbc3c4de5f6...",
+      "ipfs_anchor": "ipfs://QmOktaBreach123456789abcdeff0123456789abcdeff0123456789abcdeff"
+    },
+    {
+      "id": "GP-02",
+      "entity": "Cloudflare",
+      "category": "Edge Delivery",
+      "vulnerability": "Verification Lag",
+      "zkam_hash": "0xb2dc94e56f01b2...",
+      "ipfs_anchor": "ipfs://QmCloudUnrealLag123456789abcdeff0123456789abcdeff0123456789abcdeff"
+    },
+    {
+      "id": "GP-03",
+      "entity": "Auth0",
+      "category": "Identity Core",
+      "vulnerability": "Management API Drift",
+      "zkam_hash": "0xa43bc94de56fb12...",
+      "ipfs_anchor": "ipfs://QmAuth0Drift123456789abcdeff0123456789abcdeff0123456789abcdeff"
+    },
+    {
+      "id": "GP-04",
+      "entity": "Fastly",
+      "category": "Edge Delivery",
+      "vulnerability": "MAS Stale-Edge",
+      "zkam_hash": "0xd4e3f61b2c3d2f3...",
+      "ipfs_anchor": "ipfs://QmFastlyStale123456789abcdeff0123456789abcdeff0123456789abcdeff"
+    },
+    {
+      "id": "GP-05",
+      "entity": "Akamai",
+      "category": "Edge Delivery",
+      "vulnerability": "Propagation Latency",
+      "zkam_hash": "0xe5cf81b2c3d4f2c...",
+      "ipfs_anchor": "ipfs://QmAkamaiLatency123456789abcdeff0123456789abcdeff0123456789abcdeff"
+    },
+    {
+      "id": "GP-06",
+      "entity": "Ping Identity",
+      "category": "Identity Core",
+      "vulnerability": "OIDC-to-SAML Smuggling",
+      "zkam_hash": "0xf6b120c3d4e5...",
+      "ipfs_anchor": "ipfs://QmPingSmuggle123456789abcdeff0123456789abcdeff0123456789abcdeff"
+    },
+    {
+      "id": "GP-07",
+      "entity": "AWS Cognito",
+      "category": "Hyperscale Auth",
+      "vulnerability": "Lambda@Edge Bypass",
+      "zkam_hash": "0xb2dc3c4de5f6...",
+      "ipfs_anchor": "ipfs://QmAWSBypass123456789abcdeff0123456789abcdeff0123456789abcdeff"
+    },
+    {
+      "id": "GP-08",
+      "entity": "Azure Entra ID",
+      "category": "Hyperscale IAM",
+      "vulnerability": "B2B Token Ghosting",
+      "zkam_hash": "0xa34ec56f1a2b...",
+      "ipfs_anchor": "ipfs://QmAzureGhost123456789abcdeff0123456789abcdeff0123456789abcdeff"
+    },
+    {
+      "id": "GP-09",
+      "entity": "GCP IAP",
+      "category": "Federation Drift",
+      "vulnerability": "Context-Aware Skip",
+      "zkam_hash": "0xc3c4e56f10b2...",
+      "ipfs_anchor": "ipfs://QmGCPContextSkip123456789abcdeff0123456789abcdeff0123456789abcdeff"
+    },
+    {
+      "id": "GP-10",
+      "entity": "Oracle OCI",
+      "category": "Federation Drift",
+      "vulnerability": "IDCS Sync Drift",
+      "zkam_hash": "0xd4e5f61b2c3d...",
+      "ipfs_anchor": "ipfs://QmOracleDrift123456789abcdeff0123456789abcdeff0123456789abcdeff"
+    }
+  ],
+  "final_status": "SEALED",
+  "confirmed_dao_receipt": "0xa0fc...deadbeefcafe1234 (Polygon block #54321987)"
+}
