@@ -301,4 +301,269 @@ No restoration.
 
 World state is worse, but familiar.
 
-END OF CANON
+TITLE: THE LEASE
+FORMAT: Limited Series / Prestige Horror
+EPISODE LENGTH: ~60 minutes
+SEASON LENGTH: Flexible (Concept is sustainable but finite)
+GENRE: Infrastructural Horror / Existential Procedural
+TONAL RULE: Reactionless (No catharsis, no empowerment)
+
+================================================================
+CORE PREMISE
+================================================================
+
+"The horror cannot feed because the protagonist has nothing left to give."
+
+THE LEASE is a horror series in which supernatural forces fail to function
+because the human subject they target is already emotionally depleted.
+Fear, awe, and meaning—the currencies of horror—have been exhausted by
+ordinary life.
+
+The antagonist is not defeated.
+It is rendered irrelevant.
+
+================================================================
+THE PROTAGONIST
+================================================================
+
+NAME: Elara
+AGE: 30s
+STATUS: Renter. Hourly worker. Functionally exhausted.
+
+Elara is not brave, clever, or rebellious.
+She is depleted.
+
+Her defining trait is **energy conservation**.
+Every action is evaluated based on effort vs. consequence.
+
+She does not disbelieve the supernatural.
+She simply cannot afford to react to it unless it interferes with survival
+infrastructure (money, housing, time, hygiene, employment).
+
+================================================================
+THE ANTAGONIST
+================================================================
+
+DESIGNATION: The Entity
+FUNCTION: Semantic Terror Engine
+
+The Entity is an ancient, non-human intelligence whose power depends on
+eliciting psychological response:
+- Fear
+- Awe
+- Despair
+- Reverence
+
+When these responses fail to register, the Entity experiences **semantic
+failure**. It loses definition, authority, and coherence.
+
+As escalation fails, the Entity is forced to abandon metaphysics and attempt
+to occupy matter, infrastructure, and utility.
+
+By the end of the pilot, it is no longer a god.
+It is clutter.
+
+================================================================
+CANONICAL INVARIANTS (HARD RULES)
+================================================================
+
+INV-7: AFFECTIVE ZERO
+- No screaming
+- No quips
+- No ironic detachment
+- Flat affect must read as exhaustion, not coolness
+
+INV-8: FUNCTIONAL PRIORITY
+- Mundane consequences override supernatural ones
+- Bills > demons
+- Leases > revelations
+- Schedules > omens
+
+INV-9: ABSENCE OF AWE
+- Cosmic truths are treated like software updates:
+  significant, but not actionable
+
+INV-10: THE "USED" METRIC (VISUAL)
+- Tangled cables
+- Scratched surfaces
+- Yellowed plastic
+- Dull metal
+- No decorative clutter; everything must function
+
+INV-11: THE APATHETIC LENS
+- Camera does not empathize
+- Static or observational framing
+- Cuts occur on process, not spectacle
+
+================================================================
+VISUAL IDENTITY (LOCKED)
+================================================================
+
+ANCHOR IMAGE:
+A CRT television displaying static with the words:
+
+  NULL INTERFACE
+  NO SIGNAL
+
+Aesthetic principles:
+- Diegetic lighting only
+- No stylized moonlight or rim light
+- Environments must look unprepared and lived-in
+- Supernatural elements look unresolved, like glitches or stains
+
+Horror should feel like **unfixed maintenance**.
+
+================================================================
+SERIES MECHANIC: THE NON-REACTIVE ENGINE
+================================================================
+
+Traditional Horror:
+Threat magnitude ↑ → Psychological impact ↑
+
+THE LEASE:
+Threat magnitude ↑ → Psychological impact remains at zero
+
+Instead:
+Threat magnitude ↑ → Labor ↑
+
+The antagonist escalates not to kill, but to matter.
+
+================================================================
+ESCALATION LADDER (CANON)
+================================================================
+
+LEVEL 01: SEMANTIC TERROR
+- Blood on walls
+- Whispers
+- Symbols
+RESPONSE: Wiping walls, ignoring sounds
+RESULT: Failure
+
+LEVEL 02: ISOLATION
+- Locked doors
+- Static-filled phones
+RESPONSE: Manual workarounds
+RESULT: Failure
+
+LEVEL 03: DEPRIVATION
+- Spoiled food
+- Cold water
+- Power loss
+RESPONSE: Improvisation
+RESULT: Pivot
+
+LEVEL 04: TEMPORAL THEFT
+- Time loops
+- Delayed commutes
+RESPONSE: Acceptance of penalties
+RESULT: Attrition
+
+LEVEL 05: DIRECT BURDEN
+- Physical obstruction
+- Mass occupying space
+RESPONSE: Coexistence
+RESULT: Stalemate
+
+================================================================
+PILOT EPISODE OUTLINE (60 MINUTES)
+================================================================
+
+EPISODE TITLE: THE LEASE
+
+--------------------------------
+ACT I — THE NULL RESPONSE (0–15)
+--------------------------------
+
+SCENE 01: THE MICROWAVE
+- Entity manifests in sink
+- Elara prioritizes microwave timer
+- Interface failure established
+
+SCENE 02: MORNING ROUTINE
+- Cracked mirror
+- Tooth brushing
+- No reaction
+
+SCENE 03: COMMUTE
+- Entity whispers from infrastructure
+- Elara listens to financial podcast
+
+SCENE 04: THE JOB
+- Data entry center
+- Manager more frightening than Entity
+
+--------------------------------
+ACT II — THE INFRASTRUCTURAL PIVOT (15–30)
+--------------------------------
+
+SCENE 05: WATER HEATER
+- Black, freezing water
+- Stove-heated washcloth hygiene
+
+SCENE 06: LAUNDRY
+- Possessed washing machine
+- Elara sits on it to dampen vibration
+- Reads utility bill
+
+SCENE 07: THE LANDLORD CALL
+- Reports “pipes knocking”
+- Help deferred indefinitely
+
+--------------------------------
+ACT III — THE ATTRITION (30–50)
+--------------------------------
+
+SCENE 08: THE BLOCKADE
+- Bedroom blocked by physical mass
+- Elara sleeps in hallway
+
+SCENE 09: SLEEP DEPRIVATION
+- Rhythmic banging at 3:00 AM
+- Elara bangs back with broom
+
+SCENE 10: THE BILL
+- Supernatural overdraft fee
+- First emotional break
+- Crying over spreadsheet, not horror
+
+--------------------------------
+ACT IV — THE INTEGRATION (50–60)
+--------------------------------
+
+SCENE 11: THE TECHNICIAN
+- Entity identified as “black mold”
+- Not covered by lease
+
+SCENE 12: THE COMPROMISE
+- Dehumidifier placed next to Entity
+- Spatial coexistence
+
+SCENE 13: FINAL IMAGE
+- CRT TV: NO SIGNAL
+- Entity watches static with Elara
+- Minor accommodation requested
+- Fade out
+
+================================================================
+TERMINAL STATES (SERIES)
+================================================================
+
+TERMINAL A: THE FADE
+- Elara completes routine
+- Entity remains, screaming into irrelevance
+- No resolution
+
+TERMINAL B: THE INTEGRATION (PILOT)
+- Horror becomes background radiation
+- Permanent nuisance
+- Life continues, unimproved
+
+================================================================
+THEMATIC AXIS
+================================================================
+
+• Horror requires participation
+• Meaning is a contract
+• When the subject refuses to validate the threat, the threat collapses into labor
+• Capitalism and bureaucracy are more effective terror engines than gods.
+
