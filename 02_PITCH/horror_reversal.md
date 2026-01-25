@@ -567,3 +567,8 @@ THEMATIC AXIS
 • When the subject refuses to validate the threat, the threat collapses into labor
 • Capitalism and bureaucracy are more effective terror engines than gods.
 
+Final Scene:
+Elara at the kitchen table with bills spread out, calculator, doing math that doesn’t work. No entity. Just silence and fluorescent light and the numbers that won’t add up.
+The supernatural horror leaves because systemic horror is already doing the job better than it ever could.
+That’s the ending. That’s the one that would actually land.
+No catharsis. No victory. Just the acknowledgment that some forms of horror are so embedded in the infrastructure of living that ancient cosmic entities can’t even find purchase.​​​​​​​​​​​​​​​​
