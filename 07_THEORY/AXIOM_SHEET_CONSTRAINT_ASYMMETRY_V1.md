@@ -183,7 +183,7 @@ Any model requiring special metaphysical exceptions at higher scales is invalid.
 
 ⸻
 
-9. Explicit Non-Claims (Boundary of Scope)
+8.1 Explicit Non-Claims (Boundary of Scope)
 
 This framework does not claim:
    •   the origin of awareness
@@ -197,6 +197,120 @@ It claims only:
 Experience is mechanically impossible without constraint-generated asymmetry preserved across transitions.
 
 Anything beyond that is external narrative.
+
+---
+
+## 9 Viable Manifold Stability  
+
+**Status:** FORMAL  
+**Domain:** Invariant-preserving dynamics of (C, Δs)  
+**Purpose:** Prove local exponential stability of the meaning-preservation manifold under minimal feedback.
+
+---
+
+### 9.1 Setup and Coordinates
+
+Fix awareness capacity A > 0. Define:  
+**c(t)** := C(t) > 0 (effective constraint)  
+**d(t)** := Δs(t) > 0 (transformation flux)  
+
+**Target manifold** (meaning preservation surface):  
+```
+\mathcal{M} = \{(c,d) \in \mathbb{R}_{>0}^2 \mid A\,c\,d = m_0\}, \quad m_0 > 0
+```
+
+**Log-product error** (transverse distance to manifold):  
+```
+u = \ln(Acd) - \ln(m_0)
+```
+u = 0 iff (c,d) ∈ \mathcal{M}.
+
+**Along-manifold coordinate**:  
+```
+v = \ln c - \ln d
+```
+
+---
+
+### 9.2 Minimal Feedback Dynamics
+
+Consider the canonical negative-feedback law:  
+```
+\frac{d}{dt}\ln c = -k_c u, \quad \frac{d}{dt}\ln d = -k_d u
+```
+with gains **k_c > 0, k_d > 0**.
+
+Equivalently (original coordinates):  
+```
+\dot{c} = -k_c c u, \quad \dot{d} = -k_d d u
+```
+
+This is the minimal dynamics that restores the invariant Acd → m_0.
+
+---
+
+### 9.3 Stability Theorems
+
+**Theorem 1 (Transverse exponential stability):**  
+```
+\dot{u} = \frac{d}{dt}\ln c + \frac{d}{dt}\ln d = -k_c u - k_d u = -(k_c + k_d)u
+```
+Solution: **u(t) = u(0) e^{-(k_c + k_d)t}**.  
+The manifold \mathcal{M} is **exponentially attracting** in the log-product metric with rate k_c + k_d.
+
+**Theorem 2 (Manifold invariance):**  
+If u(0) = 0 then u(t) ≡ 0. Initial conditions on \mathcal{M} remain on \mathcal{M}.
+
+**Theorem 3 (Neutral tangential dynamics):**  
+```
+\dot{v} = (-k_c u) - (-k_d u) = (k_d - k_c)u
+```
+As u(t) → 0 exponentially, \dot{v} → 0. If k_c = k_d then \dot{v} ≡ 0 (pure transverse motion).
+
+**Theorem (Normal exponential stability):**  
+\mathcal{M} is a **normally exponentially stable invariant manifold**. Trajectories converge exponentially to \mathcal{M} transversely while drifting neutrally (or remaining fixed) along it.
+
+---
+
+### 9.4 Bounded Noise Extension
+
+Add bounded disturbances:  
+```
+\frac{d}{dt}\ln c = -k_c u + \epsilon_c(t), \quad \frac{d}{dt}\ln d = -k_d u + \epsilon_d(t)
+```
+with **|\epsilon_c(t)| ≤ \bar{\epsilon}_c**, **|\epsilon_d(t)| ≤ \bar{\epsilon}_d**.
+
+Then:  
+```
+\dot{u} = -(k_c + k_d)u + \epsilon_c(t) + \epsilon_d(t)
+```
+ISS bound:  
+```
+|u(t)| ≤ |u(0)|e^{-(k_c + k_d)t} + \frac{\bar{\epsilon}_c + \bar{\epsilon}_d}{k_c + k_d}(1 - e^{-(k_c + k_d)t})
+```
+Asymptotic tube radius: **\frac{\bar{\epsilon}_c + \bar{\epsilon}_d}{k_c + k_d}**.
+
+**Result:** Bounded noise produces a finite "stability tube" around \mathcal{M} whose thickness shrinks with higher feedback gain.
+
+---
+
+### 9.5 Viable Envelope (Hard Bounds)
+
+The full **viable experience envelope** includes collapse-face avoidance:  
+```
+\mathcal{V} = \mathcal{M} \cap \big([c_{\min},c_{\max}] \times [d_{\min},d_{\max}]\big)
+```
+with barrier dynamics or clipping at boundaries. Under feedback + barriers, interior trajectories remain bounded near \mathcal{V} and are transversely attracted to it.
+
+**Connection to implementation:** Section 9.3's discrete updates approximate this continuous feedback class when:  
+```
+\Lambda_{t+1} - \Lambda_t \propto -(A \Lambda_t \Xi_t - m_0)
+```
+The `np.clip()` enforces the hard bounds [0,1].
+
+---
+
+**Structural Guarantee:** The invariant manifold \mathcal{M} is the minimal attracting structure that prevents both degeneracy (c→0) and incoherence (d→∞), explaining why viable experience requires bounded constraint-flux tension.
 
 ```markdown
 ---
