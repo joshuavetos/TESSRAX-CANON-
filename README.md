@@ -1,3 +1,5 @@
+<img width="1536" height="1024" alt="B383BCEA-33E9-49F4-83CC-07CFA179C1C1" src="https://github.com/user-attachments/assets/a89418e7-ab97-426e-8c3f-2e268af3cbae" />
+
 # TESSRAX-CANON-
 
 **Enforcement-first governance.**  
