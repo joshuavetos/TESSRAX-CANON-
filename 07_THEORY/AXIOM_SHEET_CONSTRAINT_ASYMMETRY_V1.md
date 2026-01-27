@@ -106,3 +106,83 @@ A metaphysical claim is valid under this framework **only if** it can answer all
 3. What prevents global constraint collapse?
 
 If any answer relies on intention, purpose, or desire → **INVALID**.
+6. Invariant (Meaning Preservation Law)
+
+Invariant M — Constraint–Asymmetry Conservation
+
+For any domain in which experience persists across transitions, the product of:
+   •   awareness capacity,
+   •   active constraint,
+   •   and transformation flux
+
+must remain non-zero.
+
+Formally:
+
+\mathcal{M} = A \cdot C \cdot \Delta s \neq 0
+
+Where:
+   •   A = awareness/readout capacity
+   •   C = effective constraint (symmetry-breaking boundary)
+   •   Δs = state change per transition (transformation flux)
+
+Interpretation:
+   •   If C \to 0 globally → gradients vanish → experience collapses.
+   •   If \Delta s \to \infty → coherence collapses → identity dissolves.
+   •   If A \to 0 → gradients exist but are unregistered → no experience.
+
+Experience persists iff constraint and transformation counterbalance to preserve asymmetry.
+
+⸻
+
+7. Transformation Rule (Non-Teleological)
+
+Constraint is not static. It evolves under accumulated gradient pressure.
+
+Transformation Trigger:
+T(s) = |V(s)| \cdot (1 - C_{\text{local}})
+
+If T(s) > \tau, local constraint must reconfigure.
+
+Rule:
+   •   Constraint does not dissolve globally.
+   •   Constraint re-partitions locally to restore gradient legibility.
+
+Transformation is therefore mechanical, not chosen:
+   •   no intention
+   •   no purpose
+   •   no preference
+
+Only instability resolution.
+
+⸻
+
+8. Scale Invariance Clause
+
+All axioms, lemmas, and invariants apply identically at every scale:
+   •   neural
+   •   psychological
+   •   social
+   •   institutional
+   •   cosmological
+
+Differences between domains are parameter changes, not rule changes.
+
+Any model requiring special metaphysical exceptions at higher scales is invalid.
+
+⸻
+
+9. Explicit Non-Claims (Boundary of Scope)
+
+This framework does not claim:
+   •   the origin of awareness
+   •   the moral value of suffering
+   •   the ultimate purpose of existence
+   •   the persistence of personal identity
+   •   the truth of any religious or spiritual doctrine
+
+It claims only:
+
+Experience is mechanically impossible without constraint-generated asymmetry preserved across transitions.
+
+Anything beyond that is external narrative.
