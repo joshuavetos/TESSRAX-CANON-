@@ -223,3 +223,274 @@ If Risk_Index > Threshold_T → Escalate
 CANON-011 does not evaluate intent, ethics, or desirability.  
 It evaluates **temporal integrity**.  
 A commitment that cannot survive a Year-6 funding audit without ambiguity is invalid by construction.
+# L2 — CORPORATE (LEGAL ENFORCEMENT)
+## Siemens — Legal Null Identifier Convergence
+
+**Protocol:** CANON-011 — Null Identifier  
+**Case Class:** Corporate / Criminal & Civil Enforcement  
+**Status:** VERIFIED BY SETTLEMENTS  
+**Temporal Scope:** 2009–2024  
+**Jurisdictions:** U.S. DOJ, HUD OIG, World Bank
+
+---
+
+## EXECUTIVE FINDING
+
+Siemens represents a **validated convergence case** where a Null Identifier does not merely indicate ambition gaps, but **coexists with and conceals prosecutable fraud**.
+
+The long-horizon sustainability and compliance narratives functioned as a **legitimacy shield**, while short-horizon execution violated procurement, disclosure, and physics-based accounting laws.
+
+Null Identifiers did not cause the crimes.  
+They **lowered detection cost and delayed scrutiny**.
+
+---
+
+## CASE 1 — SIEMENS ENERGY (DOJ, 2024)
+### Dominion Energy Turbine Contract — Bid Rigging
+
+**Settlement:** $104M  
+**Criminal Outcome:** Guilty plea; executive prison sentences
+
+### Null Identifier Pattern
+- **Vision Horizon:** Clean energy transition / compliance with decarbonization mandates
+- **Fiscal Reality:** Contract award secured through stolen competitor bids
+- **Temporal Gap:** Future “clean energy compliance” narrative insulated present procurement fraud
+
+### Interrogatives Applied
+- **Q1 (Funding Audit):**  
+  Funding source was not competitive procurement but illicit access to trade secrets.
+- **Q2 (Disclosure Audit):**  
+  No disclosure to Dominion of tainted bid process.
+- **Q3 (Physics Audit):**  
+  Hardware was real; fraud occurred at the procurement physics layer.
+
+**Classification:**  
+NULL IDENTIFIER — ENABLING CONDITION FOR FRAUD  
+(The legitimacy horizon delayed detection; enforcement followed once physics surfaced.)
+
+---
+
+## CASE 2 — SIEMENS INDUSTRY (HUD / FALSE CLAIMS ACT, 2024)
+### Public Housing Energy Retrofit — Inflated Savings
+
+**Settlement:** $1.08M  
+**Statute:** False Claims Act
+
+### Null Identifier Pattern
+- **Vision Horizon:** Decades of projected energy efficiency savings
+- **Fiscal Horizon:** Immediate HUD subsidy payments
+- **Gap:** Promised physics (energy savings) exceeded measurable reality
+
+### Interrogatives Applied
+- **Q1:** HUD payments triggered immediately; no Year-6+ verification
+- **Q2:** Savings uncertainty not clearly disclosed to HUD
+- **Q3:** Independent measurement failed to support claimed efficiencies
+
+**Classification:**  
+NULL IDENTIFIER — PHYSICS FAILURE  
+(Long-term savings narrative masked short-term false claims.)
+
+---
+
+## CASE 3 — SIEMENS GLOBAL (WORLD BANK, 2009)
+### Systemic Corruption Across Jurisdictions
+
+**Settlement:** $100M (15-year program)  
+**Sanctions:** Multi-year debarments
+
+### Null Identifier Pattern
+- **Narrative Layer:** Sustainability, modernization, governance reform
+- **Operational Layer:** Bribery and procurement corruption
+- **Temporal Effect:** ESG and reform commitments operated in parallel with criminal execution
+
+**Classification:**  
+NULL IDENTIFIER — REPUTATIONAL LAUNDERING  
+(Long-horizon reform rhetoric reduced near-term institutional suspicion.)
+
+---
+
+## SYNTHESIS — WHY CANON-011 FLAGS LEGAL JEOPARDY
+
+| Dimension | Observation |
+|--------|-------------|
+| Funding Gap | Present in all cases |
+| Disclosure Gap | Partial or absent |
+| Physics Gap | Resolved only post-enforcement |
+| Outcome | Criminal / Civil penalties |
+
+**Key Insight:**  
+When a positive Null Identifier score coexists with **regulatory authority**, the risk surface expands from credibility failure to **legal exposure**.
+
+---
+
+## CANONICAL CONCLUSION
+
+This case confirms that CANON-011 is not merely diagnostic.
+
+It is **forensic**.
+
+Null Identifiers:
+- Absorb trust in the present
+- Defer accountability into the future
+- Create operational slack where criminal physics can execute
+
+Once enforcement forces a physics audit, the narrative collapses.
+
+---
+
+## SOURCES (PRIMARY)
+- U.S. DOJ — Siemens Energy bid-rigging plea (2024)
+- HUD Office of Inspector General — Siemens Industry FCA settlement (2024)
+- World Bank Group — Siemens global corruption settlement (2009)
+
+(External links intentionally omitted; citations maintained at source-of-record level.)
+# NULL IDENTIFIER — ENFORCEMENT PROBABILITY INDEX
+
+**Protocol:** CANON-011  
+**Purpose:** Convert structural Null Identifier detection into probabilistic enforcement risk.  
+**Status:** OPERATIONAL  
+**Scope:** Municipal, Corporate, Federal  
+
+---
+
+## CORE CLAIM
+
+A Null Identifier becomes legally actionable when **structural gaps intersect with regulatory authority** and **physics verification is deferred or absent**.
+
+This index formalizes that transition.
+
+---
+
+## VARIABLES
+
+- **Gap Score**  
+  Degree to which Commitment Scope exceeds Funded Allocation across time.
+
+- **Disclosure State**  
+  Whether the funding gap is explicitly disclosed to affected parties.
+
+- **Physics Bridge**  
+  Presence of verifiable, funded mechanisms that close the gap.
+
+- **Regulatory Oversight**  
+  Existence of agencies with statutory enforcement power.
+
+---
+
+## ENFORCEMENT PROBABILITY MATRIX
+
+| Gap Score | Disclosure | Physics Bridge | Regulatory Oversight | LEGAL_RISK_FLAG |
+|----------|------------|----------------|---------------------|----------------|
+| High | Absent | Absent | High | ⛔ CRIMINAL |
+| High | Partial | Absent | High | ⛔ CRIMINAL |
+| High | Partial | Partial | Medium | ⚠️ CIVIL |
+| High | Full | Minimal | Low | ✅ STRUCTURAL |
+| Medium | Partial | Partial | Medium | ⚠️ CIVIL |
+| Low | Full | Full | Any | ✅ STRUCTURAL |
+
+---
+
+## INTERPRETATION RULES
+
+- **⛔ CRIMINAL**  
+  Indicates high likelihood of DOJ, SEC, FCA, or equivalent enforcement if audited.
+
+- **⚠️ CIVIL**  
+  Indicates exposure to civil penalties, disclosure enforcement, or bond / securities claims.
+
+- **✅ STRUCTURAL**  
+  Indicates architectural gap without deception; enforcement unlikely absent new facts.
+
+---
+
+## CONFIRMED BACK-TESTS
+
+| Case | Matrix Position | Outcome |
+|-----|----------------|---------|
+| Siemens Legal (DOJ / HUD / WB) | High + Absent + Absent + High | ⛔ CONFIRMED |
+| Sioux Falls 2050 | High + Partial + Absent + Medium | ⚠️ UNTESTED |
+| ExxonMobil Net Zero | High + Full + Absent + Low | ✅ STRUCTURAL |
+
+---
+
+## CANONICAL CONCLUSION
+
+Null Identifiers are **necessary but not sufficient** for fraud.
+
+Enforcement probability emerges when:
+> **Temporal arbitrage + nondisclosure + unverifiable physics + regulator presence**  
+> intersect in the same system.
+
+This index converts narrative suspicion into **audit-trigger math**.
+
+---
+
+**Canonical Status:**  
+This file is analytical, not speculative.  
+Promotion to enforcement requires independent audit or subpoena.
+# CANON-011 MINI-RECEIPT (V2 — ENFORCEMENT-AWARE)
+
+**Entity:**  
+**Layer:** Municipal / Corporate / Federal  
+**Target Commitment:**  
+**Audit Date:**  
+
+---
+
+## GAP ANALYSIS
+
+| Dimension | Assessment |
+|---------|------------|
+| Commitment Scope | |
+| Funded Allocation | |
+| Horizon Vision | |
+| Horizon Fiscal | |
+
+**Gap Score:** LOW / MEDIUM / HIGH  
+
+---
+
+## DISCLOSURE & PHYSICS
+
+| Check | Result |
+|-----|--------|
+| Disclosure of Funding Gap | FULL / PARTIAL / ABSENT |
+| Physics Bridge Present | YES / PARTIAL / NO |
+
+---
+
+## LEGAL RISK CLASSIFICATION
+
+| Field | Value |
+|------|------|
+| Regulatory Oversight Present | YES / NO |
+| Enforcement Precedent Exists | YES / NO |
+| **LEGAL_RISK_FLAG** | ⛔ / ⚠️ / ✅ |
+
+**Flag Definitions:**  
+- ⛔ = Null Identifier + enforcement precedent or clear statutory exposure  
+- ⚠️ = Null Identifier + plausible civil or disclosure risk  
+- ✅ = Structural gap only; no deception vector identified  
+
+---
+
+## KILL-SHOT INTERROGATIVES
+
+**Q1 — Funding Audit:**  
+> 
+
+**Q2 — Disclosure Audit:**  
+> 
+
+**Q3 — Physics Audit:**  
+> 
+
+---
+
+## RECEIPT VERDICT
+
+**Classification:**  
+STRUCTURAL / DECEPTIVE / ENFORCEMENT-ELIGIBLE  
+
+**Notes:**  
+(Concise. No narrative padding.)
