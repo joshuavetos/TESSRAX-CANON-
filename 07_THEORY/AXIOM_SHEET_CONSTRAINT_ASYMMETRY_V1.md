@@ -547,5 +547,6 @@ Experience is not produced by:
 • or maximal change.
 
 Experience exists only where constraint, transformation, and readout remain in bounded tension.
-
+Experience persists iff
+𝓜 > 0 and temporal correlation length of valuation exceeds ε.
 This concludes the formal system.
