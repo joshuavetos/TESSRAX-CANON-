@@ -155,6 +155,17 @@ Transformation is therefore mechanical, not chosen:
 
 Only instability resolution.
 
+Stability Band Condition
+
+There exists a bounded interval [C_{min}, C_{max}] and [\Delta s_{min}, \Delta s_{max}] such that:
+> C_{min} < C < C_{max} \quad \text{and} \quad \Delta s_{min} < \Delta s < \Delta s_{max}
+>
+is a necessary condition for experience persistence.
+
+Outside this band, system trajectories deterministically converge to one of the collapse modes:
+   •   degeneracy (C → 0),
+   •   stasis (Δs → 0),
+   •   incoherence (Δs → ∞).
 ⸻
 
 8. Scale Invariance Clause
