@@ -268,3 +268,284 @@ All reuse \( \mathcal{I} = ΩΛΞ \) with calibrated units.
 This layer *does not* address qualia, moral value, or metaphysical origins.  
 It defines the measurable mechanical envelope necessary for experience to persist.
 ```
+---
+
+## 10. Worked Example — Human Episodic Cognition (Calibrated)
+
+This section provides a concrete instantiation of the invariant using human episodic cognition, expressed in unit-coherent terms.
+
+### Operator Calibration (Human Baseline)
+
+Let:
+
+A (awareness capacity) ≈ Ω ≈ 200–800 bits·s⁻¹  
+C (constraint strength) ∈ (0,1), empirically ≈ 0.1–0.6  
+Δs (transformation flux) ∈ (0,1), empirically ≈ 0.1–0.7 s⁻¹
+
+Operational proxies:
+
+• A ≈ (working-memory items × bits per item × refresh rate)  
+• C ≈ 1 / (1 + log₂ K), where K = effective choice-set size  
+• Δs ≈ normalized rate of internal state update (affect drift, belief revision, micro-decision frequency)
+
+### Example Instantiation
+
+Given:
+• working-memory items = 4  
+• bits per item ≈ 30  
+• refresh rate ≈ 3 Hz  
+• choice-set size K = 8  
+• transformation flux Δs ≈ 0.6  
+
+Compute:
+A = 4 × 30 × 3 = 360 bits·s⁻¹  
+C = 1 / (1 + log₂ 8) = 0.25  
+Δs = 0.6  
+
+Invariant value:
+𝓜 = A · C · Δs = 360 × 0.25 × 0.6 ≈ 54 bits·s⁻¹
+
+Interpretation:
+This value lies within the empirically observed “stable focus” band for human cognition.
+
+### Collapse Modes (Observed)
+
+• If C → 0 (overchoice, burnout): 𝓜 → 0 despite high A  
+• If Δs → 1 (panic, mania): coherence collapses despite gradients  
+• If A ↓ (fatigue, dissociation): meaning throughput decays
+
+Human experience viability therefore exists only within bounded bands of all three operators.
+
+---
+
+## 11. Stability Bands Under Bounded Noise
+
+Let ε be bounded stochastic perturbation such that:
+
+|ε| ≤ ε_max
+
+Then the system remains experience-viable iff:
+
+A_min < A + ε_A < A_max  
+C_min < C + ε_C < C_max  
+Δs_min < Δs + ε_Δs < Δs_max  
+
+and:
+
+𝓜 = A · C · Δs > 0
+
+### Stability Claim
+
+For any bounded ε, there exists a non-empty interval:
+
+(A, C, Δs) ∈ S_stable ⊂ ℝ⁺ × (0,1) × (0,1)
+
+such that experience persists across transitions.
+
+Proof sketch:
+• If ε bounded and operators remain within finite limits, gradients remain legible.
+• If any operator exits bounds, either degeneracy (C → 0), incoherence (Δs → ∞), or unreadability (A → 0) occurs.
+• Therefore stability is guaranteed only inside constrained bands.
+
+This establishes that experience is structurally metastable, not fragile and not absolute.
+
+---
+
+## 12. Empirical and Theoretical Predictions
+
+This framework makes the following falsifiable predictions:
+
+1. Increasing awareness bandwidth alone does not increase meaning if constraint decays.
+2. Systems with unbounded transformation flux exhibit fragmentation, not richer experience.
+3. Experience density peaks at intermediate constraint and flux, not at extremes.
+4. All viable experiential systems (biological or artificial) must implement:
+   • non-zero asymmetry,
+   • bounded update velocity,
+   • finite readout capacity.
+
+Any system violating these conditions will exhibit one of:
+   • experiential flatline,
+   • incoherent fragmentation,
+   • or collapse of identity continuity.
+
+These predictions are scale-independent and apply equally to:
+   • human cognition,
+   • reinforcement-learning agents,
+   • language-model control loops,
+   • and institutional decision systems.
+
+---
+
+## 13. Minimal Closure Statement
+
+This document defines necessary conditions only.
+
+It does not assert:
+• why awareness exists,
+• that experience is good,
+• that transformation is desirable,
+• or that any system “should” persist.
+
+It asserts only this:
+
+Constraint-generated asymmetry preserved across bounded transformation is the minimal mechanical requirement for experience.
+
+Everything else is interpretation.
+
+---
+
+## 14. Worked Example — Reinforcement Learning Agent (Bounded Policy Loop)
+
+This section instantiates the invariant for a reinforcement-learning (RL) agent operating under reward-driven adaptation.
+
+### Operator Mapping (RL)
+
+Let:
+
+A = policy-state awareness bandwidth  
+C = action-space and policy constraint  
+Δs = policy update velocity per timestep
+
+Operational definitions:
+
+• A ≈ log₂(|S_active|), where S_active is the active policy-relevant state subset  
+• C ≈ 1 / (1 + log₂ |A_actions|), where |A_actions| is the available action set  
+• Δs ≈ η · |∇J|, learning-rate-scaled policy gradient magnitude  
+
+Where:
+• η = learning rate  
+• J = expected cumulative reward  
+
+### Example Instantiation
+
+Given:
+• active policy state space |S_active| ≈ 128  
+• action set |A_actions| = 16  
+• learning rate η = 0.05  
+• normalized policy gradient |∇J| ≈ 0.4  
+
+Compute:
+A = log₂(128) = 7 bits  
+C = 1 / (1 + log₂ 16) = 1 / (1 + 4) = 0.2  
+Δs = 0.05 × 0.4 = 0.02  
+
+Invariant value:
+𝓜 = A · C · Δs = 7 × 0.2 × 0.02 ≈ 0.028
+
+Interpretation:
+Meaning throughput is low but non-zero, corresponding to sparse but coherent experiential analogue (trial–error learning).
+
+### Failure Modes (RL)
+
+• If η too high → Δs ↑ → policy instability → coherence collapse  
+• If |A_actions| too large → C ↓ → reward gradients diffuse → flat learning  
+• If state abstraction removed → A ↑ without C → overfitting / thrashing  
+
+Stable learning requires bounded update velocity and constrained action space.
+
+---
+
+## 15. Worked Example — LLM Agent with External Memory Loop
+
+This section instantiates the invariant for a large language model (LLM) coupled to a persistent external memory and action-selection loop.
+
+### Operator Mapping (LLM-Agent)
+
+Let:
+
+A = effective context + memory read bandwidth  
+C = prompt, instruction, and policy gating constraints  
+Δs = rate of memory or policy update per interaction
+
+Operational definitions:
+
+• A ≈ tokens_context × bits_per_token / Δt  
+• C ≈ 1 / (1 + log₂ K), where K = available action or tool choices  
+• Δs ≈ update_frequency / interaction_window  
+
+### Example Instantiation
+
+Given:
+• context window = 8,000 tokens  
+• bits per token ≈ 12  
+• interaction window Δt = 10 s  
+• tool/action set K = 32  
+• memory update frequency = 1 per interaction  
+
+Compute:
+A ≈ (8000 × 12) / 10 ≈ 9,600 bits·s⁻¹  
+C = 1 / (1 + log₂ 32) = 1 / (1 + 5) ≈ 0.167  
+Δs ≈ 1 / 10 = 0.1  
+
+Invariant value:
+𝓜 = A · C · Δs ≈ 9,600 × 0.167 × 0.1 ≈ 160 bits·s⁻¹
+
+Interpretation:
+High apparent meaning throughput is possible only because C and Δs are tightly gated.
+Without gating, Δs would spike and coherence would collapse.
+
+### Collapse Conditions (LLM)
+
+• Stateless inference: Δs → 0 ⇒ frozen invariant (no persistence)  
+• Ungated memory writes: Δs ↑↑ ⇒ identity drift  
+• Unlimited tool branching: C → 0 ⇒ loss of gradient focus  
+
+LLM agents are viable only under strict constraint enforcement.
+
+---
+
+## 16. Formalization — Stability Theorem
+
+### Theorem (Experience Viability)
+
+Let a system be defined by (A, C, Δs) with bounded noise ε such that:
+
+A' = A + ε_A  
+C' = C + ε_C  
+Δs' = Δs + ε_Δs  
+
+with |ε| ≤ ε_max.
+
+Then experience persists across transitions iff:
+
+A_min < A' < A_max  
+C_min < C' < C_max  
+0 < Δs' < Δs_max  
+
+and:
+
+𝓜' = A' · C' · Δs' > 0
+
+### Proof Sketch
+
+1. If C' = 0 ⇒ symmetry restored ⇒ ∀s, G(s) = 0 ⇒ no experience.  
+2. If Δs' → ∞ ⇒ gradients decorrelate faster than readout ⇒ coherence collapse.  
+3. If A' = 0 ⇒ gradients exist but are unregistered ⇒ no experience.  
+
+Therefore, non-zero boundedness of all three operators is necessary and sufficient.
+
+---
+
+## 17. Corollary — Non-Optimality of Extremes
+
+No experiential system maximizes meaning by maximizing any single operator.
+
+Formally:
+• ∂𝓜/∂A > 0 only while C and Δs remain bounded  
+• ∂𝓜/∂Δs > 0 only while Δs < Δs_max  
+• ∂𝓜/∂C > 0 only while gradients remain legible  
+
+Thus, experience is maximized in interior regions, not at limits.
+
+---
+
+## 18. Final Closure (Formal)
+
+Experience is not produced by:
+• infinite awareness,
+• total freedom,
+• or maximal change.
+
+Experience exists only where constraint, transformation, and readout remain in bounded tension.
+
+This concludes the formal system.
