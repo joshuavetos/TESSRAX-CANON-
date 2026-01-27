@@ -68,4 +68,158 @@ As the temporal gap increases, the requirement for funded capital allocation app
 
 ---
 
-**End of Dossier.**
+# NULL IDENTIFIER — MINI RECEIPT
+
+**Protocol:** CANON-011 — Null Identifier  
+**Receipt Type:** Forensic Audit (Fail-Closed)  
+**Date:** YYYY-MM-DD  
+**Auditor:** [Name / Org / Anonymous]  
+**Target Entity:** [Institution / Plan / Pledge Name]  
+**Reference Artifact:** [URL / Document Title / Filing]
+
+---
+
+## 1. CLAIM UNDER REVIEW
+> Quote the exact forward-looking commitment.
+> (Example: “Net Zero by 2050” / “Comprehensive Plan 2050”)
+
+---
+
+## 2. FUNDING AUDIT (Q1)
+**Question:**  
+Where is the legally committed capital allocation for **Year 6+**?
+
+- ☐ Explicitly funded  
+- ☐ Partially funded  
+- ☐ Not funded  
+- ☐ Not addressed  
+
+**Citation:**  
+(Page / Filing / Statement or “No reference found”)
+
+---
+
+## 3. DISCLOSURE AUDIT (Q2)
+**Question:**  
+Where is it disclosed to stakeholders that this commitment is **unfunded or contingent**?
+
+- ☐ Explicit disclosure  
+- ☐ Partial / buried disclosure  
+- ☐ No disclosure  
+
+**Citation:**  
+(Page / Slide / Investor Call / Public Meeting)
+
+---
+
+## 4. PHYSICS AUDIT (Q3)
+**Question:**  
+What concrete mechanism bridges the funding shortfall?
+
+- ☐ Existing funded operations  
+- ☐ Contracted future funding  
+- ☐ Undefined future technology  
+- ☐ Undefined future funding  
+- ☐ No mechanism stated  
+
+**Shortfall Estimate:**  
+Required: $_____ / yr  
+Allocated: $_____ / yr  
+Gap: $_____
+
+---
+
+## 5. CLASSIFICATION RESULT
+
+| Dimension | Status |
+|---------|--------|
+| Funding Gap Exists | ☐ Yes / ☐ No |
+| Disclosure Adequate | ☐ Yes / ☐ No |
+| Physics Resolved | ☐ Yes / ☐ No |
+
+**Verdict (Fail-Closed):**
+- ☐ VALID COMMITMENT  
+- ☐ DISCLOSED HEDGE  
+- ☐ NULL IDENTIFIER (Temporal Fraud)
+
+---
+
+## 6. RECEIPT HASH (OPTIONAL)
+SHA-256: _______________________
+
+**Notes:**  
+This receipt asserts structural findings only.  
+No intent, morality, or policy judgment is claimed.
+
+# L3 — FEDERAL CASE  
+## Bipartisan Infrastructure Law (IIJA) — Null Identifier Analysis
+
+**Target:** Bipartisan Infrastructure Law (2021)  
+**Claim:** “Once-in-a-generation investment” / State of Good Repair  
+**Horizon:** 2021–2026 funding / 20–30 year asset lifecycle
+
+---
+
+## FUNDING AUDIT
+- Allocated: ~$550B (largely reauthorization, not net-new)
+- Required (ASCE): ~$3.7T
+- Highway Trust Fund insolvency: Projected Sept 2026
+
+**Result:** Year 6+ funding not committed.
+
+---
+
+## DISCLOSURE AUDIT
+- Public messaging emphasizes “transformation.”
+- Insolvency risk disclosed in technical budget documents, not public-facing narratives.
+
+**Result:** Partial disclosure; asymmetric audience awareness.
+
+---
+
+## PHYSICS AUDIT
+- No identified replacement revenue stream post-2026.
+- Assumes future Congressional action.
+
+**Result:** Shortfall deferred, not bridged.
+
+---
+
+## VERDICT
+**Classification:** NULL IDENTIFIER  
+**Mechanism:** Federal horizon offset  
+**Effect:** Trust imported from future maintenance to subsidize present political legitimacy.
+
+---
+
+## NOTES
+This is not a spending critique.  
+It is a temporal misalignment between asset lifespan and fiscal authorization.
+## Threshold Rule (Fail-Closed)
+
+If:
+
+Commitment_Horizon > Fiscal_Horizon  
+AND  
+Allocated_CAPEX(Year 6+) == 0  
+AND  
+Disclosure != Explicit
+
+→ Classification = NULL IDENTIFIER
+
+---
+
+## Normalized Scoring (Optional)
+
+Let:
+G = Commitment_Horizon − Fiscal_Horizon (years)  
+A = Allocated_CAPEX / Required_CAPEX  
+
+Risk_Index = G × (1 − A)
+
+If Risk_Index > Threshold_T → Escalate
+### Enforcement Philosophy
+
+CANON-011 does not evaluate intent, ethics, or desirability.  
+It evaluates **temporal integrity**.  
+A commitment that cannot survive a Year-6 funding audit without ambiguity is invalid by construction.
