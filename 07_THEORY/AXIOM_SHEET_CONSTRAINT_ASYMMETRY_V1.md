@@ -186,3 +186,85 @@ It claims only:
 Experience is mechanically impossible without constraint-generated asymmetry preserved across transitions.
 
 Anything beyond that is external narrative.
+
+```markdown
+---
+
+# 10. Empirical and Computational Implementation Layer  
+
+**Status:** INSTRUMENT  
+**Domain:** Human‑calibrated constraint dynamics (bits · s⁻¹ system)  
+**Purpose:** Provide operational definitions of the axioms using measurable or simulatable quantities.
+
+---
+
+## 10.1 Operator Map → Empirical Proxies  
+
+| Symbol | Concept | Unit / Domain | Typical Proxy | Notes |
+|---------|----------|---------------|----------------|-------|
+| **Ω** | Awareness bandwidth | bits · s⁻¹ | Working‑memory items × bits per item × refresh rate (Hz) | Directly measurable; corresponds to conscious throughput. |
+| **Λ** | Effective constraint | 0–1 (dimensionless) | \( \Lambda = 1 / (1 + \log_2 K) \), where *K* = effective choice‑set size | Represents *experienced* restriction, not objective option count. |
+| **Ξ** | Transformation flux | s⁻¹ (normalized) | \( |dE/dt| / Ξ_{max} \) | Normalized to system’s maximal sustainable update rate; ensures \( Ξ ≤ 1 \). |
+| **𝓘 (ΩΛΞ)** | Meaning throughput | bits · s⁻¹ | Derived product | Local indicator of experiential viability. |
+
+---
+
+## 10.2 Canonical Human Calibration  
+
+Baseline (1 s timebase):  
+Ω ≈ 400 bits · s⁻¹, Λ ≈ 0.3, Ξ ≈ 0.3 → 𝓘 ≈ 36 bits · s⁻¹ (stable focus).
+
+| State | Ω (bits · s⁻¹) | Λ | Ξ (s⁻¹) | 𝓘 (bits · s⁻¹) | Descriptor |
+|--------|---------------|----|----------|----------------|-------------|
+| Relaxed rest | 200 – 400 | 0.1 – 0.3 | 0.1 – 0.3 | 5 – 40 | Low‑meaning, diffuse awareness |
+| Focused task | 300 – 600 | 0.2 – 0.4 | 0.2 – 0.4 | 20 – 100 | Stable, goal‑oriented cognition |
+| Mild stress | 400 – 800 | 0.3 – 0.5 | 0.4 – 0.6 | 50 – 200 | Adaptive tension, high salience |
+| Crisis / overload | > 600 | 0.3 – 0.8 | 0.7 – 1.0 | > 200 | Unstable, identity risk |
+| Burnout | > 600 | ≤ 0.1 | ≥ 0.8 | ≈ 0 | Collapse of coherence |
+
+---
+
+## 10.3 Invariant Simulation Stub (Python‑ready)
+
+```python
+# minimal reference loop
+I = Omega * Lambda * Xi                 # meaning throughput
+E_next = E + Xi * (1 - Lambda) - decay * E
+Lambda_next = np.clip(Lambda + a*(1 - abs(E)) - b*Xi, 0, 1)
+```
+
+Conditions for stability:  
+\( Λ_{min} ≤ Λ ≤ Λ_{max}, Ξ_{min} ≤ Ξ ≤ Ξ_{max} \) with finite Ω → 𝓘 > 0.
+
+---
+
+## 10.4 Empirical Test (Falsifiable Prediction)
+
+Experience dissipates when any operator leaves its viability band:
+
+| Violation | Observable Outcome |
+|------------|--------------------|
+| Λ → 0 | perceptual drift, depersonalization |
+| Ξ → 1 | affective runaway, cognitive fragmentation |
+| Ω → 0 | unregistered gradients, blackout or coma |
+
+Persistent subjectively reportable experience under any of the above → falsifier of this framework.
+
+---
+
+## 10.5 Scale Mapping  
+
+| Domain | Ω (reference variable) | Λ (constraint type) | Ξ (transformation driver) | Observable |
+|---------|-----------------------|--------------------|---------------------------|-------------|
+| Human physiology | WM bandwidth (bits · s⁻¹) | Autonomic stability (HRV ratio) | Affect / error update rate | HRV, RT, EEG |
+| RL agent | Policy entropy (bit ⋅ step⁻¹) | Reward‑driven action limit | Learning rate × TD error | Training logs |
+| LLM agent | Tokens ⋅ bits token⁻¹ ⋅ s⁻¹ | Context / tool gating | Memory overwrite rate | Log telemetry |
+
+All reuse \( \mathcal{I} = ΩΛΞ \) with calibrated units.
+
+---
+
+**Empirical Boundary:**  
+This layer *does not* address qualia, moral value, or metaphysical origins.  
+It defines the measurable mechanical envelope necessary for experience to persist.
+```
