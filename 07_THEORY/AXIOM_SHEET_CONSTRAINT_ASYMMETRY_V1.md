@@ -674,4 +674,14 @@ Experience is not produced by:
 Experience exists only where constraint, transformation, and readout remain in bounded tension.
 Experience persists iff
 𝓜 > 0 and temporal correlation length of valuation exceeds ε.
-This concludes the formal system.
+
+Dimensional Note:
+The invariant \mathcal{M} = A C \Delta s is dimensionally coherent within each domain. Cross-domain comparisons require normalization of A and Δs to system-specific timebases. Scale invariance refers to structural form, not raw magnitude comparability.
+
+The continuous-time dynamics admit a discrete approximation
+u_{t+1} = u_t - \alpha u_t + \epsilon_t
+under Euler integration with bounded timestep Δt, matching the simulation in §10.
+
+Any claimed experiential system exhibiting persistent reportable experience while violating C>0, bounded \Delta s, or A>0 constitutes a counterexample and falsifies this framework.
+
+This framework is intentionally citation-minimal; it is a structural derivation, not an interpretive synthesis of prior phenomenological traditions.
