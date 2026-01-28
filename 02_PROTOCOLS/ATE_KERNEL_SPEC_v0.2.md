@@ -372,3 +372,22 @@ This kernel does NOT attempt to:
 
 Its sole function is to:
 Prevent epistemic assistance from silently becoming influence.
+CANDIDATE_QUEUE DEFINITION
+
+A Candidate is an entity for which:
+- A long-horizon plan exists (H_plan)
+- A short-horizon capital instrument exists (H_CIP)
+- No post-horizon funding disclosure has yet been confirmed or denied
+
+Candidate status implies:
+- No assertion of gap
+- No assertion of insolvency
+- No assertion of omission
+
+Candidate → NULL transition requires:
+- OS-only disclosure query sent
+- Response classified under R1–R6
+- Explicit absence or presence of post-horizon funding citation
+
+Until then:
+Status = UNVERIFIED_CANDIDATE
