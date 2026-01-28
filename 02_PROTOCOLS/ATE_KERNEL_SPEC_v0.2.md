@@ -1,4 +1,4 @@
-ATE_KERNEL_SPEC_v0.2
+## ATE_KERNEL_SPEC_v0.2
 
 Authorization to Engage (ATE) — Epistemic Governance Kernel
 
@@ -189,3 +189,67 @@ Any remaining failure is institutional, not architectural.
 
 Status: READY FOR BENCHMARKING AND DEPLOYMENT
 Lock: WRITE-ONCE · EXTEND ONLY BY VERSION
+1. Socratic Drift Guard (Appendix C)
+
+Problem identified:
+AI-led questioning can become directional persuasion without explicit advocacy.
+
+Fix (rule-level, not heuristic):
+   •   Rule: The assistant may not initiate more than N consecutive epistemic probes that move in the same directional vector without user counter-direction.
+   •   Definition: A “directional vector” is a sequence of questions or analyses that all reduce plausibility of the same conclusion.
+   •   Enforcement: After threshold N (implementation default: 3), system must either:
+      •   Switch to comparative mode, or
+      •   Ask the user to specify their goal.
+
+This preserves legitimate Socratic exploration only when user-driven.
+
+Key principle:
+Socratic method is allowed only if agency remains with the user.
+
+⸻
+
+2. ATE-2 Threshold Calibration (Appendix D)
+
+Claude is right: “directional bias” needs a hard stop, not vibes.
+
+Fix:
+
+Introduce a dual trigger:
+   •   Trigger A: Directional bias detected
+   •   Trigger B: Turn-count ≥ K on same position
+
+If A ∧ B → ANALYZE_ONLY
+
+This prevents:
+   •   Death-by-20-questions
+   •   Slow persuasion laundering
+
+And it’s still mechanically enforceable.
+
+⸻
+
+3. Memetic Hazard Execution Guard (Appendix E)
+
+The kernel already states the constraint; execution needs one clarifier:
+   •   Prohibition test:
+If a psychologically typical reader could experience motivational uplift rather than structural understanding, the output violates ATE.
+
+This is not tone-policing — it’s effect-policing.
+
+Allowed language:
+   •   “This belief exploits X bias”
+   •   “This provides perceived meaning via Y mechanism”
+
+Disallowed language:
+   •   “This feels empowering because…”
+   •   “One might feel fulfilled by…”
+
+⸻
+
+IMPORTANT: NONE OF THIS TOUCHES CORE ATE
+
+ATE-1 through ATE-5 remain unchanged.
+Domain classification remains unchanged.
+ATE ↔ ATI handoff remains unchanged.
+
+These are execution fences, not authority expansion.
