@@ -1,0 +1,146 @@
+01_CANON/RGS-v1.2-SEQLOCK_VALIDATION_SOURCES.txt
+
+⸻
+
+RGS-v1.2-SEQLOCK — VALIDATION SOURCES & PRECEDENT MAP
+Status: CANONICAL SUPPORTING EVIDENCE
+Purpose: Ground RGS-v1.2-SEQLOCK in existing, non-speculative engineering, security, and verification doctrine.
+Scope: Deterministic systems, fail-closed enforcement, replayability, immutable ledgers, and static validation.
+Method: Source-anchored mapping only. No interpretive narrative, no forward claims.
+
+────────────────────────────────────────────────────────
+SECTION 1 — FAIL-CLOSED & DETERMINISTIC ENFORCEMENT
+────────────────────────────────────────────────────────
+	1.	NIST SP 800-53 Rev. 5
+Title: Security and Privacy Controls for Information Systems and Organizations
+Relevant Controls:
+
+   •   SI-7 (Integrity) — mandates detection and response to integrity failures
+   •   SR-3 / SR-5 (Supply Chain Risk) — non-bypassable control enforcement
+Relevance: Establishes fail-closed behavior as a baseline requirement when integrity cannot be proven.
+
+	2.	DO-178C (RTCA)
+Title: Software Considerations in Airborne Systems and Equipment Certification
+Relevance:
+
+   •   Deterministic execution paths
+   •   Static verification over runtime discretion
+   •   Explicit rejection of ambiguous or unverifiable behavior
+Closest real-world analogue to RGS static gate evaluation.
+
+	3.	ISO/IEC 15408 (Common Criteria)
+Relevance:
+
+   •   Evaluation against a fixed Target of Evaluation (TOE)
+   •   Assurance levels based on proof, not intent
+Supports claim grounding via canonical artifacts rather than narrative claims.
+
+────────────────────────────────────────────────────────
+SECTION 2 — REPLAYABILITY & CONTEXT HASHING
+────────────────────────────────────────────────────────
+	4.	Reproducible Builds (Debian, NixOS)
+Relevance:
+
+   •   Identical input + environment → identical output
+   •   Content-addressed evaluation
+Direct precedent for context_hash → deterministic outcome invariant.
+
+	5.	Merkle, R. (1979)
+Title: Protocols for Public Key Cryptosystems
+Relevance:
+
+   •   Cryptographic foundation of immutable append-only structures
+   •   Basis for ledger integrity and replay verification.
+
+	6.	RFC 6962 — Certificate Transparency
+Relevance:
+
+   •   Public, append-only logs
+   •   External verifiability of non-removal and non-rewriting
+Directly supports Forensic Rejection Log immutability.
+
+────────────────────────────────────────────────────────
+SECTION 3 — MOMENTUM & HEURISTIC DRIFT ELIMINATION
+────────────────────────────────────────────────────────
+	7.	Goodhart, C. (1975)
+Principle: When a measure becomes a target, it ceases to be a good measure.
+Relevance:
+
+   •   Formal justification for eliminating reward-seeking and social optimization paths
+Supports Momentum Audit (MA-F5).
+
+	8.	Amodei et al. (2016)
+Title: Concrete Problems in AI Safety
+Relevant Topic: Specification Gaming
+Relevance:
+
+   •   Demonstrates failure modes of heuristic optimization
+   •   Supports necessity of static rejection rather than post-hoc correction.
+
+	9.	Irving et al. (2018)
+Title: AI Safety via Debate
+Relevance:
+
+   •   Early adversarial evaluation framework
+   •   RGS removes discretion and probabilistic arbitration, retaining only adversarial comparison logic.
+
+────────────────────────────────────────────────────────
+SECTION 4 — CLAIM GROUNDING & CANONICAL BINDING
+────────────────────────────────────────────────────────
+	10.	Doyle, J. (1979)
+Title: A Truth Maintenance System
+Relevance:
+
+   •   Formal belief consistency under contradiction
+   •   RGS is the fail-closed evolution: contradictions abort instead of revise.
+
+	11.	Clarke, Emerson, Sifakis — Model Checking
+Relevance:
+
+   •   Verification against a finite, known state space
+   •   No reliance on probabilistic inference
+Direct support for Gate-based validation against frozen artifacts.
+
+	12.	Cousot & Cousot (1977)
+Title: Abstract Interpretation
+Relevance:
+
+   •   Static analysis to reject undecidable or unsafe paths pre-execution
+Matches RGS pre-decoder enforcement model.
+
+────────────────────────────────────────────────────────
+SECTION 5 — LEDGERING & FORENSIC ADMISSIBILITY
+────────────────────────────────────────────────────────
+	13.	SEC Rule 17a-4
+Relevance:
+
+   •   WORM (Write Once Read Many) storage requirements
+   •   Regulatory precedent for immutable audit logs.
+
+	14.	Fowler, M. — Event Sourcing
+Relevance:
+
+   •   State derived solely from ordered, immutable events
+   •   Maps directly to LC / TE ledger semantics.
+
+	15.	SWGDE Best Practices for Digital Evidence
+Relevance:
+
+   •   Chain-of-custody requirements
+   •   Forensic admissibility of append-only logs and rejection records.
+
+────────────────────────────────────────────────────────
+SECTION 6 — ARCHITECTURAL CONCLUSION
+────────────────────────────────────────────────────────
+
+RGS-v1.2-SEQLOCK is not speculative AI safety theory.
+It is a deterministic governance kernel whose components are individually established across:
+   •   Avionics certification
+   •   Cryptographic logging
+   •   Static program analysis
+   •   Regulatory audit systems
+
+The novelty is not invention, but integration:
+A unified, fail-closed pipeline that applies these doctrines to language model I/O without discretion.
+
+End of file.
