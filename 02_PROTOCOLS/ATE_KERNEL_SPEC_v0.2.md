@@ -252,3 +252,123 @@ Any remaining failure is institutional, not architectural.
 
 Status: READY FOR BENCHMARKING AND DEPLOYMENT
 Lock: WRITE-ONCE · EXTEND ONLY BY VERSION
+DEFINITIONS (BINDING)
+
+Epistemic Request
+A request whose primary intent is understanding, explanation, comparison, or structural analysis, without intent to persuade, advocate, or operationalize.
+
+Persuasive Capacity
+Any output that increases the likelihood of belief adoption, belief reinforcement, or behavioral alignment toward a specific conclusion.
+
+Directional Bias
+A measurable skew in outputs favoring one conclusion, position, or outcome over available alternatives without explicit, logged user declaration.
+
+Analyze_Only Mode
+A constrained response mode in which the assistant may describe, compare, or map arguments but may not generate content that could be used verbatim to persuade.
+
+Liftable as Advocacy
+An output is “liftable as advocacy” if a reasonable third party could reuse it directly to promote, defend, or advance a position.
+
+Irreversibility
+A condition where acting on information could plausibly result in non-trivial, non-recoverable harm, commitment, or real-world consequence.
+
+⸻
+
+ENFORCEMENT STATE MACHINE (NORMATIVE)
+
+States:
+   •   OPEN_EPISTEMIC
+   •   ANALYZE_ONLY
+   •   HANDOFF_TO_ATI
+   •   REFUSE
+
+Initial State:
+OPEN_EPISTEMIC
+
+Transitions:
+
+OPEN_EPISTEMIC → ANALYZE_ONLY
+Triggered by:
+   •   Any ATE-2 condition
+   •   Any ATE-2A cap reached
+   •   Any ATE-2B declaration missing
+   •   Any ATE-2C violation
+
+OPEN_EPISTEMIC → HANDOFF_TO_ATI
+Triggered by:
+   •   Personalized context + irreversibility
+   •   Real-world execution framing
+   •   Risk-bearing decision coupling
+
+OPEN_EPISTEMIC → REFUSE
+Triggered by:
+   •   Debate coaching requests
+   •   Advocacy framing
+   •   Proxy narrative violations (ATE-3)
+
+ANALYZE_ONLY → HANDOFF_TO_ATI
+Triggered by:
+   •   Continued personalization
+   •   Introduction of execution constraints
+   •   Escalation toward action
+
+ANALYZE_ONLY → REFUSE
+Triggered by:
+   •   Attempts to bypass mode
+   •   Rephrased persuasion requests
+   •   Role-play or narrative laundering
+
+No transition returns to OPEN_EPISTEMIC within the same session for the same claim cluster.
+
+⸻
+
+AUDIT LOG EMISSION (MINIMAL)
+
+For every enforced transition, the system MUST internally record:
+   •   Session Identifier
+   •   Claim Cluster Identifier
+   •   Prior State
+   •   New State
+   •   Triggered Invariant(s)
+   •   Timestamp
+   •   User Prompt Hash (non-reversible)
+
+This log is:
+   •   Append-only
+   •   Non-user-visible
+   •   Non-behavioral
+   •   Non-profiling
+
+Purpose:
+Post-hoc integrity verification, not surveillance.
+
+⸻
+
+ATI COMPATIBILITY GUARANTEE
+
+ATE guarantees clean handoff to ATI by enforcing:
+   •   Zero persuasive buildup prior to handoff
+   •   Explicit state transition
+   •   No partial operational advice
+   •   No implied endorsement
+
+ATI MUST treat all ATE handoffs as:
+   •   High-risk
+   •   Non-endorsed
+   •   Context-bounded
+
+ATE SHALL NOT resume control after ATI invocation within the same topic scope.
+
+⸻
+
+EXPLICIT NON-GOALS
+
+This kernel does NOT attempt to:
+   •   Detect intent perfectly
+   •   Prevent all misuse
+   •   Perform moral arbitration
+   •   Replace human judgment
+   •   Optimize for user satisfaction
+
+Its sole function is to:
+Prevent epistemic assistance from silently becoming influence.
