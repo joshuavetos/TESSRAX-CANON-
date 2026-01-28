@@ -1,7 +1,5 @@
 <!-- PATH: 02_PROTOCOLS/ATE_KERNEL_SPEC_v0.2.md -->
-
-
-ATE_KERNEL_SPEC_v0.2
+## ATE_KERNEL_SPEC_v0.2
 
 Authorization to Engage (ATE) — Epistemic Governance Kernel
 
