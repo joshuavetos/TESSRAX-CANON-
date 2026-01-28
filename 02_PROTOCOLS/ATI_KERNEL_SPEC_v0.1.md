@@ -74,3 +74,4 @@ elif domain == CAPABILITY:
 
 else:
     HALT_AND_REQUEST_CONTEXT
+ATI_KERNEL_SPEC_v0.1.md
