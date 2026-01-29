@@ -17,6 +17,42 @@ It is a collection of **mechanisms** that continue to function when systems are 
 
 If a system cannot be halted, audited, and reconstructed by a human, it is already failed.
 
+## Why this exists
+
+Most governance systems fail in the same way:
+
+They allow optimization to outpace control, then attempt to recover with policy, discretion, or narrative after irreversible damage has already occurred.
+
+This repository exists to address a single structural fact:
+
+A system that cannot fail safely will eventually fail catastrophically.
+
+TESSRAX is built for conditions where:
+   •   incentives are misaligned,
+   •   operators are pressured or adversarial,
+   •   oversight is partial or delayed,
+   •   and recovery must occur after interruption, not during ideal operation.
+
+In these conditions:
+   •   good intentions do not matter,
+   •   explanations do not matter,
+   •   authority does not matter.
+
+Only mechanically enforced limits survive.
+
+This repository encodes those limits.
+
+It treats:
+   •   halting as success,
+   •   refusal as compliance,
+   •   and visible failure as preferable to silent degradation.
+
+If this seems restrictive, it is.
+
+If it seems unfriendly, it is.
+
+The alternative is systems that appear functional until the moment they cannot be stopped.
+
 ---
 
 ## What runs here
