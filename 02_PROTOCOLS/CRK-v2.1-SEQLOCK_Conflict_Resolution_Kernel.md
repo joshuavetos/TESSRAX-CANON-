@@ -1,8 +1,5 @@
-TITLE: CRK-v2.1-SEQLOCK — CONFLICT RESOLUTION KERNEL (PATCHED FOR MARITIME / CYBER / PROXY)
-STATUS: DRAFT SPECIFICATION
-ARCHITECTURE: Fail-Closed / Oracle-Hardened / Asset-Locked / Attribution-Free for Cyber
-PURPOSE: Convert a conflict theater into a deterministic state machine whose transitions are triggered only by multi-modality, causally-independent observables; impose automatic, pre-authorized consequences without requiring trust or ongoing external intervention.
-	1.	JURISDICTION & REFUSAL ENVELOPE
+<img width="1024" height="559" alt="E49E32D8-2D4D-40D9-B1BB-B2D3F500796E" src="https://github.com/user-attachments/assets/af3b549d-6d55-46f5-8274-f7ea3fd69a6d" />
+1.	JURISDICTION & REFUSAL ENVELOPE
 1.1 NON-GOVERNABLE SPACE (REJECT)
 
    •   Intent / Motivation
