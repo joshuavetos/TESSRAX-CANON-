@@ -1,4 +1,4 @@
-01_CANON/CANON_PTRF-v1.0_Phase_Transition_Readiness_Framework.md
+<img width="1024" height="559" alt="0CEF37D6-CAEF-44CD-A413-3436D19C3C1E" src="https://github.com/user-attachments/assets/f22e7f4e-c9a8-44b7-83b5-ba1c6a7e68d1" />
 
 PTRF-v1.0 — Phase Transition Readiness Framework
 Deterministic Certification Kernel for Critical State Transitions
